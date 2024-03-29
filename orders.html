@@ -122,7 +122,8 @@
             color: #B05200;
         }
 
-        div.content-card > input {
+        div.content-card > input,
+        div#content-card-right > input {
             width: 356px;
             height: 45px;
             position: absolute;
@@ -133,7 +134,8 @@
             border-radius: 25px;
         }
 
-        div.content-card > input:focus {
+        div.content-card > input:focus,
+        div#content-card-right > input:focus {
             background-color: #FEE5D4;
             border: 3px solid #B05200;
             box-shadow: none;
@@ -173,7 +175,9 @@
                     <input class="form-control" type="text" placeholder="search by id or name" aria-label="default input example">
                 </div>
                 <!--Right-->
-                <div id="content-card-right"></div>
+                <div id="content-card-right">
+                    <input class="form-control" type="text" placeholder="search by id or name" aria-label="default input example">
+                </div>
 
                 <div class="col-md-12 mt-4" style="height:225px; overflow-y: scroll" id="Tbl">
                     <table class="table table-bordered">
