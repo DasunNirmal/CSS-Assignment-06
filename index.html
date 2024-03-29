@@ -8,6 +8,7 @@
     <meta name="keywords" content="Dasun Nirmal Student of IJSE,learning to be a software engineer">
     <meta name="author" content="Dasun Nirmal">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/normalize.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
@@ -29,7 +30,7 @@
             margin-right: 50px;
         }
 
-        .current-page-button {
+        #current-page-button {
             background-color: #B05200;
             color: #FFEEE2;
             padding: 18px 28px;
@@ -60,25 +61,33 @@
         footer {
             height: 110px;
             width: 100%;
-            position: fixed;
-            left: 0;
-            bottom: 0;
             color: #FEE5D4;
             background-color: #B05200;
             text-align: center;
         }
         footer>p {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
             margin-bottom: 8px;
+        }
+
+        #main-section {
+            width: 70vw;
+            height: 70vh;
+            background-color: #FFF4ED;
+            margin-left: auto; /* Move the main section to the right */
+            margin-right: 20px; /* Reset margin-right */
+            border-radius: 30px;
+            padding: 20px; /* Add padding to prevent content from sticking to edges */
+        }
+
+        #container {
+            position: relative;
+            padding-bottom: 47px; /* Height of the footer */
         }
 
     </style>
 
 </head>
-    <body>
+    <body id="home">
         <!--Hero section-->
         <header>
             <nav class="navbar navbar-expand-lg bg-body-highlight">
@@ -89,8 +98,8 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div class="navbar-nav" id="nav-bar-tags">
-                            <a class="current-page-button" href="#">Home</a>
-                            <a class="Orders" href="#">Orders</a>
+                            <a id="current-page-button" href="#home">Home</a>
+                            <a class="Orders" href="orders.html#orders">Orders</a>
                             <a class="Customers" href="#">Customers</a>
                             <a class="Items" href="#">Items</a>
                         </div>
@@ -98,6 +107,15 @@
                 </div>
             </nav>
         </header>
+
+        <!--Main Content-->
+        <main id="container">
+
+            <section id="main-section">
+
+            </section>
+
+        </main>
 
         <!--Page Footer-->
         <footer>
