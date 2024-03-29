@@ -73,15 +73,42 @@
             width: 70vw;
             height: 70vh;
             background-color: #FFF4ED;
-            margin-left: auto; /* Move the main section to the right */
+            position: relative;
+           /* margin-left: auto;*/ /* Move the main section to the right */
+            left: 0;
+            right: 0;
+            margin: auto;
             margin-right: 20px; /* Reset margin-right */
             border-radius: 30px;
             padding: 20px; /* Add padding to prevent content from sticking to edges */
         }
 
+        #sub-section {
+            width: 28vw;
+            position: absolute;
+            padding: 20px;
+        }
+
         #container {
             position: relative;
             padding-bottom: 47px; /* Height of the footer */
+        }
+
+        #card1,#card2 {
+            height: 140px;
+            position: relative;
+            border: 3px solid #B05200;
+            background-color: #FEE5D4;
+            border-radius: 20px
+        }
+
+        #card1>div>img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
         }
 
     </style>
@@ -110,7 +137,26 @@
 
         <!--Main Content-->
         <main id="container">
+            <div id="sub-section">
+                <div class="row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div class="card" id="card1">
+                            <div class="card-body ">
+                                <img src="/assets/icons/icons8-maximum-order-100.png" alt="order chart" width="50" height="50">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card" id="card2">
+                            <div class="card-body">
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--section left-->
             <section id="main-section">
 
             </section>
