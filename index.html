@@ -74,17 +74,17 @@
             height: 70vh;
             background-color: #FFF4ED;
             position: relative;
-           /* margin-left: auto;*/ /* Move the main section to the right */
             left: 0;
             right: 0;
             margin: auto;
-            margin-right: 20px; /* Reset margin-right */
+            margin-right: 15px; /* Reset margin-right */
             border-radius: 30px;
             padding: 20px; /* Add padding to prevent content from sticking to edges */
         }
 
         #sub-section {
             width: 28vw;
+            height: 70vh;
             position: absolute;
             padding: 20px;
         }
@@ -94,21 +94,44 @@
             padding-bottom: 47px; /* Height of the footer */
         }
 
-        #card1,#card2 {
+        #card1,#card2,#card3,#card4 {
             height: 140px;
             position: relative;
             border: 3px solid #B05200;
             background-color: #FEE5D4;
-            border-radius: 20px
+            border-radius: 20px;
         }
 
-        #card1>div>img {
+        #card1>div>img,
+        #card2>div>img,
+        #card3>div>img,
+        #card4>div>img,
+        #middle-card>img {
             position: absolute;
             top: 0;
             left: 0;
             bottom: 0;
             right: 0;
             margin: auto;
+        }
+
+        #middle-card {
+            width: 300px;
+            height: 180px;
+            border: 3px solid #B05200;
+            background-color: #FEE5D4;
+            border-radius: 20px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        }
+
+        #cards-2 {
+            position: relative;
+            margin-top: 360px;
         }
 
     </style>
@@ -137,7 +160,10 @@
 
         <!--Main Content-->
         <main id="container">
+            <!--Sub Section-->
             <div id="sub-section">
+
+                <!--Card 01-02-->
                 <div class="row">
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <div class="card" id="card1">
@@ -149,7 +175,29 @@
                     <div class="col-sm-6">
                         <div class="card" id="card2">
                             <div class="card-body">
+                                <img src="/assets/icons/icons8-today-100.png" alt="order chart" width="48" height="48">
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
+                <div id="middle-card">
+                    <img src="/assets/icons/icons8-sales-100.png" alt="order chart" width="60" height="60">
+                </div>
+
+                <!--Cards 03-04-->
+                <div class="row" id="cards-2">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div class="card" id="card3">
+                            <div class="card-body ">
+                                <img src="/assets/icons/icons8-grocery-shelf-100.png" alt="order chart" width="50" height="50">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card" id="card4">
+                            <div class="card-body">
+                                <img src="/assets/icons/icons8-customers-100.png" alt="order chart" width="50" height="50">
                             </div>
                         </div>
                     </div>
