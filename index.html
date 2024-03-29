@@ -100,6 +100,7 @@
             border: 3px solid #B05200;
             background-color: #FEE5D4;
             border-radius: 20px;
+            text-align: center;
         }
 
         #card1>div>img,
@@ -122,6 +123,7 @@
             background-color: #FEE5D4;
             border-radius: 20px;
             position: absolute;
+            text-align: center;
             top: 0;
             left: 0;
             bottom: 0;
@@ -132,6 +134,34 @@
         #cards-2 {
             position: relative;
             margin-top: 360px;
+        }
+
+        label {
+            font-family: "Lexend", sans-serif;
+            color: #B05200;
+            font-weight: 900;
+        }
+        #middle-card>label {
+            margin-top: 15px;
+            font-size: 22px;
+        }
+        table.table-bordered > thead > tr > th{
+            border:2px solid #B05200;
+            background-color: #FEE5D4;
+            color: #B05200;
+            text-align: center;
+            font-weight: 950;
+        }
+        table.table-bordered > tbody {
+            border:2px solid #B05200;
+            text-align: center;
+        }
+        table.table.table-bordered > tbody > tr > td {
+            color: #B05200;
+        }
+        #Tbl {
+            position: relative;
+            top: 35px;
         }
 
     </style>
@@ -168,6 +198,7 @@
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <div class="card" id="card1">
                             <div class="card-body ">
+                                <label for="card1">Total Orders</label>
                                 <img src="/assets/icons/icons8-maximum-order-100.png" alt="order chart" width="50" height="50">
                             </div>
                         </div>
@@ -175,6 +206,7 @@
                     <div class="col-sm-6">
                         <div class="card" id="card2">
                             <div class="card-body">
+                                <label for="card2">Total Today Orders</label>
                                 <img src="/assets/icons/icons8-today-100.png" alt="order chart" width="48" height="48">
                             </div>
                         </div>
@@ -182,6 +214,7 @@
                 </div>
 
                 <div id="middle-card">
+                    <label for="middle-card">Sales</label>
                     <img src="/assets/icons/icons8-sales-100.png" alt="order chart" width="60" height="60">
                 </div>
 
@@ -190,6 +223,7 @@
                     <div class="col-sm-6 mb-3 mb-sm-0">
                         <div class="card" id="card3">
                             <div class="card-body ">
+                                <label for="card3">Total Items</label>
                                 <img src="/assets/icons/icons8-grocery-shelf-100.png" alt="order chart" width="50" height="50">
                             </div>
                         </div>
@@ -197,6 +231,7 @@
                     <div class="col-sm-6">
                         <div class="card" id="card4">
                             <div class="card-body">
+                                <label for="card4">Total Customers</label>
                                 <img src="/assets/icons/icons8-customers-100.png" alt="order chart" width="50" height="50">
                             </div>
                         </div>
@@ -207,6 +242,112 @@
             <!--section left-->
             <section id="main-section">
 
+                <label for="main-section">Order Summary</label>
+
+                <div class="col-md-12 mt-4" style="height:515px; overflow-y: scroll" id="Tbl">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Item ID</th>
+                            <th>Item Name</th>
+                            <th>Quantity</th>
+                            <th>Order Date</th>
+                            <th>Total Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                            <td>@mdo</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </section>
 
         </main>
