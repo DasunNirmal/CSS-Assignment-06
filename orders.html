@@ -94,6 +94,21 @@
             left: 40px;
             top: 20px;
         }
+
+        #total-price {
+            width: 135px;
+            height: 80px;
+            background-color: #FEE5D4;
+            border: 3px solid #B05200;
+            border-radius: 30px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+        }
+
         #content-card-right {
             width: 715px;
             height: 325px;
@@ -178,6 +193,17 @@
             position: absolute;
             left: 30px;
             top: 366px;
+        }
+
+        #main-section>#lblTotalPrice {
+            font-family: "Lexend", sans-serif;
+            font-style: italic;
+            font-size: 22px;
+            font-weight: 750;
+            color: #B05200;
+            position: absolute;
+            left: 45.7vw;
+            top: 27vh;
         }
 
         #content-card-left>button.btn.btn-outline-primary,
@@ -505,6 +531,8 @@
 
                 </div>
 
+                <!--Middle-->
+                <label id="lblTotalPrice" for="main-section">Total Price</label>
                 <div id="total-price"></div>
 
                 <!--Right-->
