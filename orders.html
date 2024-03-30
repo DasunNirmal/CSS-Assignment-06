@@ -157,6 +157,26 @@
             top: 10px;
         }
 
+        #content-card-left>button.btn.btn-outline-primary,
+        #content-card-right>button.btn.btn-outline-primary {
+            width: 90px;
+            position: absolute;
+            border-radius: 20px;
+            border: 3px solid #B05200;
+            color: #B05200;
+            font-weight: 550;
+            font-family: "Lexend", sans-serif;
+            left: 416px;
+            top: 43px;
+        }
+
+        #content-card-left>button.btn.btn-outline-primary:hover,
+        #content-card-right>button.btn.btn-outline-primary:hover {
+            background-color: #B05200;
+            color: #FEE5D4;
+            font-weight: 550;
+            font-family: "Lexend", sans-serif;
+        }
 
     </style>
 
@@ -186,15 +206,23 @@
         <main id="container">
 
             <section id="main-section">
+
                 <!--Left-->
                 <div class="content-card" id="content-card-left">
+
+                    <!--label search-->
                     <label for="content-card-left">Search Items :</label>
+
+                    <!--search field-->
                     <input class="form-control" type="text" placeholder="search by id or name" aria-label="default input example">
+                    <button type="button" class="btn btn-outline-primary">search</button>
+
                 </div>
                 <!--Right-->
                 <div id="content-card-right">
                     <label for="content-card-right">Search Customer :</label>
                     <input class="form-control" type="text" placeholder="search by id or name" aria-label="default input example">
+                    <button type="button" class="btn btn-outline-primary">search</button>
                 </div>
 
                 <div class="col-md-12 mt-4" style="height:225px; overflow-y: scroll" id="Tbl">
