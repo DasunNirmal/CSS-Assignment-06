@@ -157,7 +157,7 @@
         }
 
         #content-card-left>button.btn.btn-outline-primary,
-        #content-card-right>button.btn.btn-outline-primary {
+        #content-card-right>button.btn.btn-outline-primary{
             width: 90px;
             position: absolute;
             border-radius: 20px;
@@ -167,6 +167,69 @@
             font-family: "Lexend", sans-serif;
             left: 416px;
             top: 43px;
+        }
+
+        #content-card-left>button.btn.btn-primary {
+            width: 110px;
+            position: absolute;
+            border-radius: 20px;
+            border-color: #B05200;
+            background-color: #B05200;
+            color: #FEE5D4;
+            font-weight: 550;
+            font-family: "Lexend", sans-serif;
+            left: 395px;
+            top: 244px;
+        }
+
+        #content-card-left>#btnClear-1 {
+            width: 90px;
+            position: absolute;
+            border-radius: 20px;
+            border: 3px solid #B05200;
+            color: #B05200;
+            font-weight: 550;
+            font-family: "Lexend", sans-serif;
+            left: 535px;
+            top: 241px;
+        }
+
+        #content-card-right>#btnClear-2 {
+            width: 90px;
+            position: absolute;
+            border-radius: 20px;
+            border: 3px solid #B05200;
+            color: #B05200;
+            font-weight: 550;
+            font-family: "Lexend", sans-serif;
+            left: 588px;
+            top: 241px;
+        }
+
+        #content-card-right>button.btn.btn-primary {
+            width: 130px;
+            position: absolute;
+            border-radius: 20px;
+            border-color: #B05200;
+            background-color: #B05200;
+            color: #FEE5D4;
+            font-weight: 550;
+            font-family: "Lexend", sans-serif;
+            left: 425px;
+            top: 244px;
+        }
+
+        #content-card-left>#btnClear-1:hover,
+        #content-card-right>#btnClear-2:hover {
+            background-color: #B05200;
+            color: #FEE5D4;
+            font-weight: 550;
+            font-family: "Lexend", sans-serif;
+        }
+
+        #content-card-left>button.btn.btn-primary:hover,
+        #content-card-right>button.btn.btn-primary:hover {
+            border: 3px solid rgba(255, 255, 255, 0.53);
         }
 
         #content-card-left>button.btn.btn-outline-primary:hover,
@@ -199,13 +262,14 @@
         }
 
         #content-card-left>#txtQtyOnHand {
+            width: 150px;
             position: absolute;
             left: 18px;
             top: 240px;
         }
 
         #content-card-right>#txtPhoneNumber {
-            width: 190px;
+            width: 180px;
             position: absolute;
             left: 18px;
             top: 240px;
@@ -262,6 +326,36 @@
             top: 140px;
         }
 
+        #content-card-left>#lblOrderQuantity {
+            position: absolute;
+            left: 200px;
+            top: 210px;
+        }
+
+        #content-card-left>#txtOrderQuantity {
+            width: 165px;
+            position: absolute;
+            left: 190px;
+            top: 240px;
+        }
+
+        #content-card-right>#lblOrderDate {
+            position: absolute;
+            left: 240px;
+            top: 210px;
+        }
+
+        #content-card-right>#txtOrderDate {
+            width: 165px;
+            background-image:url('/assets/icons/icons8-date-picker-100.png');
+            background-repeat:no-repeat;
+            background-size: 34px 34px;
+            background-position:120px;
+            position: absolute;
+            left: 230px;
+            top: 240px;
+        }
+
         #content-card-left > #txtSearch-01:focus,
         #content-card-right > #txtSearch-02:focus,
         #content-card-left > #txtItemId:focus,
@@ -271,7 +365,9 @@
         #content-card-left>#txtUnitPrice:focus,
         #content-card-right>#txtCustomerId:focus,
         #content-card-left>#txtQtyOnHand:focus,
-        #content-card-right>#txtPhoneNumber:focus {
+        #content-card-right>#txtPhoneNumber:focus,
+        #content-card-left>#txtOrderQuantity:focus,
+        #content-card-right>#txtOrderDate:focus {
             background-color: #FEE5D4;
             border: 3px solid #B05200;
             box-shadow: none;
@@ -332,9 +428,16 @@
                     <input id="txtUnitPrice" class="form-control" type="text" aria-label="default input example">
 
                     <!--label Qty On Hand-->
-                    <label id="lblQtyOnHand" for="content-card-left">Unit Price :</label>
+                    <label id="lblQtyOnHand" for="content-card-left">Qty On Hand :</label>
                     <!--itemName field-->
                     <input id="txtQtyOnHand" class="form-control" type="text" aria-label="default input example">
+
+                    <!--label Order Quantity-->
+                    <label id="lblOrderQuantity" for="content-card-left">Order Quantity :</label>
+                    <!--Order Quantity field-->
+                    <input id="txtOrderQuantity" class="form-control" type="text" aria-label="default input example">
+                    <button type="button" class="btn btn-primary">Add Item</button>
+                    <button id="btnClear-1" type="button" class="btn btn-outline-primary">Clear</button>
 
                 </div>
 
@@ -367,6 +470,13 @@
                     <label id="lblPhoneNumber" for="content-card-left">Phone Number :</label>
                     <!--itemName field-->
                     <input id="txtPhoneNumber" class="form-control" type="text" aria-label="default input example">
+
+                    <!--label Order Date-->
+                    <label id="lblOrderDate" for="content-card-left">Order Date :</label>
+                    <!--itemName field-->
+                    <input id="txtOrderDate" class="form-control" type="text" aria-label="default input example">
+                    <button type="button" class="btn btn-primary">Place Order</button>
+                    <button id="btnClear-2" type="button" class="btn btn-outline-primary">Clear</button>
 
                 </div>
 
