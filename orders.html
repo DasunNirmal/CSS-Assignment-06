@@ -123,7 +123,8 @@
         }
 
         #content-card-left > input,
-        #content-card-right > input {
+        #content-card-right > input,
+        #main-section > input {
             width: 140px;
             height: 45px;
             background-color: #FEE5D4;
@@ -144,6 +145,18 @@
             top: 40px;
         }
 
+        #main-section>#txtSearch-03 {
+            width: 305px;
+            height: 39px;
+            position: absolute;
+            background-image:url('/assets/icons/icons8-search-100.png');
+            background-repeat:no-repeat;
+            background-size: 33px 33px;
+            background-position:259px;
+            left: 18px;
+            top: 394px;
+        }
+
         #content-card-left>label,
         #content-card-right>label {
             font-family: "Lexend", sans-serif;
@@ -156,8 +169,19 @@
             top: 10px;
         }
 
+        #main-section>#lblSearchOrders {
+            font-family: "Lexend", sans-serif;
+            font-style: italic;
+            font-size: 17px;
+            font-weight: 550;
+            color: #B05200;
+            position: absolute;
+            left: 30px;
+            top: 366px;
+        }
+
         #content-card-left>button.btn.btn-outline-primary,
-        #content-card-right>button.btn.btn-outline-primary{
+        #content-card-right>button.btn.btn-outline-primary {
             width: 90px;
             position: absolute;
             border-radius: 20px;
@@ -167,6 +191,47 @@
             font-family: "Lexend", sans-serif;
             left: 416px;
             top: 43px;
+        }
+
+        #main-section>button.btn.btn-outline-primary {
+            width: 112px;
+            height: 40px;
+            position: absolute;
+            border-radius: 20px;
+            border: 3px solid #B05200;
+            color: #B05200;
+            font-weight: 550;
+            font-family: "Lexend", sans-serif;
+            left: 335px;
+            top: 393px;
+        }
+
+        #main-section>#btnUpdate,
+        #main-section>#btnDelete,
+        #main-section>#btnClearAll {
+            width: 112px;
+            height: 40px;
+            position: absolute;
+            border-radius: 20px;
+            border: 3px solid #B05200;
+            color: #B05200;
+            font-weight: 550;
+            font-family: "Lexend", sans-serif;
+        }
+
+        #main-section>#btnUpdate {
+            left: 70vw;
+            top: 393px;
+        }
+
+        #main-section>#btnDelete {
+            left: 80vw;
+            top: 393px;
+        }
+
+        #main-section>#btnClearAll {
+            left: 90vw;
+            top: 393px;
         }
 
         #content-card-left>button.btn.btn-primary {
@@ -219,21 +284,19 @@
             top: 244px;
         }
 
-        #content-card-left>#btnClear-1:hover,
-        #content-card-right>#btnClear-2:hover {
-            background-color: #B05200;
-            color: #FEE5D4;
-            font-weight: 550;
-            font-family: "Lexend", sans-serif;
-        }
-
         #content-card-left>button.btn.btn-primary:hover,
         #content-card-right>button.btn.btn-primary:hover {
             border: 3px solid rgba(255, 255, 255, 0.53);
         }
 
+        #content-card-left>#btnClear-1:hover,
+        #content-card-right>#btnClear-2:hover,
         #content-card-left>button.btn.btn-outline-primary:hover,
-        #content-card-right>button.btn.btn-outline-primary:hover {
+        #content-card-right>button.btn.btn-outline-primary:hover,
+        #main-section>button.btn.btn-outline-primary:hover,
+        #main-section>#btnUpdate:hover,
+        #main-section>#btnDelete:hover,
+        #main-section>#btnClearAll:hover {
             background-color: #B05200;
             color: #FEE5D4;
             font-weight: 550;
@@ -359,15 +422,16 @@
         #content-card-left > #txtSearch-01:focus,
         #content-card-right > #txtSearch-02:focus,
         #content-card-left > #txtItemId:focus,
-        #content-card-right>#txtOrderId:focus,
-        #content-card-left>#txtItemName:focus,
-        #content-card-right>#txtCustomerName:focus,
-        #content-card-left>#txtUnitPrice:focus,
-        #content-card-right>#txtCustomerId:focus,
-        #content-card-left>#txtQtyOnHand:focus,
-        #content-card-right>#txtPhoneNumber:focus,
-        #content-card-left>#txtOrderQuantity:focus,
-        #content-card-right>#txtOrderDate:focus {
+        #content-card-right > #txtOrderId:focus,
+        #content-card-left > #txtItemName:focus,
+        #content-card-right > #txtCustomerName:focus,
+        #content-card-left > #txtUnitPrice:focus,
+        #content-card-right > #txtCustomerId:focus,
+        #content-card-left > #txtQtyOnHand:focus,
+        #content-card-right > #txtPhoneNumber:focus,
+        #content-card-left > #txtOrderQuantity:focus,
+        #content-card-right > #txtOrderDate:focus,
+        #main-section > #txtSearch-03:focus {
             background-color: #FEE5D4;
             border: 3px solid #B05200;
             box-shadow: none;
@@ -441,6 +505,8 @@
 
                 </div>
 
+                <div id="total-price"></div>
+
                 <!--Right-->
                 <div id="content-card-right">
 
@@ -480,6 +546,14 @@
 
                 </div>
 
+                <!--label search-->
+                <label id="lblSearchOrders" for="main-section">Search Orders :</label>
+
+                <!--search orders field-->
+                <input id="txtSearch-03" class="form-control" type="text" placeholder="search by id" aria-label="default input example">
+                <button type="button" class="btn btn-outline-primary">search</button>
+
+                <!--Table-->
                 <div class="col-md-12 mt-4" style="height:225px; overflow-y: scroll" id="Tbl">
                     <table class="table table-bordered">
                         <thead>
@@ -534,6 +608,14 @@
                     </table>
                 </div>
 
+                <!--btn Update-->
+                <button id="btnUpdate" type="button" class="btn btn-outline-primary">Update</button>
+
+                <!--btn Delete-->
+                <button id="btnDelete" type="button" class="btn btn-outline-primary">Delete</button>
+
+                <!--btn Clear All-->
+                <button id="btnClearAll" type="button" class="btn btn-outline-primary">CLear All</button>
             </section>
 
         </main>
