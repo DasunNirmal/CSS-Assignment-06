@@ -85,7 +85,7 @@
             padding-bottom: 47px; /* Height of the footer */
         }
 
-        .content-card {
+        #content-card-left {
             width: 715px;
             height: 325px;
             border: 3px solid #B05200;
@@ -122,8 +122,17 @@
             color: #B05200;
         }
 
-        .content-card > input,
+        #content-card-left > input,
         #content-card-right > input {
+            width: 140px;
+            height: 45px;
+            background-color: #FEE5D4;
+            border: 2px solid #B05200;
+            border-radius: 25px;
+        }
+
+        #content-card-left > #txtSearch-01,
+        #content-card-right > #txtSearch-02 {
             width: 356px;
             height: 45px;
             position: absolute;
@@ -133,16 +142,6 @@
             background-position:306px;
             left: 18px;
             top: 40px;
-            background-color: #FEE5D4;
-            border: 2px solid #B05200;
-            border-radius: 25px;
-        }
-
-        .content-card > input:focus,
-        #content-card-right > input:focus {
-            background-color: #FEE5D4;
-            border: 3px solid #B05200;
-            box-shadow: none;
         }
 
         #content-card-left>label,
@@ -178,6 +177,106 @@
             font-family: "Lexend", sans-serif;
         }
 
+        #content-card-left>#lblItemID,
+        #content-card-right>#lblOrderID {
+            position: absolute;
+            left: 30px;
+            top: 110px;
+        }
+
+        #content-card-left>#txtItemId,
+        #content-card-right>#txtOrderId {
+            position: absolute;
+            left: 18px;
+            top: 140px;
+        }
+
+        #content-card-left>#lblQtyOnHand,
+        #content-card-right>#lblPhoneNumber {
+            position: absolute;
+            left: 30px;
+            top: 210px;
+        }
+
+        #content-card-left>#txtQtyOnHand {
+            position: absolute;
+            left: 18px;
+            top: 240px;
+        }
+
+        #content-card-right>#txtPhoneNumber {
+            width: 190px;
+            position: absolute;
+            left: 18px;
+            top: 240px;
+        }
+
+        #content-card-right>#lblCustomerID {
+            position: absolute;
+            left: 200px;
+            top: 110px;
+        }
+
+        #content-card-right>#txtCustomerId {
+            width: 145px;
+            position: absolute;
+            left: 188px;
+            top: 140px;
+        }
+
+        #content-card-left>#lblItemName {
+            position: absolute;
+            left: 200px;
+            top: 110px;
+        }
+
+        #content-card-left>#txtItemName {
+            width: 250px;
+            position: absolute;
+            left: 188px;
+            top: 140px;
+        }
+
+        #content-card-right>#lblCustomerName {
+            position: absolute;
+            left: 380px;
+            top: 110px;
+        }
+
+        #content-card-right>#txtCustomerName {
+            width: 250px;
+            position: absolute;
+            left: 370px;
+            top: 140px;
+        }
+
+        #content-card-left>#lblUnitPrice {
+            position: absolute;
+            left: 490px;
+            top: 110px;
+        }
+
+        #content-card-left>#txtUnitPrice {
+            position: absolute;
+            left: 475px;
+            top: 140px;
+        }
+
+        #content-card-left > #txtSearch-01:focus,
+        #content-card-right > #txtSearch-02:focus,
+        #content-card-left > #txtItemId:focus,
+        #content-card-right>#txtOrderId:focus,
+        #content-card-left>#txtItemName:focus,
+        #content-card-right>#txtCustomerName:focus,
+        #content-card-left>#txtUnitPrice:focus,
+        #content-card-right>#txtCustomerId:focus,
+        #content-card-left>#txtQtyOnHand:focus,
+        #content-card-right>#txtPhoneNumber:focus {
+            background-color: #FEE5D4;
+            border: 3px solid #B05200;
+            box-shadow: none;
+        }
+
     </style>
 
 </head>
@@ -208,21 +307,67 @@
             <section id="main-section">
 
                 <!--Left-->
-                <div class="content-card" id="content-card-left">
+                <div id="content-card-left">
 
                     <!--label search-->
                     <label for="content-card-left">Search Items :</label>
 
                     <!--search field-->
-                    <input class="form-control" type="text" placeholder="search by id or name" aria-label="default input example">
+                    <input id="txtSearch-01" class="form-control" type="text" placeholder="search by id or name" aria-label="default input example">
                     <button type="button" class="btn btn-outline-primary">search</button>
 
+                    <!--label Item ID-->
+                    <label id="lblItemID" for="content-card-left">Item ID :</label>
+                    <!--itemId field-->
+                    <input id="txtItemId" class="form-control" type="text" aria-label="default input example">
+
+                    <!--label Item Name-->
+                    <label id="lblItemName" for="content-card-left">Item Name :</label>
+                    <!--itemName field-->
+                    <input id="txtItemName" class="form-control" type="text" aria-label="default input example">
+
+                    <!--label UnitPrice-->
+                    <label id="lblUnitPrice" for="content-card-left">Unit Price :</label>
+                    <!--itemName field-->
+                    <input id="txtUnitPrice" class="form-control" type="text" aria-label="default input example">
+
+                    <!--label Qty On Hand-->
+                    <label id="lblQtyOnHand" for="content-card-left">Unit Price :</label>
+                    <!--itemName field-->
+                    <input id="txtQtyOnHand" class="form-control" type="text" aria-label="default input example">
+
                 </div>
+
                 <!--Right-->
                 <div id="content-card-right">
+
+                    <!--label search-->
                     <label for="content-card-right">Search Customer :</label>
-                    <input class="form-control" type="text" placeholder="search by id or name" aria-label="default input example">
+
+                    <!--search field-->
+                    <input id="txtSearch-02" class="form-control" type="text" placeholder="search by id or name" aria-label="default input example">
                     <button type="button" class="btn btn-outline-primary">search</button>
+
+                    <!--label Order ID-->
+                    <label id="lblOrderID" for="content-card-right">Order ID :</label>
+                    <!--itemId field-->
+                    <input id="txtOrderId" class="form-control" type="text" aria-label="default input example">
+
+                    <!--label Customer ID-->
+                    <label id="lblCustomerID" for="content-card-right">Customer ID :</label>
+                    <!--itemId field-->
+                    <input id="txtCustomerId" class="form-control" type="text" aria-label="default input example">
+
+                    <!--label Customer Name-->
+                    <label id="lblCustomerName" for="content-card-left">Customer Name :</label>
+                    <!--Customer field-->
+                    <input id="txtCustomerName" class="form-control" type="text" aria-label="default input example">
+
+                    <!--label Phone Number-->
+                    <label id="lblPhoneNumber" for="content-card-left">Phone Number :</label>
+                    <!--itemName field-->
+                    <input id="txtPhoneNumber" class="form-control" type="text" aria-label="default input example">
+
                 </div>
 
                 <div class="col-md-12 mt-4" style="height:225px; overflow-y: scroll" id="Tbl">
