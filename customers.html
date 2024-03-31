@@ -186,10 +186,34 @@
             top: 220px;
         }
 
+        #main-section>#lblSearchOrders {
+            font-family: "Lexend", sans-serif;
+            font-style: italic;
+            font-size: 17px;
+            font-weight: 550;
+            color: #B05200;
+            position: absolute;
+            left: 45px;
+            top: 366px;
+        }
+
+        #main-section>#txtSearch-03 {
+            width: 305px;
+            height: 39px;
+            position: absolute;
+            background-image:url('/assets/icons/icons8-search-100.png');
+            background-repeat:no-repeat;
+            background-size: 33px 33px;
+            background-position:259px;
+            left: 30px;
+            top: 394px;
+        }
+
         #content-card-left > #txtCustomerID:focus,
-        #content-card-left>#txtName:focus,
-        #content-card-left>#txtAddress:focus,
-        #content-card-left>#txtPhoneNumber:focus {
+        #content-card-left > #txtName:focus,
+        #content-card-left > #txtAddress:focus,
+        #content-card-left > #txtPhoneNumber:focus,
+        #main-section>#txtSearch-03:focus {
             background-color: #FEE5D4;
             border: 3px solid #B05200;
             box-shadow: none;
@@ -210,6 +234,57 @@
 
         #content-card-left>button.btn.btn-primary:hover {
             border: 3px solid rgba(255, 255, 255, 0.53);
+        }
+
+        #main-section>button.btn.btn-outline-primary {
+            width: 112px;
+            height: 40px;
+            position: absolute;
+            border-radius: 20px;
+            border: 3px solid #B05200;
+            color: #B05200;
+            font-weight: 550;
+            font-family: "Lexend", sans-serif;
+            left: 375px;
+            top: 393px;
+        }
+
+        #main-section>#btnUpdate {
+            left: 70vw;
+            top: 393px;
+        }
+
+        #main-section>#btnDelete {
+            left: 80vw;
+            top: 393px;
+        }
+
+        #main-section>#btnClearAll {
+            left: 90vw;
+            top: 393px;
+        }
+
+        #main-section>#btnUpdate,
+        #main-section>#btnDelete,
+        #main-section>#btnClearAll {
+            width: 112px;
+            height: 40px;
+            position: absolute;
+            border-radius: 20px;
+            border: 3px solid #B05200;
+            color: #B05200;
+            font-weight: 550;
+            font-family: "Lexend", sans-serif;
+        }
+
+        #main-section>button.btn.btn-outline-primary:hover,
+        #main-section>#btnUpdate:hover,
+        #main-section>#btnDelete:hover,
+        #main-section>#btnClearAll:hover {
+            background-color: #B05200;
+            color: #FEE5D4;
+            font-weight: 550;
+            font-family: "Lexend", sans-serif;
         }
 
     </style>
@@ -269,6 +344,13 @@
 
                 </div>
 
+                <!--label search-->
+                <label id="lblSearchOrders" for="main-section">Search Customers :</label>
+
+                <!--search orders field-->
+                <input id="txtSearch-03" class="form-control" type="text" placeholder="search by id or phone number" aria-label="default input example">
+                <button type="button" class="btn btn-outline-primary">search</button>
+
                 <!--Table-->
                 <div class="col-md-12 mt-4" style="height:225px; overflow-y: scroll" id="Tbl">
                     <table class="table table-bordered">
@@ -308,6 +390,15 @@
                         </tbody>
                     </table>
                 </div>
+
+                <!--btn Update-->
+                <button id="btnUpdate" type="button" class="btn btn-outline-primary">Update</button>
+
+                <!--btn Delete-->
+                <button id="btnDelete" type="button" class="btn btn-outline-primary">Delete</button>
+
+                <!--btn Clear All-->
+                <button id="btnClearAll" type="button" class="btn btn-outline-primary">Clear All</button>
 
             </section>
 
