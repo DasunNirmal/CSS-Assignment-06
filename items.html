@@ -94,6 +94,104 @@
             top: 20px;
         }
 
+        #content-card-left > input,
+        #main-section > input {
+            width: 140px;
+            height: 45px;
+            background-color: #FEE5D4;
+            border: 2px solid #B05200;
+            border-radius: 25px;
+        }
+
+        #content-card-left>label {
+            font-family: "Lexend", sans-serif;
+            font-style: italic;
+            font-size: 18px;
+            font-weight: 550;
+            color: #B05200;
+            position: absolute;
+            left: 30px;
+            top: 10px;
+        }
+
+        #content-card-left>#lblItemID {
+            position: absolute;
+            left: 45px;
+            top: 50px;
+        }
+
+        #content-card-left>#txtItemID {
+            width: 170px;
+            position: absolute;
+            left: 30px;
+            top: 80px;
+        }
+
+        #content-card-left>#lblName {
+            position: absolute;
+            left: 283px;
+            top: 50px;
+        }
+
+        #content-card-left>#txtName {
+            width: 255px;
+            position: absolute;
+            left: 263px;
+            top: 80px;
+        }
+
+        #content-card-left>#lblPrice {
+            position: absolute;
+            left: 615px;
+            top: 50px;
+        }
+
+        #content-card-left>#txtPrice {
+            width: 145px;
+            position: absolute;
+            left: 595px;
+            top: 80px;
+        }
+
+        #content-card-left>#lblQuantity {
+            position: absolute;
+            left: 45px;
+            top: 190px;
+        }
+
+        #content-card-left>#txtQuantity {
+            width: 215px;
+            position: absolute;
+            left: 30px;
+            top: 220px;
+        }
+
+        #content-card-left>button.btn.btn-primary {
+            width: 212px;
+            position: absolute;
+            border-radius: 20px;
+            border-color: #B05200;
+            background-color: #B05200;
+            color: #FEE5D4;
+            font-weight: 550;
+            font-family: "Lexend", sans-serif;
+            left: 282px;
+            top: 223px;
+        }
+
+        #content-card-left>button.btn.btn-primary:hover {
+            border: 3px solid rgba(255, 255, 255, 0.53);
+        }
+
+        #content-card-left > #txtItemID:focus,
+        #content-card-left > #txtName:focus,
+        #content-card-left > #txtPrice:focus,
+        #content-card-left > #txtQuantity:focus,
+        #main-section>#txtSearch-03:focus {
+            background-color: #FEE5D4;
+            border: 3px solid #B05200;
+            box-shadow: none;
+        }
 
     </style>
 
@@ -128,27 +226,27 @@
                 <div id="content-card-left">
 
                     <!--label Item ID-->
-                    <label id="lblCustomerID" for="content-card-left">Customer ID :</label>
+                    <label id="lblItemID" for="content-card-left">Item ID :</label>
                     <!--Item ID field-->
-                    <input id="txtCustomerID" class="form-control" type="text" aria-label="default input example">
+                    <input id="txtItemID" class="form-control" type="text" aria-label="default input example">
 
                     <!--label Item Name-->
-                    <label id="lblName" for="content-card-left">Name :</label>
+                    <label id="lblName" for="content-card-left">Item Name :</label>
                     <!--Item Name field-->
                     <input id="txtName" class="form-control" type="text" aria-label="default input example">
 
                     <!--label Item price-->
-                    <label id="lblAddress" for="content-card-left">Address :</label>
+                    <label id="lblPrice" for="content-card-left">Price :</label>
                     <!--Item Price field-->
-                    <input id="txtAddress" class="form-control" type="text" aria-label="default input example">
+                    <input id="txtPrice" class="form-control" type="text" aria-label="default input example">
 
                     <!--label Quantity-->
-                    <label id="lblPhoneNumber" for="content-card-left">Phone Number :</label>
+                    <label id="lblQuantity" for="content-card-left">Quantity :</label>
                     <!--Quantity field-->
-                    <input id="txtPhoneNumber" class="form-control" type="text" aria-label="default input example">
+                    <input id="txtQuantity" class="form-control" type="text" aria-label="default input example">
 
                     <!--Add Item-->
-                    <button type="button" class="btn btn-primary">Add a New Customer</button>
+                    <button type="button" class="btn btn-primary">Add a New Item</button>
 
                 </div>
 
