@@ -173,14 +173,44 @@
             top: 80px;
         }
 
+        #content-card-left>#lblPhoneNumber {
+            position: absolute;
+            left: 45px;
+            top: 190px;
+        }
+
+        #content-card-left>#txtPhoneNumber {
+            width: 215px;
+            position: absolute;
+            left: 30px;
+            top: 220px;
+        }
+
         #content-card-left > #txtCustomerID:focus,
         #content-card-left>#txtName:focus,
-        #content-card-left>#txtAddress:focus {
+        #content-card-left>#txtAddress:focus,
+        #content-card-left>#txtPhoneNumber:focus {
             background-color: #FEE5D4;
             border: 3px solid #B05200;
             box-shadow: none;
         }
 
+        #content-card-left>button.btn.btn-primary {
+            width: 212px;
+            position: absolute;
+            border-radius: 20px;
+            border-color: #B05200;
+            background-color: #B05200;
+            color: #FEE5D4;
+            font-weight: 550;
+            font-family: "Lexend", sans-serif;
+            left: 282px;
+            top: 223px;
+        }
+
+        #content-card-left>button.btn.btn-primary:hover {
+            border: 3px solid rgba(255, 255, 255, 0.53);
+        }
 
     </style>
 
@@ -228,6 +258,14 @@
                     <label id="lblAddress" for="content-card-left">Address :</label>
                     <!--Customer Address field-->
                     <input id="txtAddress" class="form-control" type="text" aria-label="default input example">
+
+                    <!--label Customer Phone Number-->
+                    <label id="lblPhoneNumber" for="content-card-left">Phone Number :</label>
+                    <!--Customer Phone Number field-->
+                    <input id="txtPhoneNumber" class="form-control" type="text" aria-label="default input example">
+
+                    <!--Add Customer-->
+                    <button type="button" class="btn btn-primary">Add a New Customer</button>
 
                 </div>
 
