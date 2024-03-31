@@ -222,6 +222,21 @@
             top: 393px;
         }
 
+        #main-section>#btnUpdate {
+            left: 70vw;
+            top: 393px;
+        }
+
+        #main-section>#btnDelete {
+            left: 80vw;
+            top: 393px;
+        }
+
+        #main-section>#btnClearAll {
+            left: 90vw;
+            top: 393px;
+        }
+
         #content-card-left>button.btn.btn-primary {
             width: 212px;
             position: absolute;
@@ -257,6 +272,34 @@
             color: #FEE5D4;
             font-weight: 550;
             font-family: "Lexend", sans-serif;
+        }
+
+        #totalCustomers {
+            width: 250px;
+            height: 160px;
+            background-color: #FEE5D4;
+            border: 3px solid #B05200;
+            border-radius: 30px;
+            position: absolute;
+            top: 10vh;
+            left: 70vw;
+        }
+
+        #totalCustomers > label {
+            font-family: "Lexend", sans-serif;
+            font-style: italic;
+            font-size: 18px;
+            font-weight: 750;
+            color: #B05200;
+            position: absolute;
+            top: 10px;
+            left: 70px;
+        }
+
+        #totalCustomers > img {
+            position: absolute;
+            top: 40px;
+            left: 95px;
         }
 
     </style>
@@ -362,6 +405,20 @@
                         </tbody>
                     </table>
                 </div>
+
+                <div id="totalCustomers">
+                    <label for="totalCustomers">Total Items</label>
+                    <img src="/assets/icons/icons8-grocery-shelf-100.png" alt="customers" width="65" height="65">
+                </div>
+
+                <!--btn Update-->
+                <button id="btnUpdate" type="button" class="btn btn-outline-primary">Update</button>
+
+                <!--btn Delete-->
+                <button id="btnDelete" type="button" class="btn btn-outline-primary">Delete</button>
+
+                <!--btn Clear All-->
+                <button id="btnClearAll" type="button" class="btn btn-outline-primary">Clear All</button>
 
             </section>
 
