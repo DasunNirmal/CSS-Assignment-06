@@ -85,7 +85,7 @@
         }
 
         #content-card-left {
-            width: 780px;
+            width: 815px;
             height: 300px;
             border: 3px solid #B05200;
             border-radius: 30px;
@@ -147,7 +147,35 @@
             top: 80px;
         }
 
-        #content-card-left > #txtCustomerID:focus {
+        #content-card-left>#lblName {
+            position: absolute;
+            left: 283px;
+            top: 50px;
+        }
+
+        #content-card-left>#txtName {
+            width: 215px;
+            position: absolute;
+            left: 263px;
+            top: 80px;
+        }
+
+        #content-card-left>#lblAddress {
+            position: absolute;
+            left: 565px;
+            top: 50px;
+        }
+
+        #content-card-left>#txtAddress {
+            width: 215px;
+            position: absolute;
+            left: 545px;
+            top: 80px;
+        }
+
+        #content-card-left > #txtCustomerID:focus,
+        #content-card-left>#txtName:focus,
+        #content-card-left>#txtAddress:focus {
             background-color: #FEE5D4;
             border: 3px solid #B05200;
             box-shadow: none;
@@ -190,6 +218,16 @@
                     <label id="lblCustomerID" for="content-card-left">Customer ID :</label>
                     <!--Customer ID field-->
                     <input id="txtCustomerID" class="form-control" type="text" aria-label="default input example">
+
+                    <!--label Customer Name-->
+                    <label id="lblName" for="content-card-left">Name :</label>
+                    <!--Customer Name field-->
+                    <input id="txtName" class="form-control" type="text" aria-label="default input example">
+
+                    <!--label Customer Address-->
+                    <label id="lblAddress" for="content-card-left">Address :</label>
+                    <!--Customer Address field-->
+                    <input id="txtAddress" class="form-control" type="text" aria-label="default input example">
 
                 </div>
 
