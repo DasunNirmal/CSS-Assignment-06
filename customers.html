@@ -287,6 +287,34 @@
             font-family: "Lexend", sans-serif;
         }
 
+        #totalCustomers {
+            width: 250px;
+            height: 160px;
+            background-color: #FEE5D4;
+            border: 3px solid #B05200;
+            border-radius: 30px;
+            position: absolute;
+            top: 10vh;
+            left: 70vw;
+        }
+
+        #totalCustomers > label {
+            font-family: "Lexend", sans-serif;
+            font-style: italic;
+            font-size: 18px;
+            font-weight: 750;
+            color: #B05200;
+            position: absolute;
+            top: 10px;
+            left: 50px;
+        }
+
+        #totalCustomers > img {
+            position: absolute;
+            top: 38px;
+            left: 90px;
+        }
+
     </style>
 
 </head>
@@ -389,6 +417,11 @@
                         </tr>
                         </tbody>
                     </table>
+                </div>
+
+                <div id="totalCustomers">
+                    <label for="totalCustomers">Total Customers</label>
+                    <img src="/assets/icons/icons8-customers-100.png" alt="customers" width="65" height="65">
                 </div>
 
                 <!--btn Update-->
