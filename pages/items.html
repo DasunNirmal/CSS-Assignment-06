@@ -187,7 +187,7 @@
             top: 220px;
         }
 
-        #main-section>#lblSearchOrders {
+        #main-section>#lblSearchItems {
             font-family: "Lexend", sans-serif;
             font-style: italic;
             font-size: 17px;
@@ -343,13 +343,13 @@
                 width: 20vw;
             }
 
-            #totalCustomers > label {
+            #totalItems > label {
                 font-size: 18px;
                 top: 10px;
                 left: 26px;
             }
 
-            #totalCustomers > img {
+            #totalItems > img {
                 position: absolute;
                 top: 38px;
                 left: 72px;
@@ -426,16 +426,21 @@
                 width: 19vw;
             }
 
-            #totalCustomers > label {
+            #totalItems > label {
                 font-size: 18px;
                 top: 10px;
                 left: 17px;
             }
 
-            #totalCustomers > img {
+            #totalItems > img {
                 position: absolute;
                 top: 38px;
                 left: 60px;
+            }
+
+            #main-section>#btnClearAll {
+                left: 83vw;
+                width: 100px;
             }
         }
 
@@ -454,7 +459,7 @@
                 top: 650px;
             }
 
-            #main-section>#lblSearchOrders {
+            #main-section>#lblSearchItems {
                 font-size: 16px;
                 left: 45px;
                 top: 613px;
@@ -583,7 +588,7 @@
                 top: 840px;
             }
 
-            #main-section>#lblSearchOrders {
+            #main-section>#lblSearchItems {
                 font-size: 15px;
                 left: 36px;
                 top: 805px;
@@ -634,13 +639,13 @@
                 width: 52vw;
             }
 
-            #totalCustomers > label {
+            #totalItems > label {
                 font-size: 16px;
                 top: 10px;
                 left: 83px;
             }
 
-            #totalCustomers > img {
+            #totalItems > img {
                 top: 38px;
                 left: 121px;
             }
@@ -648,13 +653,13 @@
 
         @media all and (max-width: 425px) {
 
-            #totalCustomers > label {
+            #totalItems > label {
                 font-size: 16px;
                 top: 10px;
                 left: 37px;
             }
 
-            #totalCustomers > img {
+            #totalItems > img {
                 top: 38px;
                 left: 77px;
             }
@@ -686,7 +691,7 @@
                 top: 912px;
             }
 
-            #main-section>#lblSearchOrders {
+            #main-section>#lblSearchItems {
                 font-size: 15px;
                 left: 36px;
                 top: 885px;
@@ -723,27 +728,27 @@
                 top: 443px;
             }
 
-            #content-card-left>#txtPhoneNumber {
+            #content-card-left>#txtQuantity {
                 width: 294px;
                 position: absolute;
                 left: 30px;
                 top: 370px;
             }
 
-            #content-card-left>#lblPhoneNumber {
+            #content-card-left>#lblQuantity {
                 position: absolute;
                 left: 45px;
                 top: 340px;
             }
 
-            #content-card-left>#txtAddress {
+            #content-card-left>#txtPrice {
                 width: 294px;
                 position: absolute;
                 left: 30px;
                 top: 270px;
             }
 
-            #content-card-left>#lblAddress {
+            #content-card-left>#lblPrice {
                 position: absolute;
                 left: 47px;
                 top: 240px;
@@ -760,13 +765,13 @@
                 top: 140px;
             }
 
-            #content-card-left>#txtCustomerID {
+            #content-card-left>#txtItemID {
                 width: 178px;
                 left: 81px;
                 top: 70px;
             }
 
-            #content-card-left>#lblCustomerID {
+            #content-card-left>#lblItemID {
                 left: 104px;
                 top: 40px;
             }
@@ -830,10 +835,10 @@
                 </div>
 
                 <!--label search-->
-                <label id="lblSearchOrders" for="main-section">Search Customers :</label>
+                <label id="lblSearchItems" for="main-section">Search Items :</label>
 
                 <!--search orders field-->
-                <input id="txtSearch-03" class="form-control" type="text" placeholder="search by id or phone number" aria-label="default input example">
+                <input id="txtSearch-03" class="form-control" type="text" placeholder="search by id" aria-label="default input example">
                 <button type="button" class="btn btn-outline-primary">search</button>
 
                 <!--Table-->
