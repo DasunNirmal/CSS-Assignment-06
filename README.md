@@ -8,10 +8,17 @@ Site map : https://www.gloomaps.com/AZaETJybrd
 
 
 
+
+
+
 Mockup : https://www.figma.com/file/rw2nBX9u2EaR6QyTJgoLuF/Untitled?type=design&node-id=0%3A1&mode=design&t=DNIcmr0QuNAzlSG0-1 
 
 
-Wire FRame : https://drive.google.com/file/d/1DRSlsUfJSPM2_0Io8ioozGJQ_WNfEQBs/view?usp=sharing 
+
+
+
+
+Wire Frame : https://drive.google.com/file/d/1DRSlsUfJSPM2_0Io8ioozGJQ_WNfEQBs/view?usp=sharing 
 
 
 
@@ -24,3 +31,7 @@ Wire FRame : https://drive.google.com/file/d/1DRSlsUfJSPM2_0Io8ioozGJQ_WNfEQBs/v
 
 
           
+
+
+
+
