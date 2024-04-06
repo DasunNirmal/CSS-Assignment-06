@@ -268,7 +268,7 @@ table.table.table-bordered > tbody > tr > td {
     }
 }
 
-@media all and (max-width: 375px) {
+@media screen and (max-width: 375px) {
     #container {
         height: 255vh;
         position: relative;
