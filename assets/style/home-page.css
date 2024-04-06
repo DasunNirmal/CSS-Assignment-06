@@ -274,8 +274,14 @@ table.table.table-bordered > tbody > tr > td {
         position: relative;
         padding-bottom: 47px;
     }
+
+    #cards-2 {
+        position: relative;
+        margin-top: 320px;
+    }
+
     #sub-section {
-        height: 150vh;
+        height: 143vh;
         width: 90vw;
         left: 5vw;
     }
