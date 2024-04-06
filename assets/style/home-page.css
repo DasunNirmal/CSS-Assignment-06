@@ -285,4 +285,9 @@ table.table.table-bordered > tbody > tr > td {
         width: 94vw;
         height: 97vh;
     }
+
+    #Tbl {
+        position: relative;
+        top: 5px;
+    }
 }
