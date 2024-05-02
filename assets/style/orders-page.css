@@ -303,87 +303,87 @@ table.table.table-bordered > tbody > tr > td {
     font-family: "Lexend", sans-serif;
 }
 
-#orders-content-card-left>#lblItemID,
+#orders-content-card-left>#lblItemID-orders,
 #orders-content-card-right>#lblOrderID {
     position: absolute;
     left: 30px;
     top: 110px;
 }
 
-#orders-content-card-left>#txtItemId,
+#orders-content-card-left>#txtItemId-orders,
 #orders-content-card-right>#txtOrderId {
     position: absolute;
     left: 18px;
     top: 140px;
 }
 
-#orders-content-card-left>#lblQtyOnHand,
-#orders-content-card-right>#lblPhoneNumber {
+#orders-content-card-left>#lblQtyOnHand-orders,
+#orders-content-card-right>#lblPhoneNumber-orders {
     position: absolute;
     left: 30px;
     top: 210px;
 }
 
-#orders-content-card-left>#txtQtyOnHand {
+#orders-content-card-left>#txtQtyOnHand-orders {
     width: 150px;
     position: absolute;
     left: 18px;
     top: 240px;
 }
 
-#orders-content-card-right>#txtPhoneNumber {
+#orders-content-card-right>#txtPhoneNumber-orders {
     width: 180px;
     position: absolute;
     left: 18px;
     top: 240px;
 }
 
-#orders-content-card-right>#lblCustomerID {
+#orders-content-card-right>#lblCustomerID-orders {
     position: absolute;
     left: 200px;
     top: 110px;
 }
 
-#orders-content-card-right>#txtCustomerId {
+#orders-content-card-right>#txtCustomerId-orders {
     width: 145px;
     position: absolute;
     left: 188px;
     top: 140px;
 }
 
-#orders-content-card-left>#lblItemName {
+#orders-content-card-left>#lblItemName-orders {
     position: absolute;
     left: 200px;
     top: 110px;
 }
 
-#orders-content-card-left>#txtItemName {
+#orders-content-card-left>#txtItemName-orders {
     width: 250px;
     position: absolute;
     left: 188px;
     top: 140px;
 }
 
-#orders-content-card-right>#lblCustomerName {
+#orders-content-card-right>#lblCustomerName-orders {
     position: absolute;
     left: 380px;
     top: 110px;
 }
 
-#orders-content-card-right>#txtCustomerName {
+#orders-content-card-right>#txtCustomerName-orders {
     width: 250px;
     position: absolute;
     left: 370px;
     top: 140px;
 }
 
-#orders-content-card-left>#lblUnitPrice {
+#orders-content-card-left>#lblUnitPrice-orders {
     position: absolute;
     left: 490px;
     top: 110px;
 }
 
-#orders-content-card-left>#txtUnitPrice {
+#orders-content-card-left>#txtUnitPrice-orders {
     position: absolute;
     left: 475px;
     top: 140px;
@@ -421,14 +421,14 @@ table.table.table-bordered > tbody > tr > td {
 
 #orders-content-card-left > #txtSearch-01:focus,
 #orders-content-card-right > #txtSearch-02:focus,
-#orders-content-card-left > #txtItemId:focus,
+#orders-content-card-left > #txtItemId-orders:focus,
 #orders-content-card-right > #txtOrderId:focus,
-#orders-content-card-left > #txtItemName:focus,
-#orders-content-card-right > #txtCustomerName:focus,
-#orders-content-card-left > #txtUnitPrice:focus,
-#orders-content-card-right > #txtCustomerId:focus,
-#orders-content-card-left > #txtQtyOnHand:focus,
-#orders-content-card-right > #txtPhoneNumber:focus,
+#orders-content-card-left > #txtItemName-orders:focus,
+#orders-content-card-right > #txtCustomerName-orders:focus,
+#orders-content-card-left > #txtUnitPrice-orders:focus,
+#orders-content-card-right > #txtCustomerId-orders:focus,
+#orders-content-card-left > #txtQtyOnHand-orders:focus,
+#orders-content-card-right > #txtPhoneNumber-orders:focus,
 #orders-content-card-left > #txtOrderQuantity:focus,
 #orders-content-card-right > #txtOrderDate:focus,
 #orders-main-section > #txtSearch-03:focus {
@@ -449,20 +449,20 @@ table.table.table-bordered > tbody > tr > td {
         background-position:250px;
     }
 
-    #orders-content-card-left > #txtItemName,
-    #orders-content-card-right > #txtCustomerName {
+    #orders-content-card-left > #txtItemName-orders,
+    #orders-content-card-right > #txtCustomerName-orders {
         width: 180px;
     }
 
-    #orders-content-card-left > #txtUnitPrice {
+    #orders-content-card-left > #txtUnitPrice-orders {
         left: 410px;
     }
 
-    #orders-content-card-left > #lblUnitPrice {
+    #orders-content-card-left > #lblUnitPrice-orders {
         left: 425px;
     }
 
-    #orders-content-card-left > #txtItemId,
+    #orders-content-card-left > #txtItemId-orders,
     #orders-content-card-right > #txtOrderId {
         width: 120px;
     }
@@ -483,7 +483,7 @@ table.table.table-bordered > tbody > tr > td {
         top: 241px;
     }
 
-    #orders-content-card-right>#txtPhoneNumber {
+    #orders-content-card-right>#txtPhoneNumber-orders {
         width: 160px;
     }
 
@@ -547,35 +547,35 @@ table.table.table-bordered > tbody > tr > td {
         background-position:250px;
     }
 
-    #orders-content-card-left>#lblItemName {
+    #orders-content-card-left>#lblItemName-orders {
         position: absolute;
         left: 187px;
         top: 110px;
     }
 
-    #orders-content-card-left > #txtItemName,
-    #orders-content-card-right > #txtCustomerName {
+    #orders-content-card-left > #txtItemName-orders,
+    #orders-content-card-right > #txtCustomerName-orders {
         width: 150px;
     }
 
-    #orders-content-card-right > #lblCustomerName {
+    #orders-content-card-right > #lblCustomerName-orders {
         left: 364px;
     }
 
-    #orders-content-card-left > #txtItemName {
+    #orders-content-card-left > #txtItemName-orders {
         left: 171px;
         width: 180px;
     }
 
-    #orders-content-card-left > #txtUnitPrice {
+    #orders-content-card-left > #txtUnitPrice-orders {
         left: 383px;
     }
 
-    #orders-content-card-left > #lblUnitPrice {
+    #orders-content-card-left > #lblUnitPrice-orders {
         left: 396px;
     }
 
-    #orders-content-card-left > #txtItemId,
+    #orders-content-card-left > #txtItemId-orders,
     #orders-content-card-right > #txtOrderId {
         width: 120px;
     }
@@ -596,7 +596,7 @@ table.table.table-bordered > tbody > tr > td {
         top: 241px;
     }
 
-    #orders-content-card-right>#txtPhoneNumber {
+    #orders-content-card-right>#txtPhoneNumber-orders {
         width: 160px;
     }
 
@@ -730,25 +730,25 @@ table.table.table-bordered > tbody > tr > td {
         width: 90vw;
     }
 
-    #orders-content-card-left>#lblUnitPrice {
+    #orders-content-card-left>#lblUnitPrice-orders {
         position: absolute;
         left: 675px;
         top: 110px;
     }
 
-    #orders-content-card-left>#txtUnitPrice {
+    #orders-content-card-left>#txtUnitPrice-orders {
         position: absolute;
         left: 665px;
         top: 140px;
     }
 
-    #orders-content-card-left>#txtItemName {
+    #orders-content-card-left>#txtItemName-orders {
         width: 270px;
         position: absolute;
         left: 277px;
     }
 
-    #orders-content-card-left>#lblItemName {
+    #orders-content-card-left>#lblItemName-orders {
         width: 270px;
         position: absolute;
         left: 290px;
@@ -779,12 +779,12 @@ table.table.table-bordered > tbody > tr > td {
         top: 240px;
     }
 
-    #orders-content-card-left > #txtItemId,
+    #orders-content-card-left > #txtItemId-orders,
     #orders-content-card-right > #txtOrderId {
         width: 155px;
     }
 
-    #orders-content-card-left>#txtQtyOnHand {
+    #orders-content-card-left>#txtQtyOnHand-orders {
         width: 155px;
     }
 
@@ -795,27 +795,27 @@ table.table.table-bordered > tbody > tr > td {
         background-position: 270px;
     }
 
-    #orders-content-card-left > #txtItemName,
-    #orders-content-card-right > #txtCustomerName {
+    #orders-content-card-left > #txtItemName-orders,
+    #orders-content-card-right > #txtCustomerName-orders {
         width: 288px;
     }
 
-    #orders-content-card-right > #txtCustomerName {
+    #orders-content-card-right > #txtCustomerName-orders {
         left: 598px;
     }
 
-    #orders-content-card-right > #lblCustomerName {
+    #orders-content-card-right > #lblCustomerName-orders {
         left: 615px;
     }
 
-    #orders-content-card-right>#txtCustomerId {
+    #orders-content-card-right>#txtCustomerId-orders {
         width: 155px;
         position: absolute;
         left: 277px;
         top: 140px;
     }
 
-    #orders-content-card-right>#lblCustomerID {
+    #orders-content-card-right>#lblCustomerID-orders {
         position: absolute;
         left: 289px;
         top: 110px;
@@ -847,11 +847,11 @@ table.table.table-bordered > tbody > tr > td {
 
 @media all and (max-width: 990px) {
 
-    #orders-content-card-right > #lblCustomerName {
+    #orders-content-card-right > #lblCustomerName-orders {
         left: 555px;
     }
 
-    #orders-content-card-right > #txtCustomerName {
+    #orders-content-card-right > #txtCustomerName-orders {
         left: 540px;
         width: 288px;
     }
@@ -877,24 +877,24 @@ table.table.table-bordered > tbody > tr > td {
         left: 308px;
     }
 
-    #orders-content-card-left>#lblItemName {
+    #orders-content-card-left>#lblItemName-orders {
         width: 270px;
         position: absolute;
         left: 248px;
     }
 
-    #orders-content-card-left > #txtItemName {
+    #orders-content-card-left > #txtItemName-orders {
         left: 227px;
         width: 245px;
     }
 
-    #orders-content-card-left>#lblUnitPrice {
+    #orders-content-card-left>#lblUnitPrice-orders {
         position: absolute;
         left: 548px;
         top: 110px;
     }
 
-    #orders-content-card-left>#txtUnitPrice {
+    #orders-content-card-left>#txtUnitPrice-orders {
         position: absolute;
         left: 526px;
         top: 140px;
@@ -923,24 +923,24 @@ table.table.table-bordered > tbody > tr > td {
         top: 241px;
     }
 
-    #orders-content-card-right>#txtCustomerId {
+    #orders-content-card-right>#txtCustomerId-orders {
         left: 218px;
     }
 
-    #orders-content-card-right>#lblCustomerID {
+    #orders-content-card-right>#lblCustomerID-orders {
         left: 238px;
     }
 
-    #orders-content-card-right > #lblCustomerName {
+    #orders-content-card-right > #lblCustomerName-orders {
         left: 432px;
     }
 
-    #orders-content-card-right > #txtCustomerName {
+    #orders-content-card-right > #txtCustomerName-orders {
         left: 417px;
         width: 238px;
     }
 
-    #orders-content-card-right>#txtPhoneNumber {
+    #orders-content-card-right>#txtPhoneNumber-orders {
         width: 174px;
     }
 
@@ -1096,13 +1096,13 @@ table.table.table-bordered > tbody > tr > td {
         margin: auto;
     }
 
-    #orders-content-card-left>#txtUnitPrice {
+    #orders-content-card-left>#txtUnitPrice-orders {
         position: absolute;
         left: 18px;
         top: 335px;
     }
 
-    #orders-content-card-left>#lblUnitPrice {
+    #orders-content-card-left>#lblUnitPrice-orders {
         position: absolute;
         left: 33px;
         top: 306px;
@@ -1144,13 +1144,13 @@ table.table.table-bordered > tbody > tr > td {
         top: 333px;
     }
 
-    #orders-content-card-right > #txtCustomerName {
+    #orders-content-card-right > #txtCustomerName-orders {
         top: 240px;
         left: 227px;
         width: 238px;
     }
 
-    #orders-content-card-right > #lblCustomerName {
+    #orders-content-card-right > #lblCustomerName-orders {
         top: 209px;
         left: 247px;
     }
@@ -1254,13 +1254,13 @@ table.table.table-bordered > tbody > tr > td {
         margin: auto;
     }
 
-    #orders-content-card-left>#txtUnitPrice {
+    #orders-content-card-left>#txtUnitPrice-orders {
         width: 340px;
         left: 18px;
         top: 405px;
     }
 
-    #orders-content-card-left>#lblUnitPrice {
+    #orders-content-card-left>#lblUnitPrice-orders {
         position: absolute;
         left: 33px;
         top: 376px;
@@ -1290,13 +1290,13 @@ table.table.table-bordered > tbody > tr > td {
         top: 474px;
     }
 
-    #orders-content-card-right > #txtCustomerName {
+    #orders-content-card-right > #txtCustomerName-orders {
         top: 327px;
         left: 18px;
         width: 342px;
     }
 
-    #orders-content-card-right > #lblCustomerName {
+    #orders-content-card-right > #lblCustomerName-orders {
         top: 295px;
         left: 30px;
     }
@@ -1313,15 +1313,15 @@ table.table.table-bordered > tbody > tr > td {
         left: 16px;
     }
 
-    #orders-content-card-right>#txtPhoneNumber {
+    #orders-content-card-right>#txtPhoneNumber-orders {
         width: 339px;
     }
 
-    #orders-content-card-right>#txtCustomerId {
+    #orders-content-card-right>#txtCustomerId-orders {
         left: 202px;
     }
 
-    #orders-content-card-right>#lblCustomerID {
+    #orders-content-card-right>#lblCustomerID-orders {
         left: 216px;
     }
 
@@ -1336,27 +1336,27 @@ table.table.table-bordered > tbody > tr > td {
         top: 290px;
     }
 
-    #orders-content-card-left>#txtQtyOnHand {
+    #orders-content-card-left>#txtQtyOnHand-orders {
         width: 340px;
         left: 18px;
         top: 230px;
     }
 
-    #orders-content-card-left>#lblQtyOnHand {
+    #orders-content-card-left>#lblQtyOnHand-orders {
         left: 30px;
         top: 200px;
     }
 
-    #orders-content-card-left > #txtItemId {
+    #orders-content-card-left > #txtItemId-orders {
         width: 130px;
     }
 
-    #orders-content-card-left>#lblItemName {
+    #orders-content-card-left>#lblItemName-orders {
         width: 113px;
         left: 188px;
     }
 
-    #orders-content-card-left > #txtItemName {
+    #orders-content-card-left > #txtItemName-orders {
         left: 167px;
         width: 192px;
     }
