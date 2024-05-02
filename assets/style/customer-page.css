@@ -169,7 +169,7 @@ table.table.table-bordered > tbody > tr > td {
     top: 220px;
 }
 
-#customers-main-section>#lblSearchOrders {
+#customers-main-section>#lblSearchCustomers {
     font-family: "Lexend", sans-serif;
     font-style: italic;
     font-size: 17px;
@@ -180,7 +180,7 @@ table.table.table-bordered > tbody > tr > td {
     top: 366px;
 }
 
-#customers-main-section>#txtSearch-03 {
+#customers-main-section>#txtSearch-customers {
     width: 305px;
     height: 39px;
     position: absolute;
@@ -196,7 +196,7 @@ table.table.table-bordered > tbody > tr > td {
 #customers-content-card-left > #txtName:focus,
 #customers-content-card-left > #txtAddress:focus,
 #customers-content-card-left > #txtPhoneNumber:focus,
-#customers-main-section>#txtSearch-03:focus {
+#customers-main-section>#txtSearch-customers:focus {
     background-color: #FEE5D4;
     border: 3px solid #B05200;
     box-shadow: none;
@@ -232,24 +232,24 @@ table.table.table-bordered > tbody > tr > td {
     top: 393px;
 }
 
-#customers-main-section>#btnUpdate {
+#customers-main-section>#btnUpdate-customer {
     left: 70vw;
     top: 393px;
 }
 
-#customers-main-section>#btnDelete {
+#customers-main-section>#btnDelete-customer {
     left: 80vw;
     top: 393px;
 }
 
-#customers-main-section>#btnClearAll {
+#customers-main-section>#btnClearAll-customer {
     left: 90vw;
     top: 393px;
 }
 
-#customers-main-section>#btnUpdate,
-#customers-main-section>#btnDelete,
-#customers-main-section>#btnClearAll {
+#customers-main-section>#btnUpdate-customer,
+#customers-main-section>#btnDelete-customer,
+#customers-main-section>#btnClearAll-customer {
     width: 112px;
     height: 40px;
     position: absolute;
@@ -261,9 +261,9 @@ table.table.table-bordered > tbody > tr > td {
 }
 
 #customers-main-section>button.btn.btn-outline-primary:hover,
-#customers-main-section>#btnUpdate:hover,
-#customers-main-section>#btnDelete:hover,
-#customers-main-section>#btnClearAll:hover {
+#customers-main-section>#btnUpdate-customer:hover,
+#customers-main-section>#btnDelete-customer:hover,
+#customers-main-section>#btnClearAll-customer:hover {
     background-color: #B05200;
     color: #FEE5D4;
     font-weight: 550;
@@ -299,15 +299,15 @@ table.table.table-bordered > tbody > tr > td {
 }
 
 @media all and (max-width: 1440px) {
-    #customers-main-section>#btnUpdate {
+    #customers-main-section>#btnUpdate-customer {
         left: 67vw;
     }
 
-    #customers-main-section>#btnDelete {
+    #customers-main-section>#btnDelete-customer {
         left: 77vw;
     }
 
-    #customers-main-section>#btnClearAll {
+    #customers-main-section>#btnClearAll-customer {
         left: 87vw;
     }
 }
@@ -318,15 +318,15 @@ table.table.table-bordered > tbody > tr > td {
         left: 73vw;
     }
 
-    #customers-main-section>#btnUpdate {
+    #customers-main-section>#btnUpdate-customer {
         left: 67vw;
     }
 
-    #customers-main-section>#btnDelete {
+    #customers-main-section>#btnDelete-customer {
         left: 77vw;
     }
 
-    #customers-main-section>#btnClearAll {
+    #customers-main-section>#btnClearAll-customer {
         left: 87vw;
     }
 }
@@ -401,15 +401,15 @@ table.table.table-bordered > tbody > tr > td {
         top: 393px;
     }
 
-    #customers-main-section>#btnUpdate {
+    #customers-main-section>#btnUpdate-customer {
         left: 60vw;
     }
 
-    #customers-main-section>#btnDelete {
+    #customers-main-section>#btnDelete-customer {
         left: 72vw;
     }
 
-    #customers-main-section>#btnClearAll {
+    #customers-main-section>#btnClearAll-customer {
         left: 84vw;
     }
 }
@@ -449,13 +449,13 @@ table.table.table-bordered > tbody > tr > td {
         top: 650px;
     }
 
-    #customers-main-section>#lblSearchOrders {
+    #customers-main-section>#lblSearchCustomers {
         font-size: 16px;
         left: 45px;
         top: 613px;
     }
 
-    #customers-main-section>#txtSearch-03 {
+    #customers-main-section>#txtSearch-customers {
         width: 200px;
         background-position: 157px;
         left: 31px;
@@ -469,19 +469,19 @@ table.table.table-bordered > tbody > tr > td {
         top: 643px;
     }
 
-    #customers-main-section>#btnUpdate {
+    #customers-main-section>#btnUpdate-customer {
         width: 90px;
         top: 642px;
         left: 55vw;
     }
 
-    #customers-main-section>#btnDelete {
+    #customers-main-section>#btnDelete-customer {
         width: 90px;
         top: 642px;
         left: 68.2vw;
     }
 
-    #customers-main-section>#btnClearAll {
+    #customers-main-section>#btnClearAll-customer {
         width: 97px;
         top: 642px;
         left: 81vw;
@@ -578,13 +578,13 @@ table.table.table-bordered > tbody > tr > td {
         top: 840px;
     }
 
-    #customers-main-section>#lblSearchOrders {
+    #customers-main-section>#lblSearchCustomers {
         font-size: 15px;
         left: 36px;
         top: 805px;
     }
 
-    #customers-main-section>#txtSearch-03 {
+    #customers-main-section>#txtSearch-customers {
         width: 200px;
         background-position: 157px;
         left: 23px;
@@ -598,19 +598,19 @@ table.table.table-bordered > tbody > tr > td {
         top: 831px;
     }
 
-    #customers-main-section>#btnUpdate {
+    #customers-main-section>#btnUpdate-customer {
         width: 90px;
         top: 692px;
         left: 15vw;
     }
 
-    #customers-main-section>#btnDelete {
+    #customers-main-section>#btnDelete-customer {
         width: 90px;
         top: 692px;
         left: 38.2vw;
     }
 
-    #customers-main-section>#btnClearAll {
+    #customers-main-section>#btnClearAll-customer {
         width: 97px;
         top: 692px;
         left: 61vw;
@@ -674,14 +674,14 @@ table.table.table-bordered > tbody > tr > td {
         top: 920px;
     }
 
-    #customers-main-section>#txtSearch-03 {
+    #customers-main-section>#txtSearch-customers {
         width: 200px;
         background-position: 157px;
         left: 23px;
         top: 912px;
     }
 
-    #customers-main-section>#lblSearchOrders {
+    #customers-main-section>#lblSearchCustomers {
         font-size: 15px;
         left: 36px;
         top: 885px;
@@ -694,19 +694,19 @@ table.table.table-bordered > tbody > tr > td {
         top: 909px;
     }
 
-    #customers-main-section>#btnUpdate {
+    #customers-main-section>#btnUpdate-customer {
         width: 90px;
         top: 782px;
         left: 15vw;
     }
 
-    #customers-main-section>#btnDelete {
+    #customers-main-section>#btnDelete-customer {
         width: 90px;
         top: 782px;
         left: 38.2vw;
     }
 
-    #customers-main-section>#btnClearAll {
+    #customers-main-section>#btnClearAll-customer {
         width: 97px;
         top: 782px;
         left: 61vw;
