@@ -1,7 +1,7 @@
 body {
     background-color: #FEE5D4;
 }
-#nav-bar-tags>a {
+#nav-bar-tags>span {
     margin-right: 25px; /* Adjust this value to set the space between anchor tags */
     margin-top: 10px;
     font-family: "Lexend", sans-serif;
@@ -11,15 +11,6 @@ body {
     position: sticky;
     margin-left: 200px;
     margin-right: 50px;
-}
-
-#current-page-button {
-    background-color: #B05200;
-    color: #FFEEE2;
-    padding: 18px 28px;
-    border-radius: 30px;
-    text-decoration: none;
-    font-weight: 1000;
 }
 
 .Orders,
@@ -52,7 +43,7 @@ footer>p {
     margin-bottom: 8px;
 }
 
-#main-section {
+#home-main-section {
     width: 70vw;
     height: 70vh;
     background-color: #FFF4ED;
@@ -65,19 +56,19 @@ footer>p {
     border-radius: 30px;
     padding: 20px; /* Add padding to prevent content from sticking to edges */
 }
-#main-section>label {
+#home-main-section>label {
     font-size: x-large;
     font-style: italic;
 }
 
-#sub-section {
+#home-sub-section {
     width: 28vw;
     height: 70vh;
     position: absolute;
     padding: 20px;
 }
 
-#container {
+#container-home-section {
     position: relative;
     padding-bottom: 47px; /* Height of the footer */
 }
@@ -95,7 +86,7 @@ footer>p {
 #card2>div>img,
 #card3>div>img,
 #card4>div>img,
-#middle-card>img {
+#home-middle-card>img {
     position: absolute;
     top: 0;
     left: 0;
@@ -104,7 +95,7 @@ footer>p {
     margin: auto;
 }
 
-#middle-card {
+#home-middle-card {
     width: 300px;
     height: 180px;
     border: 3px solid #B05200;
@@ -129,7 +120,7 @@ label {
     color: #B05200;
     font-weight: 900;
 }
-#middle-card>label {
+#home-middle-card>label {
     margin-top: 15px;
     font-size: 22px;
 }
@@ -153,39 +144,39 @@ table.table.table-bordered > tbody > tr > td {
 }
 
 @media all and (max-width: 1440px) {
-    #main-section {
+    #home-main-section {
         width: 63vw;
     }
 
-    #sub-section {
+    #home-sub-section {
         width: 35vw;
     }
 }
 
 @media all and (max-width: 1333px) {
-    #main-section {
+    #home-main-section {
         width: 60vw;
     }
 
-    #sub-section {
+    #home-sub-section {
         width: 38vw;
     }
 }
 
 @media all and (max-width: 1024px) {
 
-    #container {
+    #container-home-section {
         height: 155vh;
         position: relative;
         padding-bottom: 47px; /* Height of the footer */
     }
 
-    #main-section {
+    #home-main-section {
         top: 80vh;
         width: 94vw;
     }
 
-    #sub-section {
+    #home-sub-section {
         width: 90vw;
         left: 5vw;
     }
@@ -194,18 +185,18 @@ table.table.table-bordered > tbody > tr > td {
 
 @media all and (max-width: 990px) {
 
-    #container {
+    #container-home-section {
         height: 155vh;
         position: relative;
         padding-bottom: 47px; /* Height of the footer */
     }
 
-    #main-section {
+    #home-main-section {
         top: 80vh;
         width: 94vw;
     }
 
-    #sub-section {
+    #home-sub-section {
         width: 90vw;
         left: 5vw;
     }
@@ -213,36 +204,36 @@ table.table.table-bordered > tbody > tr > td {
 
 @media all and (max-width: 764px) {
 
-    #container {
+    #container-home-section {
         height: 155vh;
         position: relative;
         padding-bottom: 47px; /* Height of the footer */
     }
 
-    #main-section {
+    #home-main-section {
         top: 80vh;
         width: 94vw;
     }
 
-    #sub-section {
+    #home-sub-section {
         width: 90vw;
         left: 5vw;
     }
 }
 
 @media all and (max-width: 580px) {
-    #container {
+    #container-home-section {
         height: 180vh;
         position: relative;
         padding-bottom: 47px; /* Height of the footer */
     }
 
-    #main-section {
+    #home-main-section {
         top: 105vh;
         width: 94vw;
     }
 
-    #sub-section {
+    #home-sub-section {
         height: 105vh;
         width: 90vw;
         left: 5vw;
@@ -250,13 +241,13 @@ table.table.table-bordered > tbody > tr > td {
 }
 
 @media all and (max-width: 425px) {
-    #container {
+    #container-home-section {
         height: 185vh;
         position: relative;
         padding-bottom: 47px; /* Height of the footer */
     }
 
-    #middle-card {
+    #home-middle-card {
         top: 0;
         left: 0;
         bottom: 100px;
@@ -264,13 +255,13 @@ table.table.table-bordered > tbody > tr > td {
         margin: auto;
     }
 
-    #main-section {
+    #home-main-section {
         top: 105vh;
         width: 94vw;
         height: 74vh;
     }
 
-    #sub-section {
+    #home-sub-section {
         height: 105vh;
         width: 90vw;
         left: 5vw;
