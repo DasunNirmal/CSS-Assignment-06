@@ -130,13 +130,13 @@ table.table.table-bordered > tbody > tr > td {
     top: 80px;
 }
 
-#items-content-card-left>#lblName {
+#items-content-card-left>#lblItemName {
     position: absolute;
     left: 283px;
     top: 50px;
 }
 
-#items-content-card-left>#txtName {
+#items-content-card-left>#txtItemName {
     width: 255px;
     position: absolute;
     left: 263px;
@@ -180,7 +180,7 @@ table.table.table-bordered > tbody > tr > td {
     top: 366px;
 }
 
-#items-main-section>#txtSearch-03 {
+#items-main-section>#txtSearch-items {
     width: 305px;
     height: 39px;
     position: absolute;
@@ -205,17 +205,17 @@ table.table.table-bordered > tbody > tr > td {
     top: 393px;
 }
 
-#items-main-section>#btnUpdate {
+#items-main-section>#btnUpdate-items {
     left: 70vw;
     top: 393px;
 }
 
-#items-main-section>#btnDelete {
+#items-main-section>#btnDelete-items {
     left: 80vw;
     top: 393px;
 }
 
-#items-main-section>#btnClearAll {
+#items-main-section>#btnClearAll-items {
     left: 90vw;
     top: 393px;
 }
@@ -238,19 +238,19 @@ table.table.table-bordered > tbody > tr > td {
 }
 
 #items-content-card-left > #txtItemID:focus,
-#items-content-card-left > #txtName:focus,
+#items-content-card-left > #txtItemName:focus,
 #items-content-card-left > #txtPrice:focus,
 #items-content-card-left > #txtQuantity:focus,
-#items-main-section>#txtSearch-03:focus {
+#items-main-section>#txtSearch-items:focus {
     background-color: #FEE5D4;
     border: 3px solid #B05200;
     box-shadow: none;
 }
 
 #items-main-section>button.btn.btn-outline-primary:hover,
-#items-main-section>#btnUpdate:hover,
-#items-main-section>#btnDelete:hover,
-#items-main-section>#btnClearAll:hover {
+#items-main-section>#btnUpdate-items:hover,
+#items-main-section>#btnDelete-items:hover,
+#items-main-section>#btnClearAll-items:hover {
     background-color: #B05200;
     color: #FEE5D4;
     font-weight: 550;
@@ -286,15 +286,15 @@ table.table.table-bordered > tbody > tr > td {
 }
 
 @media all and (max-width: 1440px) {
-    #items-main-section>#btnUpdate {
+    #items-main-section>#btnUpdate-items {
         left: 67vw;
     }
 
-    #items-main-section>#btnDelete {
+    #items-main-section>#btnDelete-items {
         left: 77vw;
     }
 
-    #items-main-section>#btnClearAll {
+    #items-main-section>#btnClearAll-items {
         left: 87vw;
     }
 }
@@ -305,15 +305,15 @@ table.table.table-bordered > tbody > tr > td {
         left: 73vw;
     }
 
-    #items-main-section>#btnUpdate {
+    #items-main-section>#btnUpdate-items {
         left: 67vw;
     }
 
-    #items-main-section>#btnDelete {
+    #items-main-section>#btnDelete-items {
         left: 77vw;
     }
 
-    #items-main-section>#btnClearAll {
+    #items-main-section>#btnClearAll-items {
         left: 87vw;
     }
 }
@@ -355,13 +355,13 @@ table.table.table-bordered > tbody > tr > td {
         top: 80px;
     }
 
-    #items-content-card-left>#lblName {
+    #items-content-card-left>#lblItemName {
         position: absolute;
         left: 223px;
         top: 50px;
     }
 
-    #items-content-card-left>#txtName {
+    #items-content-card-left>#txtItemName {
         width: 211px;
         position: absolute;
         left: 205px;
@@ -388,15 +388,15 @@ table.table.table-bordered > tbody > tr > td {
         top: 393px;
     }
 
-    #items-main-section>#btnUpdate {
+    #items-main-section>#btnUpdate-items {
         left: 60vw;
     }
 
-    #items-main-section>#btnDelete {
+    #items-main-section>#btnDelete-items {
         left: 72vw;
     }
 
-    #items-main-section>#btnClearAll {
+    #items-main-section>#btnClearAll-items {
         left: 84vw;
     }
 }
@@ -420,7 +420,7 @@ table.table.table-bordered > tbody > tr > td {
         left: 60px;
     }
 
-    #items-main-section>#btnClearAll {
+    #items-main-section>#btnClearAll-items {
         left: 83vw;
         width: 100px;
     }
@@ -447,7 +447,7 @@ table.table.table-bordered > tbody > tr > td {
         top: 613px;
     }
 
-    #items-main-section>#txtSearch-03 {
+    #items-main-section>#txtSearch-items {
         width: 200px;
         background-position: 157px;
         left: 31px;
@@ -461,19 +461,19 @@ table.table.table-bordered > tbody > tr > td {
         top: 643px;
     }
 
-    #items-main-section>#btnUpdate {
+    #items-main-section>#btnUpdate-items {
         width: 90px;
         top: 642px;
         left: 55vw;
     }
 
-    #items-main-section>#btnDelete {
+    #items-main-section>#btnDelete-items {
         width: 90px;
         top: 642px;
         left: 68.2vw;
     }
 
-    #items-main-section>#btnClearAll {
+    #items-main-section>#btnClearAll-items {
         width: 97px;
         top: 642px;
         left: 81vw;
@@ -529,12 +529,12 @@ table.table.table-bordered > tbody > tr > td {
         top: 50px;
     }
 
-    #items-content-card-left>#lblName {
+    #items-content-card-left>#lblItemName {
         left: 243px;
         top: 50px;
     }
 
-    #items-content-card-left>#txtName {
+    #items-content-card-left>#txtItemName {
         left: 222px;
         width: 190px;
     }
@@ -576,7 +576,7 @@ table.table.table-bordered > tbody > tr > td {
         top: 805px;
     }
 
-    #items-main-section>#txtSearch-03 {
+    #items-main-section>#txtSearch-items {
         width: 200px;
         background-position: 157px;
         left: 23px;
@@ -590,19 +590,19 @@ table.table.table-bordered > tbody > tr > td {
         top: 831px;
     }
 
-    #items-main-section>#btnUpdate {
+    #items-main-section>#btnUpdate-items {
         width: 90px;
         top: 692px;
         left: 15vw;
     }
 
-    #items-main-section>#btnDelete {
+    #items-main-section>#btnDelete-items {
         width: 90px;
         top: 692px;
         left: 38.2vw;
     }
 
-    #items-main-section>#btnClearAll {
+    #items-main-section>#btnClearAll-items {
         width: 97px;
         top: 692px;
         left: 61vw;
@@ -672,7 +672,7 @@ table.table.table-bordered > tbody > tr > td {
         top: 920px;
     }
 
-    #items-main-section>#txtSearch-03 {
+    #items-main-section>#txtSearch-items {
         width: 200px;
         background-position: 157px;
         left: 23px;
@@ -692,19 +692,19 @@ table.table.table-bordered > tbody > tr > td {
         top: 909px;
     }
 
-    #items-main-section>#btnUpdate {
+    #items-main-section>#btnUpdate-items {
         width: 90px;
         top: 782px;
         left: 15vw;
     }
 
-    #items-main-section>#btnDelete {
+    #items-main-section>#btnDelete-items {
         width: 90px;
         top: 782px;
         left: 38.2vw;
     }
 
-    #items-main-section>#btnClearAll {
+    #items-main-section>#btnClearAll-items {
         width: 97px;
         top: 782px;
         left: 61vw;
@@ -742,13 +742,13 @@ table.table.table-bordered > tbody > tr > td {
         top: 240px;
     }
 
-    #items-content-card-left>#txtName {
+    #items-content-card-left>#txtItemName {
         left: 31px;
         width: 294px;
         top: 170px;
     }
 
-    #items-content-card-left>#lblName {
+    #items-content-card-left>#lblItemName {
         left: 53px;
         top: 140px;
     }

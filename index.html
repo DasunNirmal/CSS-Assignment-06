@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/style/normalize.css">
+    <link rel="stylesheet" href="assets/style/items-page.css">
     <link rel="stylesheet" href="assets/style/customer-page.css">
     <link rel="stylesheet" href="assets/style/orders-page.css">
     <link rel="stylesheet" href="assets/style/home-page.css">
@@ -491,11 +492,117 @@
             </footer>
         </section>
 
+        <section id="items-section">
+            <!--Main Content-->
+            <main id="items-container">
+
+                <section id="items-main-section">
+
+                    <!--Left Card-->
+                    <div id="items-content-card-left">
+
+                        <!--label Item ID-->
+                        <label id="lblItemID" for="items-content-card-left">Item ID :</label>
+                        <!--Item ID field-->
+                        <input id="txtItemID" class="form-control" type="text" aria-label="default input example">
+
+                        <!--label Item Name-->
+                        <label id="lblItemName" for="items-content-card-left">Item Name :</label>
+                        <!--Item Name field-->
+                        <input id="txtItemName" class="form-control" type="text" aria-label="default input example">
+
+                        <!--label Item price-->
+                        <label id="lblPrice" for="items-content-card-left">Price :</label>
+                        <!--Item Price field-->
+                        <input id="txtPrice" class="form-control" type="text" aria-label="default input example">
+
+                        <!--label Quantity-->
+                        <label id="lblQuantity" for="items-content-card-left">Quantity :</label>
+                        <!--Quantity field-->
+                        <input id="txtQuantity" class="form-control" type="text" aria-label="default input example">
+
+                        <!--Add Item-->
+                        <button type="button" class="btn btn-primary">Add a New Item</button>
+
+                    </div>
+
+                    <!--label search-->
+                    <label id="lblSearchItems" for="items-main-section">Search Items :</label>
+
+                    <!--search orders field-->
+                    <input id="txtSearch-items" class="form-control" type="text" placeholder="search by id" aria-label="default input example">
+                    <button type="button" class="btn btn-outline-primary">search</button>
+
+                    <!--Table-->
+                    <div class="col-md-12 mt-4" style="height:225px; overflow-y: scroll" id="Tbl-items">
+                        <table class="table table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Item ID</th>
+                                <th>Item Name</th>
+                                <th>Price</th>
+                                <th>Quantity On Hand</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Mark</td>
+                                <td>Otto</td>
+                                <td>@mdo</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="totalItems">
+                        <label for="totalItems">Total Items</label>
+                        <img src="/assets/icons/icons8-grocery-shelf-100.png" alt="Items" width="65" height="65">
+                    </div>
+
+                    <!--btn Update-->
+                    <button id="btnUpdate-items" type="button" class="btn btn-outline-primary">Update</button>
+
+                    <!--btn Delete-->
+                    <button id="btnDelete-items" type="button" class="btn btn-outline-primary">Delete</button>
+
+                    <!--btn Clear All-->
+                    <button id="btnClearAll-items" type="button" class="btn btn-outline-primary">Clear All</button>
+
+                </section>
+
+            </main>
+
+            <!--Page Footer-->
+            <footer>
+                <img src="/assets/icons/pto-high-resolution-logo-transparent.png" alt="logo" width="73" height="80">
+                <p>© 2024 Dasun Nirmal. All rights reserved</p>
+            </footer>
+        </section>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script src="assets/lib/jquery-3.7.1.min.js"></script>
         <script>
 
-            $('#orders-section,#customers-section').hide();
+            $('#orders-section,#customers-section,#items-section').hide();
 
             /*home button css when the index file is loaded this will add initially*/
             $(document).ready(() => {
@@ -518,11 +625,13 @@
                 const home = $('.current-page-button');
                 const orders = $('.Orders');
                 const customers = $('.Customers');
+                const items = $('.Items');
 
                 /*Hide/show relevant sections*/
                 $('#home-section').show();
                 $('#orders-section').hide();
                 $('#customers-section').hide();
+                $('#items-section').hide();
 
 
                 /*Define a function for styling buttons*/
@@ -541,6 +650,7 @@
                 /*Applying styles to buttons*/
                 styleButton(orders);
                 styleButton(customers);
+                styleButton(items);
 
                 /*Define a function for hover effect*/
                 function applyHoverEffect(button) {
@@ -564,6 +674,7 @@
                 /*Applying hover effect to buttons*/
                 applyHoverEffect(orders);
                 applyHoverEffect(customers);
+                applyHoverEffect(items);
 
                 /*this hover makes sure that home btn style stays same as the up hover btn other wise the up hover will override
                 the css style in the home page btn.This is because all the css is applied to one file (SPA)*/
@@ -580,9 +691,11 @@
                 const home = $('.current-page-button');
                 const orders = $('.Orders');
                 const customers = $('.Customers');
+                const items = $('.Items');
 
                 /*Hide/show relevant sections*/
                 $('#home-section').hide();
+                $('#items-section').hide();
                 $('#orders-section').show();
 
 
@@ -602,6 +715,7 @@
                 /*Applying styles to buttons*/
                 styleButton(home);
                 styleButton(customers);
+                styleButton(items);
 
                 /*Define a function for hover effect*/
                 function applyHoverEffect(button) {
@@ -625,6 +739,7 @@
                 /*Applying hover effect to buttons*/
                 applyHoverEffect(home);
                 applyHoverEffect(customers);
+                applyHoverEffect(items);
 
                 /*this hover makes sure that home btn style stays same as the up hover btn other wise the up hover will override
                 the css style in the orders page btn.This is because all the css is applied to one file (SPA)*/
@@ -642,10 +757,12 @@
                 const home = $('.current-page-button');
                 const orders = $('.Orders');
                 const customers = $('.Customers');
+                const items = $('.Items');
 
                 // Hide/show relevant sections
                 $('#home-section').hide();
                 $('#orders-section').hide();
+                $('#items-section').hide();
                 $('#customers-section').show();
 
 
@@ -665,6 +782,7 @@
                 /*Applying styles to buttons*/
                 styleButton(home);
                 styleButton(orders);
+                styleButton(items);
 
                 /*Define a function for hover effect*/
                 function applyHoverEffect(button) {
@@ -688,10 +806,77 @@
                 /*Applying hover effect to buttons*/
                 applyHoverEffect(home);
                 applyHoverEffect(orders);
+                applyHoverEffect(items);
 
                 /*this hover makes sure that home btn style stays same as the up hover btn other wise the up hover will override
                 the css style in the orders page btn.This is because all the css is applied to one file (SPA)*/
                 $(customers).hover(function (){
+                    $(this).css({
+                        background: '#B05200',
+                        color: '#FEE5D4'
+                    });
+                });
+            });
+
+            $('#nav-items-section').on('click',() => {
+
+                const home = $('.current-page-button');
+                const orders = $('.Orders');
+                const customers = $('.Customers');
+                const items = $('.Items');
+
+                // Hide/show relevant sections
+                $('#home-section').hide();
+                $('#orders-section').hide();
+                $('#customers-section').hide();
+                $('#items-section').show();
+
+
+                // Define a function for styling buttons
+                function styleButton(button) {
+                    button.css({
+                        background: 'none',
+                        color: '#B05200',
+                        padding: '18px 28px',
+                        border: '30px',
+                        text: 'none',
+                        font: '700',
+                        cursor: 'pointer'
+                    });
+                }
+
+                /*Applying styles to buttons*/
+                styleButton(home);
+                styleButton(orders);
+                styleButton(customers);
+
+                /*Define a function for hover effect*/
+                function applyHoverEffect(button) {
+                    button.hover(function () {
+                        $(this).css({
+                            background: '#B05200',
+                            color: '#FEE5D4'
+                        });
+                    }, function () {
+                        $(this).css({
+                            background: 'none',
+                            color: '#B05200',
+                            padding: '18px 28px',
+                            border: '30px',
+                            text: 'none',
+                            font: '700'
+                        });
+                    });
+                }
+
+                /*Applying hover effect to buttons*/
+                applyHoverEffect(home);
+                applyHoverEffect(orders);
+                applyHoverEffect(customers);
+
+                /*this hover makes sure that home btn style stays same as the up hover btn other wise the up hover will override
+                the css style in the orders page btn.This is because all the css is applied to one file (SPA)*/
+                $(items).hover(function (){
                     $(this).css({
                         background: '#B05200',
                         color: '#FEE5D4'
