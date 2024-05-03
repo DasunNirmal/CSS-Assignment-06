@@ -416,7 +416,7 @@
                         <input id="txtPhoneNumber" class="form-control" type="text" aria-label="default input example">
 
                         <!--Add Customer-->
-                        <button type="button" class="btn btn-primary">Add a New Customer</button>
+                        <button type="button" class="btn btn-primary" id="addCustomers">Add a New Customer</button>
 
                     </div>
 
@@ -438,30 +438,8 @@
                                 <th>Phone Number</th>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="customers-table-tb">
                             <tr>
-                                <td>1</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
-                            </tr>
-                            <tr>
-                                <td>1</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td>@mdo</td>
                             </tr>
                             </tbody>
                         </table>
@@ -601,5 +579,49 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
         <script src="assets/lib/jquery-3.7.1.min.js"></script>
         <script src="assets/js/index_page.js"></script>
+        <script>
+
+            var customers = [];
+            var recordIndex;
+
+            function loadCustomerTable() {
+                $("#customers-table-tb").empty();
+
+                customers.map((item,index) => {
+                    var customerRecord = `<tr>
+                        <th class="c-id">${item.cID}</th>
+                        <td class="c-name">${item.name}</td>
+                        <td class="c-address">${item.address}</td>
+                        <td class="c-phoneNumber">${item.phoneNumber}</td>
+                    </tr>`
+                    $('#customers-table-tb').append(customerRecord);
+                });
+            }
+
+            $('#addCustomers').on('click', () => {
+                console.log("customers button");
+
+                var customerID = $('#txtCustomerID').val();
+                var customerName = $('#txtName').val();
+                var customerAddress = $('#txtAddress').val();
+                var phoneNumber = $('#txtPhoneNumber').val();
+
+                console.log(customerID);
+                console.log(customerName);
+                console.log(customerAddress);
+                console.log(phoneNumber);
+
+                let customer = {
+                    cID:customerID,
+                    name:customerName,
+                    address:customerAddress,
+                    phoneNumber:phoneNumber
+                }
+
+                customers.push(customer);
+                loadCustomerTable();
+            });
+
+        </script>
     </body>
 </html>
