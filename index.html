@@ -515,55 +515,59 @@
 
             $('#nav-home-section').on('click',() => {
 
-                var orders = $('.Orders');
-                var currentPageBtn = $('.current-page-button');
+                const home = $('.current-page-button');
+                const orders = $('.Orders');
+                const customers = $('.Customers');
 
-                $('#orders-section').hide(); /*hiding the orders section*/
-                $('#home-section').show(); /*show the home section*/
+                /*Hide/show relevant sections*/
+                $('#home-section').show();
+                $('#orders-section').hide();
+                $('#customers-section').hide();
 
-                /*when the home is clicked these styles will add to the btn*/
-                $(currentPageBtn).css({
-                    background: '#B05200',
-                    color: '#FFEEE2',
-                    padding: '18px 28px',
-                    border: '30px',
-                    text: 'none',
-                    font: '1000',
-                    cursor:'pointer'
-                });
 
-                /*when the home is clicked these styles will add to the orders btn*/
-                $(orders).css({
-                    background: 'none',
-                    color: '#B05200',
-                    padding: '18px 28px',
-                    border: '30px',
-                    text: 'none',
-                    font: '700',
-                    cursor:'pointer'
-                });
-
-                /*hover*/
-                $(orders).hover(function (){
-                    $(this).css({ /*cursor in*/
-                        background: '#B05200',
-                        color: '#FEE5D4'
-                    });
-
-                }, function(){ /*cursor out*/
-                    $(this).css({
+                /*Define a function for styling buttons*/
+                function styleButton(button) {
+                    button.css({
                         background: 'none',
                         color: '#B05200',
                         padding: '18px 28px',
                         border: '30px',
                         text: 'none',
-                        font: '700'
+                        font: '700',
+                        cursor: 'pointer'
                     });
-                });
+                }
+
+                /*Applying styles to buttons*/
+                styleButton(orders);
+                styleButton(customers);
+
+                /*Define a function for hover effect*/
+                function applyHoverEffect(button) {
+                    button.hover(function () {
+                        $(this).css({
+                            background: '#B05200',
+                            color: '#FEE5D4'
+                        });
+                    }, function () {
+                        $(this).css({
+                            background: 'none',
+                            color: '#B05200',
+                            padding: '18px 28px',
+                            border: '30px',
+                            text: 'none',
+                            font: '700'
+                        });
+                    });
+                }
+
+                /*Applying hover effect to buttons*/
+                applyHoverEffect(orders);
+                applyHoverEffect(customers);
 
                 /*this hover makes sure that home btn style stays same as the up hover btn other wise the up hover will override
                 the css style in the home page btn.This is because all the css is applied to one file (SPA)*/
-                $(currentPageBtn).hover(function (){
+                $(home).hover(function (){
                     $(this).css({
                         background: '#B05200',
                         color: '#FEE5D4'
@@ -571,52 +575,56 @@
                 });
             });
 
-            $('#nav-orders-section').on('click',() => {
+            $('#nav-orders-section').on('click', () => {
 
-                var orders = $('.Orders');
-                var currentPageBtn = $('.current-page-button');
+                const home = $('.current-page-button');
+                const orders = $('.Orders');
+                const customers = $('.Customers');
 
-                $('#home-section').hide(); /*hiding the home section*/
-                $('#orders-section').show(); /*show the orders section*/
+                /*Hide/show relevant sections*/
+                $('#home-section').hide();
+                $('#orders-section').show();
 
-                /*when the orders is clicked these styles will add to the btn*/
-                $(currentPageBtn).css({
-                    background: 'none',
-                    color:'#B05200',
-                    padding:'18px 28px',
-                    border:'30px',
-                    text:'none',
-                    font:'700',
-                    cursor:'pointer'
-                });
 
-                /*when the orders is clicked these styles will add to the orders btn*/
-                $(orders).css({
-                    background: '#B05200',
-                    color: '#FFEEE2',
-                    padding: '18px 28px',
-                    border: '30px',
-                    text: 'none',
-                    font: '1000',
-                    cursor:'pointer'
-                });
-
-                /*hover*/
-                $(currentPageBtn).hover(function (){
-                    $(this).css({ /*cursor in*/
-                        background: '#B05200',
-                        color: '#FEE5D4'
-                    });
-                }, function(){
-                    $(this).css({ /*cursor out*/
+                /*Define a function for styling buttons*/
+                function styleButton(button) {
+                    button.css({
                         background: 'none',
                         color: '#B05200',
                         padding: '18px 28px',
                         border: '30px',
                         text: 'none',
-                        font: '700'
+                        font: '700',
+                        cursor: 'pointer'
                     });
-                });
+                }
+
+                /*Applying styles to buttons*/
+                styleButton(home);
+                styleButton(customers);
+
+                /*Define a function for hover effect*/
+                function applyHoverEffect(button) {
+                    button.hover(function () {
+                        $(this).css({
+                            background: '#B05200',
+                            color: '#FEE5D4'
+                        });
+                    }, function () {
+                        $(this).css({
+                            background: 'none',
+                            color: '#B05200',
+                            padding: '18px 28px',
+                            border: '30px',
+                            text: 'none',
+                            font: '700'
+                        });
+                    });
+                }
+
+                /*Applying hover effect to buttons*/
+                applyHoverEffect(home);
+                applyHoverEffect(customers);
 
                 /*this hover makes sure that home btn style stays same as the up hover btn other wise the up hover will override
                 the css style in the orders page btn.This is because all the css is applied to one file (SPA)*/
@@ -631,51 +639,55 @@
 
             $('#nav-customers-section').on('click',() => {
 
-                var customers = $('.Customers');
-                var orders = $('.Orders');
-                var currentPageBtn = $('.current-page-button');
+                const home = $('.current-page-button');
+                const orders = $('.Orders');
+                const customers = $('.Customers');
 
-                $('#home-section').hide(); /*hiding the home section*/
-                $('#orders-section').hide(); /*show the orders section*/
-                $('#customers-section').show(); /*show the orders section*/
+                // Hide/show relevant sections
+                $('#home-section').hide();
+                $('#orders-section').hide();
+                $('#customers-section').show();
 
-                /*when the orders is clicked these styles will add to the btn*/
-                $(currentPageBtn,orders).css({
-                    background: 'none',
-                    color:'#B05200',
-                    padding:'18px 28px',
-                    border:'30px',
-                    text:'none',
-                    font:'700',
-                    cursor:'pointer'
-                });
 
-                $(customers).css({
-                    background: '#B05200',
-                    color: '#FFEEE2',
-                    padding: '18px 28px',
-                    border: '30px',
-                    text: 'none',
-                    font: '1000',
-                    cursor:'pointer'
-                });
-
-                /*hover*/
-                $(currentPageBtn,orders).hover(function (){
-                    $(this).css({ /*cursor in*/
-                        background: '#B05200',
-                        color: '#FEE5D4'
-                    });
-                }, function(){
-                    $(this).css({ /*cursor out*/
+                // Define a function for styling buttons
+                function styleButton(button) {
+                    button.css({
                         background: 'none',
                         color: '#B05200',
                         padding: '18px 28px',
                         border: '30px',
                         text: 'none',
-                        font: '700'
+                        font: '700',
+                        cursor: 'pointer'
                     });
-                });
+                }
+
+                /*Applying styles to buttons*/
+                styleButton(home);
+                styleButton(orders);
+
+                /*Define a function for hover effect*/
+                function applyHoverEffect(button) {
+                    button.hover(function () {
+                        $(this).css({
+                            background: '#B05200',
+                            color: '#FEE5D4'
+                        });
+                    }, function () {
+                        $(this).css({
+                            background: 'none',
+                            color: '#B05200',
+                            padding: '18px 28px',
+                            border: '30px',
+                            text: 'none',
+                            font: '700'
+                        });
+                    });
+                }
+
+                /*Applying hover effect to buttons*/
+                applyHoverEffect(home);
+                applyHoverEffect(orders);
 
                 /*this hover makes sure that home btn style stays same as the up hover btn other wise the up hover will override
                 the css style in the orders page btn.This is because all the css is applied to one file (SPA)*/
