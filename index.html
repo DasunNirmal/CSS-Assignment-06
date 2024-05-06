@@ -457,7 +457,7 @@
                     <button id="btnDelete-customer" type="button" class="btn btn-outline-primary">Delete</button>
 
                     <!--btn Clear All-->
-                    <button id="btnClearAll-customer" type="button" class="btn btn-outline-primary">Clear All</button>
+                    <button id="btnClearAll-customer" type="reset" class="btn btn-outline-primary">Clear All</button>
 
                 </section>
 
@@ -584,46 +584,7 @@
         <script src="controller/ItemsController.js"></script>
         <script>
 
-            var customers = [];
-            var recordIndex;
 
-            function loadCustomerTable() {
-                $("#customers-table-tb").empty();
-
-                customers.map((item,index) => {
-                    var customerRecord = `<tr>
-                        <th class="c-id">${item.cID}</th>
-                        <td class="c-name">${item.name}</td>
-                        <td class="c-address">${item.address}</td>
-                        <td class="c-phoneNumber">${item.phoneNumber}</td>
-                    </tr>`
-                    $('#customers-table-tb').append(customerRecord);
-                });
-            }
-
-            $('#addCustomers').on('click', () => {
-                console.log("customers button");
-
-                var customerID = $('#txtCustomerID').val();
-                var customerName = $('#txtName').val();
-                var customerAddress = $('#txtAddress').val();
-                var phoneNumber = $('#txtPhoneNumber').val();
-
-                console.log(customerID);
-                console.log(customerName);
-                console.log(customerAddress);
-                console.log(phoneNumber);
-
-                let customer = {
-                    cID:customerID,
-                    name:customerName,
-                    address:customerAddress,
-                    phoneNumber:phoneNumber
-                }
-
-                customers.push(customer);
-                loadCustomerTable();
-            });
 
         </script>
     </body>

@@ -63,3 +63,95 @@ $('#nav-customers-section').on('click',() => {
         });
     });
 });
+
+/**Add, Update, Delete, Clear All**/
+
+var customers = [];
+var recordIndex;
+
+function clearAll() {
+    $('#txtCustomerID').val("");
+    $('#txtName').val("");
+    $('#txtAddress').val("");
+    $('#txtPhoneNumber').val("");
+}
+
+$('#btnClearAll-customer').on('click',() => {
+    clearAll();
+});
+
+function loadCustomerTable() {
+    $("#customers-table-tb").empty();
+
+    customers.map((item,index) => {
+        var customerRecord = `<tr>
+                        <th class="c-id">${item.cID}</th>
+                        <td class="c-name">${item.name}</td>
+                        <td class="c-address">${item.address}</td>
+                        <td class="c-phoneNumber">${item.phoneNumber}</td>
+                    </tr>`
+        $('#customers-table-tb').append(customerRecord);
+    });
+}
+
+$('#customers-table-tb').on('click','tr',function () {
+    recordIndex = $(this).index();
+
+    var id = $(this).find(".c-id").text();
+    var name = $(this).find(".c-name").text();
+    var address = $(this).find(".c-address").text();
+    var phoneNumber = $(this).find(".c-phoneNumber").text();
+
+    $('#txtCustomerID').val(id);
+    $('#txtName').val(name);
+    $('#txtAddress').val(address);
+    $('#txtPhoneNumber').val(phoneNumber);
+});
+
+$('#addCustomers').on('click', () => {
+    console.log("customers button");
+
+    var customerID = $('#txtCustomerID').val();
+    var customerName = $('#txtName').val();
+    var customerAddress = $('#txtAddress').val();
+    var phoneNumber = $('#txtPhoneNumber').val();
+
+    console.log(customerID);
+    console.log(customerName);
+    console.log(customerAddress);
+    console.log(phoneNumber);
+
+    let customer = {
+        cID:customerID,
+        name:customerName,
+        address:customerAddress,
+        phoneNumber:phoneNumber
+    }
+
+    customers.push(customer);
+    loadCustomerTable();
+    clearAll();
+});
+
+$('#btnDelete-customer').on('click',() => {
+    customers.splice(recordIndex,1);
+    loadCustomerTable();
+    clearAll();
+});
+
+$('#btnUpdate-customer').on('click',() => {
+
+    var customerID = $('#txtCustomerID').val();
+    var customerName = $('#txtName').val();
+    var customerAddress = $('#txtAddress').val();
+    var phoneNumber = $('#txtPhoneNumber').val();
+
+    var cOb = customers[recordIndex];
+    cOb.cID = customerID;
+    cOb.name = customerName;
+    cOb.address = customerAddress;
+    cOb.phoneNumber = phoneNumber;
+
+    loadCustomerTable();
+    clearAll();
+});
