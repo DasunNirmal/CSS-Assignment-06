@@ -8,6 +8,7 @@ $('#nav-orders-section').on('click', () => {
     /*Hide/show relevant sections*/
     $('#home-section').hide();
     $('#items-section').hide();
+    $('#customers-section').hide();
     $('#orders-section').show();
 
 
