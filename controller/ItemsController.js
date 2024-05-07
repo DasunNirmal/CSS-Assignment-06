@@ -1,3 +1,7 @@
+import ItemModel from "../model/ItemModel.js";
+import {items} from "../db/db.js";
+var recordIndexItems;
+
 $('#nav-items-section').on('click',() => {
 
     const home = $('.current-page-button');
@@ -64,10 +68,8 @@ $('#nav-items-section').on('click',() => {
     });
 });
 
-/**Add, Update, Delete, Clear All**/
 
-var items = [];
-var recordIndexItems;
+/**Add, Update, Delete, Clear All**/
 
 function clearAll() {
     $('#txtItemID').val("");
@@ -114,14 +116,9 @@ $('#addItems').on('click',() => {
     var itemPrice = $('#txtPrice').val();
     var itemQty = $('#txtQuantity').val();
 
-    let item = {
-        iId:itemID,
-        name:itemName,
-        price:itemPrice,
-        qty:itemQty
-    }
+    let itemModel = new ItemModel(itemID,itemName,itemPrice,itemQty);
 
-    items.push(item);
+    items.push(itemModel);
     loadItemTable();
     clearAll()
 });
