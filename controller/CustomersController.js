@@ -67,7 +67,7 @@ $('#nav-customers-section').on('click',() => {
 /**Add, Update, Delete, Clear All**/
 
 var customers = [];
-var recordIndex;
+var recordIndexCustomers;
 
 function clearAll() {
     $('#txtCustomerID').val("");
@@ -95,7 +95,7 @@ function loadCustomerTable() {
 }
 
 $('#customers-table-tb').on('click','tr',function () {
-    recordIndex = $(this).index();
+    recordIndexCustomers = $(this).index();
 
     var id = $(this).find(".c-id").text();
     var name = $(this).find(".c-name").text();
@@ -134,7 +134,7 @@ $('#addCustomers').on('click', () => {
 });
 
 $('#btnDelete-customer').on('click',() => {
-    customers.splice(recordIndex,1);
+    customers.splice(recordIndexCustomers,1);
     loadCustomerTable();
     clearAll();
 });
@@ -146,7 +146,7 @@ $('#btnUpdate-customer').on('click',() => {
     var customerAddress = $('#txtAddress').val();
     var phoneNumber = $('#txtPhoneNumber').val();
 
-    var cOb = customers[recordIndex];
+    var cOb = customers[recordIndexCustomers];
     cOb.cID = customerID;
     cOb.name = customerName;
     cOb.address = customerAddress;
