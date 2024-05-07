@@ -87,7 +87,7 @@ function loadCustomerTable() {
 
     customers.map((item,index) => {
         var customerRecord = `<tr>
-                        <th class="c-id">${item.cID}</th>
+                        <td class="c-id">${item.id}</td>
                         <td class="c-name">${item.name}</td>
                         <td class="c-address">${item.address}</td>
                         <td class="c-phoneNumber">${item.phoneNumber}</td>
@@ -111,7 +111,7 @@ $('#customers-table-tb').on('click','tr',function () {
 });
 
 $('#addCustomers').on('click', () => {
-    console.log("cclicked");
+
     var customerID = $('#txtCustomerID').val();
     var customerName = $('#txtName').val();
     var customerAddress = $('#txtAddress').val();
@@ -138,7 +138,7 @@ $('#btnUpdate-customer').on('click',() => {
     var phoneNumber = $('#txtPhoneNumber').val();
 
     var cOb = customers[recordIndexCustomers];
-    cOb.cID = customerID;
+    cOb.id = customerID;
     cOb.name = customerName;
     cOb.address = customerAddress;
     cOb.phoneNumber = phoneNumber;

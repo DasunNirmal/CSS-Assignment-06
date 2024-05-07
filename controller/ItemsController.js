@@ -87,7 +87,7 @@ function loadItemTable() {
 
     items.map((item,index) => {
         var itemRecord = `<tr>
-                        <th class="i-id">${item.iId}</th>
+                        <td class="i-id">${item.id}</td>
                         <td class="i-name">${item.name}</td>
                         <td class="i-price">${item.price}</td>
                         <td class="i-qty">${item.qty}</td>
@@ -136,7 +136,7 @@ $('#btnUpdate-items').on('click',() => {
     var itemQty = $('#txtQuantity').val();
 
     var iOb = items[recordIndexItems];
-    iOb.iId = itemID;
+    iOb.id = itemID;
     iOb.name = itemName;
     iOb.price = itemPrice;
     iOb.qty = itemQty;
