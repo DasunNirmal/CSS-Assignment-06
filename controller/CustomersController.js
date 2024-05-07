@@ -1,3 +1,7 @@
+import CustomerModel from "../model/CustomerModel.js";
+import {customers} from "../db/db.js";
+var recordIndexCustomers;
+
 $('#nav-customers-section').on('click',() => {
 
     const home = $('.current-page-button');
@@ -64,10 +68,8 @@ $('#nav-customers-section').on('click',() => {
     });
 });
 
-/**Add, Update, Delete, Clear All**/
 
-var customers = [];
-var recordIndexCustomers;
+/**Add, Update, Delete, Clear All**/
 
 function clearAll() {
     $('#txtCustomerID').val("");
@@ -109,26 +111,15 @@ $('#customers-table-tb').on('click','tr',function () {
 });
 
 $('#addCustomers').on('click', () => {
-    console.log("customers button");
-
+    console.log("cclicked");
     var customerID = $('#txtCustomerID').val();
     var customerName = $('#txtName').val();
     var customerAddress = $('#txtAddress').val();
     var phoneNumber = $('#txtPhoneNumber').val();
 
-    console.log(customerID);
-    console.log(customerName);
-    console.log(customerAddress);
-    console.log(phoneNumber);
+    let customerModel = new CustomerModel(customerID,customerName,customerAddress,phoneNumber);
 
-    let customer = {
-        cID:customerID,
-        name:customerName,
-        address:customerAddress,
-        phoneNumber:phoneNumber
-    }
-
-    customers.push(customer);
+    customers.push(customerModel);
     loadCustomerTable();
     clearAll();
 });
