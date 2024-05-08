@@ -1,5 +1,8 @@
+import OrderModel from '../model/OrderModel.js';
+import {orders} from "../db/db.js";
 import {customers} from "../db/db.js";
 import {items} from "../db/db.js";
+var recordIndexOrders;
 
 $('#nav-orders-section').on('click', () => {
 
@@ -118,4 +121,135 @@ function SetSearchItemResults(results) {
 $('#search-items-orders').on('click', function() {
     const searchQuery = $(this).val();
     searchItems(searchQuery);
+});
+
+
+/**Add, Update, Delete, Clear All**/
+
+function loadOrderTable() {
+    $('#orders-table-tb').empty();
+
+    orders.map((item, index) => {
+        var orderRecord = `<tr>
+            <td class="o-id">${item.orderID}</td>
+            <td class="o-itemID">${item.itemID}</td>
+            <td class="o-itemName">${item.ItemName}</td>
+            <td class="o-unit-price">${item.unitPrice}</td>
+            <td class="o-qty-on-hand">${item.qtyOnHand}</td>
+            <td class="o-qty">${item.orderQty}</td>
+            <td class="o-order-date">${item.orderDate}</td>
+            <td class="o-customerID">${item.customerID}</td>
+            <td class="o-totalPrice">${item.totalPrice}</td>
+        </tr>`
+        $('#orders-table-tb').append(orderRecord);
+    });
+}
+
+function loadItemTable() {
+    $('#items-table-tb').empty();
+
+    items.map((item,index) => {
+        var itemRecord = `<tr>
+                        <td class="i-id">${item.id}</td>
+                        <td class="i-name">${item.name}</td>
+                        <td class="i-price">${item.price}</td>
+                        <td class="i-qty">${item.qty}</td>
+                    </tr>`
+        $('#items-table-tb').append(itemRecord);
+    });
+}
+
+$('#orders-table-tb').on('click','tr',function () {
+   recordIndexOrders = $(this).index();
+
+    var oId = $(this).find(".o-id").text();
+    var iId = $(this).find(".o-itemID").text();
+    var itemName = $(this).find(".o-itemName").text();
+    var unitPrice = $(this).find(".o-unit-price").text();
+    var qtyOnHand = $(this).find(".o-qty-on-hand").text();
+    var orderQty = $(this).find(".o-qty").text();
+    var orderDate = $(this).find(".o-order-date").text();
+    var cId = $(this).find(".o-customerID").text();
+    var total = $(this).find(".o-totalPrice").text();
+
+    $('#txtItemId-orders').val(iId);
+    $('#txtItemName-orders').val(itemName);
+    $('#txtUnitPrice-orders').val(unitPrice);
+    $('#txtQtyOnHand-orders').val(qtyOnHand);
+    $('#txtOrderQuantity').val(orderQty);
+
+    $('#txtOrderId').val(oId);
+    $('#txtCustomerId-orders').val(cId);
+    $('#txtCustomerName-orders').val("------  ------");
+    $('#txtPhoneNumber-orders').val("------  ------");
+    $('#txtOrderDate').val(orderDate);
+
+});
+
+$('#place-order').on('click', function () {
+    var itemID = $('#txtItemId-orders').val();
+    var itemName = $('#txtItemName-orders').val();
+    var unitPrice = $('#txtUnitPrice-orders').val();
+    var qtyOnHand = $('#txtQtyOnHand-orders').val();
+    var orderQty = $('#txtOrderQuantity').val();
+
+    var orderID = $('#txtOrderId').val();
+    var customerID = $('#txtCustomerId-orders').val();
+    var customerName = $('#txtCustomerName-orders').val();
+    var phoneNumber = $('#txtPhoneNumber-orders').val();
+    var orderDate = $('#txtOrderDate').val();
+
+    var totalPrice = unitPrice * orderQty;
+
+    /*Check if the item already exists*/
+    var existingItemIndex = items.findIndex(item => item.id === itemID);
+
+    /*the findIndex method will return the first index of the array that have the item id, if there no elements was found
+    then it will returns -1. if there is an element it will return 1 then this existingItemIndex !== -1 will be true*/
+    if (existingItemIndex !== -1) {
+        /*If the item exists, update its quantity*/
+        items[existingItemIndex].qty -= orderQty;
+    }
+
+    let orderModel = new OrderModel(itemID, itemName, unitPrice, qtyOnHand, orderQty, orderID, customerID, customerName, phoneNumber, orderDate, totalPrice);
+    orders.push(orderModel);
+
+    loadOrderTable();
+    loadItemTable();
+});
+
+$('#btnDelete').on('click', function () {
+    orders.splice(recordIndexOrders,1);
+    loadOrderTable();
+});
+
+$('#btnUpdate').on('click',function () {
+    var itemID = $('#txtItemId-orders').val();
+    var itemName = $('#txtItemName-orders').val();
+    var unitPrice = $('#txtUnitPrice-orders').val();
+    var qtyOnHand = $('#txtQtyOnHand-orders').val();
+    var orderQty = $('#txtOrderQuantity').val();
+
+    var orderID = $('#txtOrderId').val();
+    var customerID = $('#txtCustomerId-orders').val();
+    var customerName = $('#txtCustomerName-orders').val();
+    var phoneNumber = $('#txtPhoneNumber-orders').val();
+    var orderDate = $('#txtOrderDate').val();
+
+    var totalPrice = unitPrice * orderQty;
+
+    var oOb = orders[recordIndexOrders];
+    oOb.itemID = itemID;
+    oOb.ItemName = itemName;
+    oOb.unitPrice = unitPrice;
+    oOb.qtyOnHand = qtyOnHand;
+    oOb.orderQty = orderQty;
+    oOb.orderID = orderID;
+    oOb.customerID = customerID;
+    oOb.customerName = customerName;
+    oOb.phoneNumber = phoneNumber;
+    oOb.orderDate = orderDate;
+    oOb.totalPrice = totalPrice;
+
+    loadOrderTable();
 });
