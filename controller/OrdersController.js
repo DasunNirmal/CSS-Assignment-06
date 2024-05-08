@@ -2,6 +2,8 @@ import OrderModel from '../model/OrderModel.js';
 import {orders} from "../db/db.js";
 import {customers} from "../db/db.js";
 import {items} from "../db/db.js";
+import {loadOrderTableHome} from "./IndexController.js";
+
 var recordIndexOrders;
 
 $('#nav-orders-section').on('click', () => {
@@ -250,6 +252,7 @@ $('#place-order').on('click', function () {
 
     loadOrderTable();
     loadItemTable();
+    loadOrderTableHome();
 });
 
 $('#btnDelete').on('click', function () {

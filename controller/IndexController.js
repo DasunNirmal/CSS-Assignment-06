@@ -1,3 +1,6 @@
+import {orders} from "../db/db.js";
+export { loadOrderTableHome };
+
 $('#orders-section,#customers-section,#items-section').hide();
 
 /*home button css when the index file is loaded this will add initially*/
@@ -28,7 +31,6 @@ $('#nav-home-section').on('click',() => {
     $('#orders-section').hide();
     $('#customers-section').hide();
     $('#items-section').hide();
-
 
     /*Define a function for styling buttons*/
     function styleButton(button) {
@@ -80,4 +82,21 @@ $('#nav-home-section').on('click',() => {
             color: '#FEE5D4'
         });
     });
+    loadOrderTableHome();
 });
+
+function loadOrderTableHome() {
+    $('#orders-summary').empty();
+
+    orders.map((item, index) => {
+        var orderRecord = `<tr>
+            <td class="o-id">${item.orderID}</td>
+            <td class="o-itemID">${item.itemID}</td>
+            <td class="o-itemName">${item.ItemName}</td>
+            <td class="o-qty">${item.orderQty}</td>
+            <td class="o-order-date">${item.orderDate}</td>
+            <td class="o-totalPrice">${item.totalPrice}</td>
+        </tr>`
+        $('#orders-summary').append(orderRecord);
+    });
+}
