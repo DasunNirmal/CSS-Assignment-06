@@ -162,13 +162,13 @@ function renderSearchResults(results) {
 
     // Render each search result in the table
     results.forEach(customer => {
-        /*const customerRecord = `<tr>
+        const customerRecord = `<tr>
             <td class="c-id">${customer.id}</td>
             <td class="c-name">${customer.name}</td>
             <td class="c-address">${customer.address}</td>
             <td class="c-phoneNumber">${customer.phoneNumber}</td>
         </tr>`;
-        $('#customers-table-tb').append(customerRecord);*/
+        $('#customers-table-tb').append(customerRecord);
 
         $('#txtCustomerID').val(customer.id);
         $('#txtName').val(customer.name);
@@ -178,7 +178,7 @@ function renderSearchResults(results) {
 }
 
 // Example usage:
-$('#search-customer').on('click', function() {
+$('#txtSearch-customers').on('input', function() {
     const searchQuery = $(this).val();
     searchCustomers(searchQuery);
 });
