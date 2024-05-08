@@ -159,6 +159,40 @@ function loadItemTable() {
     });
 }
 
+function ClearAll() {
+    $('#txtItemId-orders').val("");
+    $('#txtItemName-orders').val("");
+    $('#txtUnitPrice-orders').val("");
+    $('#txtQtyOnHand-orders').val("");
+    $('#txtOrderQuantity').val("");
+    $('#txtSearch-01').val("");
+
+    $('#txtOrderId').val("");
+    $('#txtCustomerId-orders').val("");
+    $('#txtCustomerName-orders').val("");
+    $('#txtPhoneNumber-orders').val("");
+    $('#txtOrderDate').val("");
+    $('#txtSearch-02').val("");
+}
+
+function ClearOne() {
+    $('#txtItemId-orders').val("");
+    $('#txtItemName-orders').val("");
+    $('#txtUnitPrice-orders').val("");
+    $('#txtQtyOnHand-orders').val("");
+    $('#txtOrderQuantity').val("");
+    $('#txtSearch-01').val("");
+}
+
+function ClearTwo() {
+    $('#txtOrderId').val("");
+    $('#txtCustomerId-orders').val("");
+    $('#txtCustomerName-orders').val("");
+    $('#txtPhoneNumber-orders').val("");
+    $('#txtOrderDate').val("");
+    $('#txtSearch-02').val("");
+}
+
 $('#orders-table-tb').on('click','tr',function () {
    recordIndexOrders = $(this).index();
 
@@ -252,4 +286,16 @@ $('#btnUpdate').on('click',function () {
     oOb.totalPrice = totalPrice;
 
     loadOrderTable();
+});
+
+$('#btnClearAll').on('click',function () {
+   ClearAll();
+});
+
+$('#btnClear-1').on('click',function () {
+   ClearOne();
+});
+
+$('#btnClear-2').on('click',function () {
+    ClearTwo();
 });

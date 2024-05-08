@@ -177,7 +177,6 @@ function renderSearchResults(results) {
     });
 }
 
-// Example usage:
 $('#txtSearch-customers').on('input', function() {
     const searchQuery = $(this).val();
     searchCustomers(searchQuery);
