@@ -146,3 +146,40 @@ $('#btnUpdate-customer').on('click',() => {
     loadCustomerTable();
     clearAll();
 });
+
+function searchCustomers(query) {
+    const searchTerm = query.toLowerCase(); // Convert the search query to lowercase for case-insensitive search
+    const searchResults = customers.filter(customer => {
+        // Check if the customer ID or phone number contains the search term
+        return customer.id.toLowerCase().includes(searchTerm) || customer.phoneNumber.toLowerCase().includes(searchTerm);
+    });
+
+    // Render search results
+    renderSearchResults(searchResults);
+}
+
+function renderSearchResults(results) {
+
+    // Render each search result in the table
+    results.forEach(customer => {
+        /*const customerRecord = `<tr>
+            <td class="c-id">${customer.id}</td>
+            <td class="c-name">${customer.name}</td>
+            <td class="c-address">${customer.address}</td>
+            <td class="c-phoneNumber">${customer.phoneNumber}</td>
+        </tr>`;
+        $('#customers-table-tb').append(customerRecord);*/
+
+        $('#txtCustomerID').val(customer.id);
+        $('#txtName').val(customer.name);
+        $('#txtAddress').val(customer.address);
+        $('#txtPhoneNumber').val(customer.phoneNumber);
+    });
+}
+
+// Example usage:
+$('#search-customer').on('click', function() {
+    const searchQuery = $(this).val();
+    searchCustomers(searchQuery);
+});
+

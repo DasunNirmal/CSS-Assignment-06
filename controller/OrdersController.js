@@ -1,3 +1,6 @@
+import {customers} from "../db/db.js";
+import {items} from "../db/db.js";
+
 $('#nav-orders-section').on('click', () => {
 
     const home = $('.current-page-button');
@@ -62,4 +65,57 @@ $('#nav-orders-section').on('click', () => {
             color: '#FEE5D4'
         });
     });
+});
+
+/*Search Customers*/
+function searchCustomers(query) {
+    const searchTerm = query.toLowerCase(); /*Convert the search query to lowercase for case-insensitive search*/
+    const searchResults = customers.filter(customer => {
+        /*Check if the customer ID or phone number contains the search term*/
+        return customer.id.toLowerCase().includes(searchTerm) || customer.phoneNumber.toLowerCase().includes(searchTerm);
+    });
+
+    SetSearchCustomerResults(searchResults);
+}
+
+function SetSearchCustomerResults(results) {
+
+    /*set each result*/
+    results.forEach(customer => {
+        $('#txtCustomerId-orders').val(customer.id);
+        $('#txtCustomerName-orders').val(customer.name);
+        $('#txtPhoneNumber-orders').val(customer.phoneNumber);
+    });
+}
+
+$('#search-customers-orders').on('click', function() {
+    const searchQuery = $(this).val();
+    searchCustomers(searchQuery);
+});
+
+/*Search Items*/
+function searchItems(query) {
+    const searchTerm = query.toLowerCase(); /*Convert the search query to lowercase for case-insensitive search*/
+    const searchResults = items.filter(items => {
+        /*Check if the customer ID or phone number contains the search term*/
+        return items.id.toLowerCase().includes(searchTerm) || items.name.toLowerCase().includes(searchTerm);
+    });
+
+    SetSearchItemResults(searchResults);
+}
+
+function SetSearchItemResults(results) {
+
+    /*set each result*/
+    results.forEach(items => {
+        $('#txtItemId-orders').val(items.id);
+        $('#txtItemName-orders').val(items.name);
+        $('#txtUnitPrice-orders').val(items.price);
+        $('#txtQtyOnHand-orders').val(items.qty);
+    });
+}
+
+$('#search-items-orders').on('click', function() {
+    const searchQuery = $(this).val();
+    searchItems(searchQuery);
 });
