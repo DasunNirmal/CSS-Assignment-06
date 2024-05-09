@@ -223,10 +223,8 @@ $('#orders-table-tb').on('click','tr',function () {
 
 });
 
-// Function to update the price tag
 function updatePriceTag() {
     let totalPrice = 0;
-    // Calculate total price from orders list
     orders.forEach(order => {
         totalPrice += order.totalPrice;
     });
