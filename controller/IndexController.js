@@ -1,4 +1,4 @@
-import {orders} from "../db/db.js";
+import {orders,items,customers} from "../db/db.js";
 export { loadOrderTableHome };
 
 $('#orders-section,#customers-section,#items-section').hide();
@@ -18,6 +18,29 @@ $(document).ready(() => {
         cursor:'pointer'
     });
 });
+
+function totalOrdersHome() {
+    var total = orders.length;
+    $('#totalOrdersHome').text(total);
+}
+
+function totalCustomersHome() {
+    var total = customers.length;
+    $('#totalCustomersHome').text(total);
+}
+
+function totalItemsHome() {
+    var total = items.length;
+    $('#totalItemsHome').text(total);
+}
+
+function totalSales() {
+    let totalSales = 0;
+    orders.forEach(order => {
+        totalSales += order.totalPrice;
+    });
+    $('#sales').text(totalSales);
+}
 
 $('#nav-home-section').on('click',() => {
 
@@ -83,6 +106,10 @@ $('#nav-home-section').on('click',() => {
         });
     });
     loadOrderTableHome();
+    totalOrdersHome();
+    totalCustomersHome();
+    totalItemsHome();
+    totalSales();
 });
 
 function loadOrderTableHome() {

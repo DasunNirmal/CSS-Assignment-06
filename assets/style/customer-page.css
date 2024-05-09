@@ -281,7 +281,9 @@ table.table.table-bordered > tbody > tr > td {
     left: 70vw;
 }
 
-#totalCustomers > label {
+#totalCustomers-label {
+    width: fit-content;
+    height: fit-content;
     font-family: "Lexend", sans-serif;
     font-style: italic;
     font-size: 18px;
@@ -290,6 +292,17 @@ table.table.table-bordered > tbody > tr > td {
     position: absolute;
     top: 10px;
     left: 50px;
+}
+
+#count {
+    width: fit-content;
+    height: fit-content;
+    font-size: 22px;
+    position: absolute;
+    top: 120px;
+    right: 0;
+    left: 0;
+    margin: auto;
 }
 
 #totalCustomers > img {

@@ -1,5 +1,6 @@
 import ItemModel from "../model/ItemModel.js";
 import {items} from "../db/db.js";
+export { totalItems }
 var recordIndexItems;
 
 $('#nav-items-section').on('click',() => {
@@ -78,6 +79,11 @@ function clearAll() {
     $('#txtQuantity').val("");
 }
 
+function totalItems() {
+    var total = items.length;
+    $('#count-items').text(total);
+}
+
 $('#btnClearAll-items').on('click',() => {
     clearAll();
 });
@@ -120,13 +126,15 @@ $('#addItems').on('click',() => {
 
     items.push(itemModel);
     loadItemTable();
-    clearAll()
+    clearAll();
+    totalItems();
 });
 
 $('#btnDelete-items').on('click',() => {
     items.splice(recordIndexItems,1);
     loadItemTable();
-    clearAll()
+    clearAll();
+    totalItems();
 });
 
 $('#btnUpdate-items').on('click',() => {
@@ -142,5 +150,6 @@ $('#btnUpdate-items').on('click',() => {
     iOb.qty = itemQty;
 
     loadItemTable();
-    clearAll()
+    clearAll();
+    totalItems();
 });

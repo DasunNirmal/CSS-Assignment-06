@@ -1,5 +1,6 @@
 import CustomerModel from "../model/CustomerModel.js";
 import {customers} from "../db/db.js";
+export { totalCustomers };
 var recordIndexCustomers;
 
 $('#nav-customers-section').on('click',() => {
@@ -78,6 +79,11 @@ function clearAll() {
     $('#txtPhoneNumber').val("");
 }
 
+function totalCustomers() {
+    var total = customers.length;
+    $('#count').text(total);
+}
+
 $('#btnClearAll-customer').on('click',() => {
     clearAll();
 });
@@ -122,12 +128,14 @@ $('#addCustomers').on('click', () => {
     customers.push(customerModel);
     loadCustomerTable();
     clearAll();
+    totalCustomers();
 });
 
 $('#btnDelete-customer').on('click',() => {
     customers.splice(recordIndexCustomers,1);
     loadCustomerTable();
     clearAll();
+    totalCustomers();
 });
 
 $('#btnUpdate-customer').on('click',() => {
@@ -145,6 +153,7 @@ $('#btnUpdate-customer').on('click',() => {
 
     loadCustomerTable();
     clearAll();
+    totalCustomers();
 });
 
 function searchCustomers(query) {
