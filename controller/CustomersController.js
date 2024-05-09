@@ -1,6 +1,5 @@
 import CustomerModel from "../model/CustomerModel.js";
 import {customers} from "../db/db.js";
-export { totalCustomers };
 var recordIndexCustomers;
 
 $('#nav-customers-section').on('click',() => {
