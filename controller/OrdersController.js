@@ -228,7 +228,7 @@ function updatePriceTag() {
     orders.forEach(order => {
         totalPrice += order.totalPrice;
     });
-    $('#price-tag').text(totalPrice);
+    $('#price-tag').text("Rs : "+totalPrice+"/=");
 }
 
 $('#place-order').on('click', function () {
@@ -270,7 +270,7 @@ $('#place-order').on('click', function () {
     }
 
     /*Update the price tag and tables*/
-    $('#price-tag').text(totalPrice);
+    $('#price-tag').text("Rs : "+totalPrice+"/=");
 
     loadOrderTable();
     loadItemTable();

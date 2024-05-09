@@ -39,7 +39,7 @@ function totalSales() {
     orders.forEach(order => {
         totalSales += order.totalPrice;
     });
-    $('#sales').text(totalSales);
+    $('#sales').text("Rs : "+totalSales+"/=");
 }
 
 $('#nav-home-section').on('click',() => {

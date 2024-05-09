@@ -70,7 +70,7 @@ footer>p {
 }
 
 #total-price {
-    width: 135px;
+    width: 195px;
     height: 80px;
     background-color: #FEE5D4;
     border: 3px solid #B05200;
@@ -83,7 +83,7 @@ footer>p {
     margin: auto;
 }
 
-#total-price>label {
+#price-tag {
     width: fit-content;
     height: fit-content;
     font-size: 24px;
