@@ -83,6 +83,18 @@ footer>p {
     margin: auto;
 }
 
+#total-price>label {
+    width: fit-content;
+    height: fit-content;
+    font-size: 24px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
+
 #orders-content-card-right {
     width: 715px;
     height: 325px;

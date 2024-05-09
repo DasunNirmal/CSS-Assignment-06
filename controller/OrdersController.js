@@ -73,6 +73,41 @@ $('#nav-orders-section').on('click', () => {
 });
 
 /*Search Customers*/
+
+function ClearAll() {
+    $('#txtItemId-orders').val("");
+    $('#txtItemName-orders').val("");
+    $('#txtUnitPrice-orders').val("");
+    $('#txtQtyOnHand-orders').val("");
+    $('#txtOrderQuantity').val("");
+    $('#txtSearch-01').val("");
+
+    $('#txtOrderId').val("");
+    $('#txtCustomerId-orders').val("");
+    $('#txtCustomerName-orders').val("");
+    $('#txtPhoneNumber-orders').val("");
+    $('#txtOrderDate').val("");
+    $('#txtSearch-02').val("");
+}
+
+function ClearOne() {
+    $('#txtItemId-orders').val("");
+    $('#txtItemName-orders').val("");
+    $('#txtUnitPrice-orders').val("");
+    $('#txtQtyOnHand-orders').val("");
+    $('#txtOrderQuantity').val("");
+    $('#txtSearch-01').val("");
+}
+
+function ClearTwo() {
+    $('#txtOrderId').val("");
+    $('#txtCustomerId-orders').val("");
+    $('#txtCustomerName-orders').val("");
+    $('#txtPhoneNumber-orders').val("");
+    $('#txtOrderDate').val("");
+    $('#txtSearch-02').val("");
+}
+
 function searchCustomers(query) {
     const searchTerm = query.toLowerCase(); /*Convert the search query to lowercase for case-insensitive search*/
     const searchResults = customers.filter(customer => {
@@ -161,40 +196,6 @@ function loadItemTable() {
     });
 }
 
-function ClearAll() {
-    $('#txtItemId-orders').val("");
-    $('#txtItemName-orders').val("");
-    $('#txtUnitPrice-orders').val("");
-    $('#txtQtyOnHand-orders').val("");
-    $('#txtOrderQuantity').val("");
-    $('#txtSearch-01').val("");
-
-    $('#txtOrderId').val("");
-    $('#txtCustomerId-orders').val("");
-    $('#txtCustomerName-orders').val("");
-    $('#txtPhoneNumber-orders').val("");
-    $('#txtOrderDate').val("");
-    $('#txtSearch-02').val("");
-}
-
-function ClearOne() {
-    $('#txtItemId-orders').val("");
-    $('#txtItemName-orders').val("");
-    $('#txtUnitPrice-orders').val("");
-    $('#txtQtyOnHand-orders').val("");
-    $('#txtOrderQuantity').val("");
-    $('#txtSearch-01').val("");
-}
-
-function ClearTwo() {
-    $('#txtOrderId').val("");
-    $('#txtCustomerId-orders').val("");
-    $('#txtCustomerName-orders').val("");
-    $('#txtPhoneNumber-orders').val("");
-    $('#txtOrderDate').val("");
-    $('#txtSearch-02').val("");
-}
-
 $('#orders-table-tb').on('click','tr',function () {
    recordIndexOrders = $(this).index();
 
@@ -222,6 +223,16 @@ $('#orders-table-tb').on('click','tr',function () {
 
 });
 
+// Function to update the price tag
+function updatePriceTag() {
+    let totalPrice = 0;
+    // Calculate total price from orders list
+    orders.forEach(order => {
+        totalPrice += order.totalPrice;
+    });
+    $('#price-tag').text(totalPrice);
+}
+
 $('#place-order').on('click', function () {
     var itemID = $('#txtItemId-orders').val();
     var itemName = $('#txtItemName-orders').val();
@@ -247,17 +258,34 @@ $('#place-order').on('click', function () {
         items[existingItemIndex].qty -= orderQty;
     }
 
-    let orderModel = new OrderModel(itemID, itemName, unitPrice, qtyOnHand, orderQty, orderID, customerID, customerName, phoneNumber, orderDate, totalPrice);
-    orders.push(orderModel);
+    /*Check if the item and customer already exists in orders*/
+    var existingOrderIndex = orders.findIndex(order => order.customerID === customerID && order.itemID === itemID);
+
+    if (existingOrderIndex !== -1) {
+        /*If the order already exists for the same customer and item, update it*/
+        orders[existingOrderIndex].orderQty += parseInt(orderQty);
+        orders[existingOrderIndex].totalPrice += totalPrice;
+    } else {
+        /*If the order doesn't exist, create a new one*/
+        let orderModel = new OrderModel(itemID, itemName, unitPrice, qtyOnHand, orderQty, orderID, customerID, customerName, phoneNumber, orderDate, totalPrice);
+        orders.push(orderModel);
+    }
+
+    /*Update the price tag and tables*/
+    $('#price-tag').text(totalPrice);
 
     loadOrderTable();
     loadItemTable();
     loadOrderTableHome();
+    updatePriceTag(); /*call this method to update price-tag if that same customer place another order*/
+    ClearAll();
 });
 
 $('#btnDelete').on('click', function () {
     orders.splice(recordIndexOrders,1);
     loadOrderTable();
+    updatePriceTag();
+    ClearAll();
 });
 
 $('#btnUpdate').on('click',function () {
@@ -289,6 +317,8 @@ $('#btnUpdate').on('click',function () {
     oOb.totalPrice = totalPrice;
 
     loadOrderTable();
+    updatePriceTag();
+    ClearAll();
 });
 
 $('#btnClearAll').on('click',function () {
