@@ -55,7 +55,7 @@ footer>p {
 
 #customers-main-section {
     width: 98vw;
-    height: 70vh;
+    height: 675px;
     background-color: #FFF4ED;
     margin: auto;
     border-radius: 30px;
@@ -277,7 +277,7 @@ table.table.table-bordered > tbody > tr > td {
     border: 3px solid #B05200;
     border-radius: 30px;
     position: absolute;
-    top: 10vh;
+    top: 100px;
     left: 70vw;
 }
 

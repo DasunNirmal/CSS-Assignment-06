@@ -45,7 +45,7 @@ footer>p {
 
 #home-main-section {
     width: 70vw;
-    height: 70vh;
+    height: 675px;
     background-color: #FFF4ED;
     position: relative;
     text-align: center;
@@ -63,7 +63,7 @@ footer>p {
 
 #home-sub-section {
     width: 28vw;
-    height: 70vh;
+    height: 690px;
     position: absolute;
     padding: 20px;
 }
@@ -242,19 +242,22 @@ table.table.table-bordered > tbody > tr > td {
 @media all and (max-width: 990px) {
 
     #container-home-section {
-        height: 155vh;
+        height: 1550px;
         position: relative;
         padding-bottom: 47px; /* Height of the footer */
     }
 
     #home-main-section {
-        top: 80vh;
+        top: 800px;
         width: 94vw;
     }
 
     #home-sub-section {
         width: 90vw;
         left: 5vw;
+    }
+    footer {
+        position: absolute;
     }
 }
 

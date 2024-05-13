@@ -46,7 +46,7 @@ footer>p {
 
 #orders-main-section {
     width: 98vw;
-    height: 70vh;
+    height: 675px;
     background-color: #FFF4ED;
     position: relative;
     margin: auto;
@@ -182,14 +182,19 @@ table.table.table-bordered > tbody > tr > td {
 }
 
 #orders-main-section>#lblTotalPrice {
+    width: fit-content;
+    height: fit-content;
     font-family: "Lexend", sans-serif;
     font-style: italic;
     font-size: 22px;
     font-weight: 750;
     color: #B05200;
     position: absolute;
-    left: 45.7vw;
-    top: 27vh;
+    left: 0;
+    top: 0;
+    bottom: 110px;
+    right: 0;
+    margin: auto;
 }
 
 #orders-content-card-left>button.btn.btn-outline-primary,
@@ -634,8 +639,8 @@ table.table.table-bordered > tbody > tr > td {
 
     #orders-main-section>#lblTotalPrice {
         font-size: 18px;
-        left: 45vw;
-        top: 36vh;
+        left: 0;
+        top: 170px;
     }
 
     #total-price {
@@ -665,13 +670,13 @@ table.table.table-bordered > tbody > tr > td {
 @media all and (max-width: 1024px) {
 
     #orders-container {
-        height: 127vh;
+        height: 1270px;
         position: relative;
         padding-bottom: 47px; /* Height of the footer */
     }
 
     #orders-main-section {
-        height: 123vh;
+        height: 1230px;
     }
 
     #Tbl-orders {
@@ -699,8 +704,8 @@ table.table.table-bordered > tbody > tr > td {
 
     #orders-main-section>#lblTotalPrice {
         font-size: 18px;
-        left: 44vw;
-        top: 77vh;
+        left: 0;
+        top: 440px;
     }
 
     #total-price {
@@ -733,12 +738,12 @@ table.table.table-bordered > tbody > tr > td {
     }
 
     #orders-content-card-left {
-        top: 4vh;
+        top: 40px;
         width: 90vw;
     }
 
     #orders-content-card-right {
-        top: 41vh;
+        top: 410px;
         width: 90vw;
     }
 
@@ -873,7 +878,7 @@ table.table.table-bordered > tbody > tr > td {
 
     #orders-content-card-left {
         left: 20px;
-        top: 4vh;
+        top: 40px;
         width: 90vw;
     }
 
@@ -1013,52 +1018,52 @@ table.table.table-bordered > tbody > tr > td {
 @media all and (max-width: 600px) {
 
     #orders-container {
-        height: 139vh;
+        height: 1390px;
         position: relative;
         padding-bottom: 47px;
     }
 
     #orders-content-card-right {
-        height: 41vh;
-        top: 48vh;
+        height: 410px;
+        top: 480px;
         left: 15px;
         width: 90vw;
     }
 
     #orders-content-card-left {
-        height: 41vh;
+        height: 410px;
         left: 15px;
-        top: 4vh;
+        top: 40px;
         width: 90vw;
     }
 
     #orders-main-section {
         width: 96vw;
-        height: 136vh;
+        height: 1360px;
     }
 
     #Tbl-orders {
         position: relative;
-        top: 1018px;
+        top: 1068px;
     }
 
     #orders-main-section>#txtSearch-03 {
         width: 178px;
         background-position: 136px;
         left: 18px;
-        top: 1012px;
+        top: 1062px;
     }
 
     #orders-main-section>button.btn.btn-outline-primary {
         width: 81px;
         left: 208px;
-        top: 1010px;
+        top: 1060px;
     }
 
     #orders-main-section>#lblSearchOrders {
         position: absolute;
         left: 30px;
-        top: 984px;
+        top: 1034px;
     }
 
     #orders-content-card-left > #txtSearch-01,
@@ -1075,26 +1080,26 @@ table.table.table-bordered > tbody > tr > td {
 
     #orders-main-section>#btnUpdate {
         width: 88px;
-        top: 881px;
+        top: 931px;
         left: 3vw;
     }
 
     #orders-main-section>#btnDelete {
         width: 90px;
-        top: 881px;
+        top: 931px;
         left: 24.2vw;
     }
 
     #orders-main-section>#btnClearAll {
         width: 97px;
-        top: 881px;
+        top: 931px;
         left: 46vw;
     }
 
     #orders-main-section>#lblTotalPrice {
         font-size: 18px;
-        left: 71vw;
-        top: 97vh;
+        left: 59vw;
+        top: 760px;
     }
 
     #total-price {
@@ -1102,7 +1107,7 @@ table.table.table-bordered > tbody > tr > td {
         height: 72px;
         position: absolute;
         left: 357px;
-        top: 691px;
+        top: 761px;
         bottom: 0;
         right: 0;
         margin: auto;
@@ -1171,52 +1176,52 @@ table.table.table-bordered > tbody > tr > td {
 @media all and (max-width: 425px) {
 
     #orders-container {
-        height: 190vh;
+        height: 1900px;
         position: relative;
         padding-bottom: 47px;
     }
 
     #orders-content-card-right {
-        height: 56vh;
-        top: 66vh;
+        height: 560px;
+        top: 660px;
         left: 8px;
         width: 90vw;
     }
 
     #orders-content-card-left {
-        height: 56vh;
+        height: 560px;
         left: 8px;
-        top: 6vh;
+        top: 60px;
         width: 90vw;
     }
 
     #orders-main-section {
         width: 94vw;
-        height: 188vh;
+        height: 1880px;
     }
 
     #Tbl-orders {
         position: relative;
-        top: 1522px;
+        top: 1592px;
     }
 
     #orders-main-section>#txtSearch-03 {
         width: 158px;
         background-position: 116px;
         left: 18px;
-        top: 1514px;
+        top: 1584px;
     }
 
     #orders-main-section>#lblSearchOrders {
         position: absolute;
         left: 30px;
-        top: 1484px;
+        top: 1556px;
     }
 
     #orders-main-section>button.btn.btn-outline-primary {
         width: 81px;
         left: 208px;
-        top: 1513px;
+        top: 1582px;
     }
 
     #orders-content-card-left > #txtSearch-01,
@@ -1251,8 +1256,8 @@ table.table.table-bordered > tbody > tr > td {
 
     #orders-main-section>#lblTotalPrice {
         font-size: 17px;
-        left: 39vw;
-        top: 138vh;
+        left: 6vw;
+        top: 1015px;
     }
 
     #total-price {
