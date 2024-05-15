@@ -351,10 +351,21 @@ table.table.table-bordered > tbody > tr > td {
         width: 20vw;
     }
 
-    #totalCustomers > label {
+    #totalCustomers-label {
         font-size: 18px;
         top: 10px;
         left: 26px;
+    }
+
+    #count {
+        width: fit-content;
+        height: fit-content;
+        font-size: 22px;
+        position: absolute;
+        top: 120px;
+        right: 0;
+        left: 0;
+        margin: auto;
     }
 
     #totalCustomers > img {
@@ -434,10 +445,21 @@ table.table.table-bordered > tbody > tr > td {
         width: 19vw;
     }
 
-    #totalCustomers > label {
+    #totalCustomers-label {
         font-size: 18px;
         top: 10px;
         left: 17px;
+    }
+
+    #count {
+        width: fit-content;
+        height: fit-content;
+        font-size: 22px;
+        position: absolute;
+        top: 120px;
+        right: 0;
+        left: 0;
+        margin: auto;
     }
 
     #totalCustomers > img {
@@ -450,12 +472,12 @@ table.table.table-bordered > tbody > tr > td {
 @media all and (max-width: 764px) {
 
     #customers-container {
-        height: 100vh;
+        height: 1000px;
     }
 
     #customers-main-section{
         width: 96vw;
-        height: 96vh;
+        height: 960px;
     }
 
     #Tbl-customers {
@@ -565,10 +587,21 @@ table.table.table-bordered > tbody > tr > td {
         width: 22vw;
     }
 
-    #totalCustomers > label {
+    #totalCustomers-label {
         font-size: 16px;
         top: 10px;
         left: 13px;
+    }
+
+    #count {
+        width: fit-content;
+        height: fit-content;
+        font-size: 22px;
+        position: absolute;
+        top: 120px;
+        right: 0;
+        left: 0;
+        margin: auto;
     }
 
     #totalCustomers > img {
@@ -579,12 +612,12 @@ table.table.table-bordered > tbody > tr > td {
 
 @media all and (max-width: 580px) {
     #customers-container {
-        height: 120vh;
+        height: 1200px;
     }
 
     #customers-main-section{
         width: 96vw;
-        height: 116vh;
+        height: 1160px;
     }
 
     #Tbl-customers {
@@ -642,10 +675,21 @@ table.table.table-bordered > tbody > tr > td {
         width: 52vw;
     }
 
-    #totalCustomers > label {
+    #totalCustomers-label {
         font-size: 16px;
         top: 10px;
         left: 83px;
+    }
+
+    #count {
+        width: fit-content;
+        height: fit-content;
+        font-size: 22px;
+        position: absolute;
+        top: 120px;
+        right: 0;
+        left: 0;
+        margin: auto;
     }
 
     #totalCustomers > img {
@@ -656,10 +700,21 @@ table.table.table-bordered > tbody > tr > td {
 
 @media all and (max-width: 425px) {
 
-    #totalCustomers > label {
+    #totalCustomers-label {
         font-size: 16px;
         top: 10px;
         left: 37px;
+    }
+
+    #count {
+        width: fit-content;
+        height: fit-content;
+        font-size: 22px;
+        position: absolute;
+        top: 120px;
+        right: 0;
+        left: 0;
+        margin: auto;
     }
 
     #totalCustomers > img {
@@ -675,12 +730,12 @@ table.table.table-bordered > tbody > tr > td {
     }
 
     #customers-container {
-        height: 130vh;
+        height: 1300px;
     }
 
     #customers-main-section{
         width: 96vw;
-        height: 126vh;
+        height: 1260px;
     }
 
     #Tbl-customers {

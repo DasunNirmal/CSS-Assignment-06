@@ -555,13 +555,13 @@ table.table.table-bordered > tbody > tr > td {
         width: 22vw;
     }
 
-    #totalCustomers > label {
+    #totalItems > label {
         font-size: 16px;
         top: 10px;
         left: 13px;
     }
 
-    #totalCustomers > img {
+    #totalItems > img {
         top: 38px;
         left: 52px;
     }
