@@ -222,13 +222,13 @@ table.table.table-bordered > tbody > tr > td {
 @media all and (max-width: 1024px) {
 
     #container-home-section {
-        height: 155vh;
+        height: 1550px;
         position: relative;
         padding-bottom: 47px; /* Height of the footer */
     }
 
     #home-main-section {
-        top: 80vh;
+        top: 800px;
         width: 94vw;
     }
 
@@ -264,13 +264,13 @@ table.table.table-bordered > tbody > tr > td {
 @media all and (max-width: 764px) {
 
     #container-home-section {
-        height: 155vh;
+        height: 1550px;
         position: relative;
         padding-bottom: 47px; /* Height of the footer */
     }
 
     #home-main-section {
-        top: 80vh;
+        top: 800px;
         width: 94vw;
     }
 
@@ -282,18 +282,18 @@ table.table.table-bordered > tbody > tr > td {
 
 @media all and (max-width: 580px) {
     #container-home-section {
-        height: 180vh;
+        height: 1440px;
         position: relative;
         padding-bottom: 47px; /* Height of the footer */
     }
 
     #home-main-section {
-        top: 105vh;
+        top: 720px;
         width: 94vw;
     }
 
     #home-sub-section {
-        height: 105vh;
+        height: 680px;
         width: 90vw;
         left: 5vw;
     }
@@ -301,7 +301,7 @@ table.table.table-bordered > tbody > tr > td {
 
 @media all and (max-width: 425px) {
     #container-home-section {
-        height: 185vh;
+        height: 1730px;
         position: relative;
         padding-bottom: 47px; /* Height of the footer */
     }
@@ -315,13 +315,13 @@ table.table.table-bordered > tbody > tr > td {
     }
 
     #home-main-section {
-        top: 105vh;
+        top: 940px;
         width: 94vw;
-        height: 74vh;
+        height: 740px;
     }
 
     #home-sub-section {
-        height: 105vh;
+        height: 990px;
         width: 90vw;
         left: 5vw;
     }

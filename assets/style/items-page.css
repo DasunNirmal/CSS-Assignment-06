@@ -336,10 +336,14 @@ table.table.table-bordered > tbody > tr > td {
         width: 20vw;
     }
 
-    #totalItems > label {
+    #totalItems-label {
+        width: fit-content;
+        height: fit-content;
         font-size: 18px;
         top: 10px;
-        left: 26px;
+        left: 0;
+        right: 0;
+        margin: auto;
     }
 
     #totalItems > img {
@@ -409,6 +413,7 @@ table.table.table-bordered > tbody > tr > td {
 
     #items-main-section>#btnClearAll-items {
         left: 84vw;
+        width: 100px;
     }
 }
 
@@ -419,10 +424,14 @@ table.table.table-bordered > tbody > tr > td {
         width: 19vw;
     }
 
-    #totalItems > label {
+    #totalItems-label {
+        width: fit-content;
+        height: fit-content;
         font-size: 18px;
         top: 10px;
-        left: 17px;
+        left: 0;
+        right: 0;
+        margin: auto;
     }
 
     #totalItems > img {
@@ -440,12 +449,12 @@ table.table.table-bordered > tbody > tr > td {
 @media all and (max-width: 764px) {
 
     #items-container {
-        height: 100vh;
+        height: 1000px;
     }
 
     #items-main-section{
         width: 96vw;
-        height: 96vh;
+        height: 960px;
     }
 
     #Tbl-items {
@@ -555,7 +564,7 @@ table.table.table-bordered > tbody > tr > td {
         width: 22vw;
     }
 
-    #totalItems > label {
+    #totalItems-label {
         font-size: 16px;
         top: 10px;
         left: 13px;
@@ -569,12 +578,12 @@ table.table.table-bordered > tbody > tr > td {
 
 @media all and (max-width: 580px) {
     #items-container {
-        height: 120vh;
+        height: 1200px;
     }
 
     #items-main-section{
         width: 96vw;
-        height: 116vh;
+        height: 1160px;
     }
 
     #Tbl-items {
@@ -601,6 +610,14 @@ table.table.table-bordered > tbody > tr > td {
         top: 831px;
     }
 
+    #items-content-card-left>button.btn.btn-primary {
+        width: 212px;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 383px;
+    }
+
     #items-main-section>#btnUpdate-items {
         width: 90px;
         top: 692px;
@@ -610,32 +627,40 @@ table.table.table-bordered > tbody > tr > td {
     #items-main-section>#btnDelete-items {
         width: 90px;
         top: 692px;
-        left: 38.2vw;
+        left: 43.2vw;
     }
 
     #items-main-section>#btnClearAll-items {
         width: 97px;
         top: 692px;
-        left: 61vw;
+        left: 68vw;
     }
 
     #items-content-card-left {
         width: 445px;
-        left: 40px;
+        left: 0;
+        right: 0;
+        margin: auto;
         top: 210px;
         height: 450px;
     }
 
     #totalItems {
         top: 20px;
-        left: 20vw;
+        left: 0;
+        right: 0;
+        margin: auto;
         width: 52vw;
     }
 
-    #totalItems > label {
+    #totalItems-label {
+        width: fit-content;
+        height: fit-content;
         font-size: 16px;
         top: 10px;
-        left: 103px;
+        left: 0;
+        right: 0;
+        margin: auto;
     }
 
     #totalItems > img {
@@ -648,14 +673,18 @@ table.table.table-bordered > tbody > tr > td {
 
     #totalItems {
         top: 20px;
-        left: 23vw;
+        left: 0;
+        right: 0;
+        margin: auto;
         width: 52vw;
     }
 
-    #totalItems > label {
+    #totalItems-label {
         font-size: 16px;
         top: 10px;
-        left: 61px;
+        left: 0;
+        right: 0;
+        margin: auto;
     }
 
     #totalItems > img {
@@ -665,18 +694,20 @@ table.table.table-bordered > tbody > tr > td {
 
     #items-content-card-left {
         width: 355px;
-        left: 29px;
+        left: 0;
+        right: 0;
+        margin: auto;
         top: 210px;
         height: 520px;
     }
 
     #items-container {
-        height: 130vh;
+        height: 1300px;
     }
 
     #items-main-section{
         width: 96vw;
-        height: 126vh;
+        height: 1260px;
     }
 
     #Tbl-items {
@@ -723,7 +754,9 @@ table.table.table-bordered > tbody > tr > td {
 
     #items-content-card-left>button.btn.btn-primary {
         width: 212px;
-        left: 16vw;
+        left: 0;
+        right: 0;
+        margin: auto;
         top: 443px;
     }
 
