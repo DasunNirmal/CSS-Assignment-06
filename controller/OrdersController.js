@@ -164,7 +164,7 @@ $('#search-items-orders').on('click', function() {
 /**Add, Update, Delete, Clear All**/
 
 function loadOrderTable() {
-    $('#orders-table-tb').empty();
+    $("#orders-table-tb").empty();
 
     orders.map((item, index) => {
         var orderRecord = `<tr>
@@ -183,7 +183,7 @@ function loadOrderTable() {
 }
 
 function loadItemTable() {
-    $('#items-table-tb').empty();
+    $("#items-table-tb").empty();
 
     items.map((item,index) => {
         var itemRecord = `<tr>
