@@ -115,7 +115,7 @@ function searchCustomers(query) {
         return customer.id.toLowerCase().includes(searchTerm) || customer.phoneNumber.toLowerCase().includes(searchTerm);
     });
 
-    SetSearchCustomerResults(searchResults);
+   return SetSearchCustomerResults(searchResults);
 }
 
 function SetSearchCustomerResults(results) {
@@ -141,7 +141,7 @@ function searchItems(query) {
         return items.id.toLowerCase().includes(searchTerm) || items.name.toLowerCase().includes(searchTerm);
     });
 
-    SetSearchItemResults(searchResults);
+    return  SetSearchItemResults(searchResults);
 }
 
 function SetSearchItemResults(results) {
