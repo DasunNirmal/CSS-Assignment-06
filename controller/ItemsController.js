@@ -88,7 +88,7 @@ $('#btnClearAll-items').on('click',() => {
 });
 
 function loadItemTable() {
-    $('#items-table-tb').empty();
+    $("#items-table-tb").empty();
 
     items.map((item,index) => {
         var itemRecord = `<tr>
