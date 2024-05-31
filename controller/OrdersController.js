@@ -217,8 +217,16 @@ $('#orders-table-tb').on('click','tr',function () {
 
     $('#txtOrderId').val(oId);
     $('#txtCustomerId-orders').val(cId);
-    $('#txtCustomerName-orders').val("------  ------");
-    $('#txtPhoneNumber-orders').val("------  ------");
+
+    var customer = customers.find(c => c.id === cId);
+
+    if (customer) {
+        $('#txtCustomerName-orders').val(customer.name);
+        $('#txtPhoneNumber-orders').val(customer.phoneNumber);
+    } else {
+        $('#txtCustomerName-orders').val("");
+        $('#txtPhoneNumber-orders').val("");
+    }
     $('#txtOrderDate').val(orderDate);
 
 });
