@@ -171,21 +171,6 @@ function loadOrderTable() {
     });
 }
 
-/*function loadItemTable() {
-    $("#items-table-tb").empty();
-
-    items.map((item,index) => {
-        var itemRecord = `<tr>
-                        <td class="i-id">${item.id}</td>
-                        <td class="i-name">${item.name}</td>
-                        <td class="i-price">${item.price}</td>
-                        <td class="i-qty">${item.qty}</td>
-                    </tr>`
-        $('#items-table-tb').append(itemRecord);
-    });
-}*/
-
-
 function totalTagUpdate() {
     priceTagInterval = setInterval(function(){
        $("#price-tag").text("Rs : "+"0"+"/=");
