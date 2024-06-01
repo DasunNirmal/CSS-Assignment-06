@@ -251,7 +251,7 @@ table.table.table-bordered > tbody > tr > td {
     top: 393px;
 }
 
-#orders-content-card-left>button.btn.btn-primary,#place-order {
+#orders-content-card-left>button.btn.btn-primary {
     width: 110px;
     position: absolute;
     border-radius: 20px;
@@ -262,12 +262,6 @@ table.table.table-bordered > tbody > tr > td {
     font-family: "Lexend", sans-serif;
     left: 395px;
     top: 244px;
-}
-
-#orders-main-section>#place-order {
-    width: 130px;
-    left: 60vw;
-    top: 393px;
 }
 
 #orders-content-card-left>#btnClear-1 {
@@ -308,7 +302,7 @@ table.table.table-bordered > tbody > tr > td {
 }
 
 #orders-content-card-left>button.btn.btn-primary:hover,
-#orders-content-card-right>button.btn.btn-primary:hover,#orders-main-section>#place-order:hover {
+#orders-content-card-right>button.btn.btn-primary:hover {
     border: 3px solid rgba(255, 255, 255, 0.53);
 }
 
