@@ -1,5 +1,6 @@
 import ItemModel from "../model/ItemModel.js";
 import {items} from "../db/db.js";
+export {loadItemTable}
 var recordIndexItems;
 
 $('#nav-items-section').on('click',() => {

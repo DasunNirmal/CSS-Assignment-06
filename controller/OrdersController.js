@@ -3,6 +3,7 @@ import {orders} from "../db/db.js";
 import {customers} from "../db/db.js";
 import {items} from "../db/db.js";
 import {loadOrderTableHome} from "./IndexController.js";
+import {loadItemTable} from "./ItemsController.js";
 
 var recordIndexOrders;
 var priceTagInterval;
@@ -170,7 +171,7 @@ function loadOrderTable() {
     });
 }
 
-function loadItemTable() {
+/*function loadItemTable() {
     $("#items-table-tb").empty();
 
     items.map((item,index) => {
@@ -182,7 +183,7 @@ function loadItemTable() {
                     </tr>`
         $('#items-table-tb').append(itemRecord);
     });
-}
+}*/
 
 
 function totalTagUpdate() {
