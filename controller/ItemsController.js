@@ -73,6 +73,8 @@ var ValidItemID = $('#items-content-card-left>#txtItemID');
 var ValidItemName = $('#items-content-card-left>#txtItemName');
 var ValidPrice = $('#items-content-card-left>#txtPrice');
 var ValidQty = $('#items-content-card-left>#txtQuantity');
+var isValidItemName = new RegExp("\\b[A-Z][a-z]*( [A-Z][a-z]*)*\\b");
+var isValidPriceAndQty = new RegExp("^[0-9]+\\.?[0-9]*$");
 
 $(ValidItemID).on("input", function () {
     $(ValidItemID).css({
@@ -134,9 +136,6 @@ function validItem() {
     var itemName = $('#txtItemName').val();
     var itemPrice = $('#txtPrice').val();
     var itemQty = $('#txtQuantity').val();
-
-    var isValidItemName = new RegExp("\\b[A-Z][a-z]*( [A-Z][a-z]*)*\\b");
-    var isValidPriceAndQty = new RegExp("^[0-9]+\\.?[0-9]*$");
 
     if (itemID === "") {
         $(ValidItemID).css({
@@ -213,13 +212,12 @@ $('#addItems').on('click',() => {
     var itemPrice = $('#txtPrice').val();
     var itemQty = $('#txtQuantity').val();
 
-    if (itemID === "" || itemName === "" || itemPrice === "" || itemQty === "") {
+    if (!isValidItemName.test(itemName) || !isValidPriceAndQty.test(itemPrice) || !isValidPriceAndQty.test(itemQty)) {
         validItem();
         return;
     }
     let itemModel = new ItemModel(itemID,itemName,itemPrice,itemQty);
     items.push(itemModel);
-    validItem();
     emptyPlaceHolder();
     defaultBorderColor();
     loadItemTable();
