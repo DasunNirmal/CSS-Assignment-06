@@ -72,6 +72,8 @@ var ValidCustomerID = $('#customers-content-card-left>#txtCustomerID');
 var ValidCustomerName = $('#customers-content-card-left>#txtName');
 var ValidCustomerAddress = $('#customers-content-card-left>#txtAddress');
 var ValidCustomerPhoneNumber = $('#customers-content-card-left>#txtPhoneNumber');
+var isValidPhoneNumber = new RegExp("^(?:0|94|\\+94|0094)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|91)(0|2|3|4|5|7|9)|7(0|1|2|4|5|6|7|8)\\d)\\d{6}$");
+
 
 $(ValidCustomerID).on("input", function () {
     $(ValidCustomerID).css({
@@ -106,43 +108,6 @@ function clearAll() {
     $('#txtPhoneNumber').val("");
 }
 
-function totalCustomers() {
-    var total = customers.length;
-    $('#count').text(total);
-}
-
-$('#btnClearAll-customer').on('click',() => {
-    clearAll();
-});
-
-function loadCustomerTable() {
-    $("#customers-table-tb").empty();
-
-    customers.map((item,index) => {
-        var customerRecord = `<tr>
-                        <td class="c-id">${item.id}</td>
-                        <td class="c-name">${item.name}</td>
-                        <td class="c-address">${item.address}</td>
-                        <td class="c-phoneNumber">${item.phoneNumber}</td>
-                    </tr>`
-        $('#customers-table-tb').append(customerRecord);
-    });
-}
-
-$('#customers-table-tb').on('click','tr',function () {
-    recordIndexCustomers = $(this).index();
-
-    var id = $(this).find(".c-id").text();
-    var name = $(this).find(".c-name").text();
-    var address = $(this).find(".c-address").text();
-    var phoneNumber = $(this).find(".c-phoneNumber").text();
-
-    $('#txtCustomerID').val(id);
-    $('#txtName').val(name);
-    $('#txtAddress').val(address);
-    $('#txtPhoneNumber').val(phoneNumber);
-});
-
 function emptyPlaceHolder() {
     $(ValidCustomerID).attr("placeholder", "");
     $(ValidCustomerName).attr("placeholder", "");
@@ -158,7 +123,6 @@ function validCustomer() {
 
     var isValidCustomerName = new RegExp("\\b[A-Z][a-z]*( [A-Z][a-z]*)*\\b");
     var isValidCustomerAddress = new RegExp("^[A-Za-z0-9'\\/\\.,\\s]{5,}$");
-    var isValidPhoneNumber = new RegExp("^(?:0|94|\\+94|0094)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|91)(0|2|3|4|5|7|9)|7(0|1|2|4|5|6|7|8)\\d)\\d{6}$");
 
     if (customerID === "") {
         $(ValidCustomerID).css({
@@ -206,6 +170,43 @@ function validCustomer() {
     }
 }
 
+function totalCustomers() {
+    var total = customers.length;
+    $('#count').text(total);
+}
+
+$('#btnClearAll-customer').on('click',() => {
+    clearAll();
+});
+
+function loadCustomerTable() {
+    $("#customers-table-tb").empty();
+
+    customers.map((item,index) => {
+        var customerRecord = `<tr>
+                        <td class="c-id">${item.id}</td>
+                        <td class="c-name">${item.name}</td>
+                        <td class="c-address">${item.address}</td>
+                        <td class="c-phoneNumber">${item.phoneNumber}</td>
+                    </tr>`
+        $('#customers-table-tb').append(customerRecord);
+    });
+}
+
+$('#customers-table-tb').on('click','tr',function () {
+    recordIndexCustomers = $(this).index();
+
+    var id = $(this).find(".c-id").text();
+    var name = $(this).find(".c-name").text();
+    var address = $(this).find(".c-address").text();
+    var phoneNumber = $(this).find(".c-phoneNumber").text();
+
+    $('#txtCustomerID').val(id);
+    $('#txtName').val(name);
+    $('#txtAddress').val(address);
+    $('#txtPhoneNumber').val(phoneNumber);
+});
+
 $('#addCustomers').on('click', () => {
 
     var customerID = $('#txtCustomerID').val();
@@ -213,7 +214,7 @@ $('#addCustomers').on('click', () => {
     var customerAddress = $('#txtAddress').val();
     var phoneNumber = $('#txtPhoneNumber').val();
 
-    if (customerID === "" || customerName === "" || customerAddress === "" || phoneNumber === "") {
+    if (customerID === "" || customerName === "" || customerAddress === "" || !isValidPhoneNumber.test(phoneNumber)) {
         validCustomer();
         return;
     }
@@ -227,6 +228,17 @@ $('#addCustomers').on('click', () => {
 });
 
 $('#btnDelete-customer').on('click',() => {
+
+    var customerID = $('#txtCustomerID').val();
+    var customerName = $('#txtName').val();
+    var customerAddress = $('#txtAddress').val();
+    var phoneNumber = $('#txtPhoneNumber').val();
+
+    if (customerID === "" || customerName === "" || customerAddress === "" || phoneNumber === "") {
+        validCustomer();
+        return;
+    }
+
     customers.splice(recordIndexCustomers,1);
     emptyPlaceHolder();
     loadCustomerTable();
