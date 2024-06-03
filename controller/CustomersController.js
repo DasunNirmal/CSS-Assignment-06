@@ -115,6 +115,21 @@ function emptyPlaceHolder() {
     $(ValidCustomerPhoneNumber).attr("placeholder", "");
 }
 
+function defaultBorderColor() {
+    $(ValidCustomerID).css({
+        border: "2px solid #B05200"
+    });
+    $(ValidCustomerName).css({
+        border: "2px solid #B05200"
+    });
+    $(ValidCustomerAddress).css({
+        border: "2px solid #B05200"
+    });
+    $(ValidCustomerPhoneNumber).css({
+        border: "2px solid #B05200"
+    });
+}
+
 function validCustomer() {
     var customerID = $('#txtCustomerID').val();
     var customerName = $('#txtName').val();
@@ -152,20 +167,7 @@ function validCustomer() {
         $(ValidCustomerPhoneNumber).addClass('red');
 
     }  else {
-
-        $(ValidCustomerID).css({
-            border: "2px solid #B05200"
-        });
-        $(ValidCustomerName).css({
-            border: "2px solid #B05200"
-        });
-        $(ValidCustomerAddress).css({
-            border: "2px solid #B05200"
-        });
-        $(ValidCustomerPhoneNumber).css({
-            border: "2px solid #B05200"
-        });
-
+        defaultBorderColor();
         emptyPlaceHolder();
     }
 }
@@ -220,7 +222,7 @@ $('#addCustomers').on('click', () => {
     }
     let customerModel = new CustomerModel(customerID,customerName,customerAddress,phoneNumber);
     customers.push(customerModel);
-
+    defaultBorderColor();
     emptyPlaceHolder();
     loadCustomerTable();
     clearAll();
@@ -240,6 +242,7 @@ $('#btnDelete-customer').on('click',() => {
     }
 
     customers.splice(recordIndexCustomers,1);
+    defaultBorderColor();
     emptyPlaceHolder();
     loadCustomerTable();
     clearAll();
@@ -263,7 +266,7 @@ $('#btnUpdate-customer').on('click',() => {
     cOb.name = customerName;
     cOb.address = customerAddress;
     cOb.phoneNumber = phoneNumber;
-
+    defaultBorderColor();
     emptyPlaceHolder();
     loadCustomerTable();
     clearAll();
