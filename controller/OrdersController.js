@@ -467,7 +467,6 @@ $('#place-order').on('click', function () {
     ClearAll();
 });
 
-
 $('#btnDelete').on('click', function () {
     var itemID = $('#txtItemId-orders').val();
     var itemName = $('#txtItemName-orders').val();
