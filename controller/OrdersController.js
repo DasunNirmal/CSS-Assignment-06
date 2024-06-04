@@ -546,8 +546,36 @@ $('#btnUpdate').on('click',function () {
     ClearAll();
 });
 
+function searchOrders(query) {
+    const searchTerm = query.toLowerCase();
+
+    for (let i = 0; i < orders.length; i++) {
+        if (searchTerm === orders[i].orderID.toLowerCase()) {
+            $('#txtItemId-orders').val(orders[i].itemID);
+            $('#txtItemName-orders').val(orders[i].ItemName);
+            $('#txtUnitPrice-orders').val(orders[i].unitPrice);
+            $('#txtQtyOnHand-orders').val(orders[i].qtyOnHand);
+            $('#txtOrderQuantity').val(orders[i].orderQty);
+            $('#txtOrderId').val(orders[i].orderID);
+            $('#txtCustomerId-orders').val(orders[i].customerID);
+            $('#txtCustomerName-orders').val(orders[i].customerName);
+            $('#txtPhoneNumber-orders').val(orders[i].phoneNumber);
+            $('#txtOrderDate').val(orders[i].orderDate);
+            $('#price-tag').text("Rs : "+orders[i].totalPrice+"/=");
+            break;
+        }
+    }
+    clearInterval(priceTagInterval);
+}
+
+$('#searchOrders').on('click', function() {
+    const searchQuery = $('#txtSearch-03').val();
+    searchOrders(searchQuery);
+});
+
 $('#btnClearAll').on('click',function () {
    ClearAll();
+    $('#price-tag').text("Rs : "+"0"+"/=");
 });
 
 $('#btnClear-1').on('click',function () {
