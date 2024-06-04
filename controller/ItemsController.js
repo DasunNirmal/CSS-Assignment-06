@@ -137,15 +137,12 @@ function validItem() {
     var itemPrice = $('#txtPrice').val();
     var itemQty = $('#txtQuantity').val();
 
-    if (itemID === "") {
+
+    if (itemID === "" || !isValidItemName.test(itemName) || !isValidPriceAndQty.test(itemPrice) || !isValidPriceAndQty.test(itemQty)) {
+
         $(ValidItemID).css({
             border: "3px solid red"
         });
-        $(ValidItemID).attr("placeholder", "ID Empty");
-        $(ValidItemID).addClass('red');
-    }
-    if (!isValidItemName.test(itemName) || !isValidPriceAndQty.test(itemPrice) || !isValidPriceAndQty.test(itemQty)) {
-
         $(ValidItemName).css({
             border: "3px solid red"
         });
@@ -156,13 +153,16 @@ function validItem() {
             border: "3px solid red"
         });
 
+        $(ValidItemID).attr("placeholder", "ID Empty");
         $(ValidItemName).attr("placeholder", "Wrong Input Try Again");
         $(ValidPrice).attr("placeholder", "Wrong Input");
         $(ValidQty).attr("placeholder", "Wrong Input Try Again");
 
+        $(ValidItemID).addClass('red');
         $(ValidItemName).addClass('red');
         $(ValidPrice).addClass('red');
         $(ValidQty).addClass('red');
+        return true;
     } else {
         defaultBorderColor();
         emptyPlaceHolder();
@@ -212,10 +212,11 @@ $('#addItems').on('click',() => {
     var itemPrice = $('#txtPrice').val();
     var itemQty = $('#txtQuantity').val();
 
-    if (!isValidItemName.test(itemName) || !isValidPriceAndQty.test(itemPrice) || !isValidPriceAndQty.test(itemQty)) {
+    if (itemID === "" || !isValidItemName.test(itemName) || !isValidPriceAndQty.test(itemPrice) || !isValidPriceAndQty.test(itemQty)) {
         validItem();
-        return;
+        return false;
     }
+
     let itemModel = new ItemModel(itemID,itemName,itemPrice,itemQty);
     items.push(itemModel);
     emptyPlaceHolder();
@@ -226,7 +227,20 @@ $('#addItems').on('click',() => {
 });
 
 $('#btnDelete-items').on('click',() => {
+
+    var itemID = $('#txtItemID').val();
+    var itemName = $('#txtItemName').val();
+    var itemPrice = $('#txtPrice').val();
+    var itemQty = $('#txtQuantity').val();
+
+    if (itemID === "" || !isValidItemName.test(itemName) || !isValidPriceAndQty.test(itemPrice) || !isValidPriceAndQty.test(itemQty)) {
+        validItem();
+        return;
+    }
+
     items.splice(recordIndexItems,1);
+    emptyPlaceHolder();
+    defaultBorderColor();
     loadItemTable();
     clearAll();
     totalItems();
@@ -238,12 +252,19 @@ $('#btnUpdate-items').on('click',() => {
     var itemPrice = $('#txtPrice').val();
     var itemQty = $('#txtQuantity').val();
 
+    if (itemID === "" || !isValidItemName.test(itemName) || !isValidPriceAndQty.test(itemPrice) || !isValidPriceAndQty.test(itemQty)) {
+        validItem();
+        return;
+    }
+
     var iOb = items[recordIndexItems];
     iOb.id = itemID;
     iOb.name = itemName;
     iOb.price = itemPrice;
     iOb.qty = itemQty;
 
+    emptyPlaceHolder();
+    defaultBorderColor();
     loadItemTable();
     clearAll();
     totalItems();

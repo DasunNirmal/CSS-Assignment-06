@@ -72,6 +72,8 @@ var ValidCustomerID = $('#customers-content-card-left>#txtCustomerID');
 var ValidCustomerName = $('#customers-content-card-left>#txtName');
 var ValidCustomerAddress = $('#customers-content-card-left>#txtAddress');
 var ValidCustomerPhoneNumber = $('#customers-content-card-left>#txtPhoneNumber');
+var isValidCustomerName = new RegExp("\\b[A-Z][a-z]*( [A-Z][a-z]*)*\\b");
+var isValidCustomerAddress = new RegExp("^[A-Za-z0-9'\\/\\.,\\s]{5,}$");
 var isValidPhoneNumber = new RegExp("^(?:0|94|\\+94|0094)?(?:(11|21|23|24|25|26|27|31|32|33|34|35|36|37|38|41|45|47|51|52|54|55|57|63|65|66|67|81|91)(0|2|3|4|5|7|9)|7(0|1|2|4|5|6|7|8)\\d)\\d{6}$");
 
 
@@ -136,18 +138,11 @@ function validCustomer() {
     var customerAddress = $('#txtAddress').val();
     var phoneNumber = $('#txtPhoneNumber').val();
 
-    var isValidCustomerName = new RegExp("\\b[A-Z][a-z]*( [A-Z][a-z]*)*\\b");
-    var isValidCustomerAddress = new RegExp("^[A-Za-z0-9'\\/\\.,\\s]{5,}$");
+    if (customerID === "" || !isValidCustomerName.test(customerName) || !isValidCustomerAddress.test(customerAddress) || !isValidPhoneNumber.test(phoneNumber)) {
 
-    if (customerID === "") {
         $(ValidCustomerID).css({
             border: "3px solid red"
         });
-        $(ValidCustomerID).attr("placeholder", "ID Empty");
-        $(ValidCustomerID).addClass('red');
-    }
-    if (!isValidCustomerName.test(customerName) || !isValidCustomerAddress.test(customerAddress) || !isValidPhoneNumber.test(phoneNumber)) {
-
         $(ValidCustomerName).css({
             border: "3px solid red"
         });
@@ -158,10 +153,12 @@ function validCustomer() {
             border: "3px solid red"
         });
 
+        $(ValidCustomerID).attr("placeholder", "ID Empty");
         $(ValidCustomerName).attr("placeholder", "Wrong Input Try Again");
         $(ValidCustomerAddress).attr("placeholder", "Wrong Input Try Again");
         $(ValidCustomerPhoneNumber).attr("placeholder", "Wrong Input Try Again");
 
+        $(ValidCustomerID).addClass('red');
         $(ValidCustomerName).addClass('red');
         $(ValidCustomerAddress).addClass('red');
         $(ValidCustomerPhoneNumber).addClass('red');
@@ -216,7 +213,7 @@ $('#addCustomers').on('click', () => {
     var customerAddress = $('#txtAddress').val();
     var phoneNumber = $('#txtPhoneNumber').val();
 
-    if (customerID === "" || customerName === "" || customerAddress === "" || !isValidPhoneNumber.test(phoneNumber)) {
+    if (customerID === "" || !isValidCustomerName.test(customerName) || !isValidCustomerAddress.test(customerAddress) || !isValidPhoneNumber.test(phoneNumber)) {
         validCustomer();
         return;
     }
@@ -236,7 +233,7 @@ $('#btnDelete-customer').on('click',() => {
     var customerAddress = $('#txtAddress').val();
     var phoneNumber = $('#txtPhoneNumber').val();
 
-    if (customerID === "" || customerName === "" || customerAddress === "" || phoneNumber === "") {
+    if (customerID === "" || !isValidCustomerName.test(customerName) || !isValidCustomerAddress.test(customerAddress) || !isValidPhoneNumber.test(phoneNumber)) {
         validCustomer();
         return;
     }
@@ -256,7 +253,7 @@ $('#btnUpdate-customer').on('click',() => {
     var customerAddress = $('#txtAddress').val();
     var phoneNumber = $('#txtPhoneNumber').val();
 
-    if (customerID === "" || customerName === "" || customerAddress === "" || phoneNumber === "") {
+    if (customerID === "" || !isValidCustomerName.test(customerName) || !isValidCustomerAddress.test(customerAddress) || !isValidPhoneNumber.test(phoneNumber)) {
         validCustomer();
         return;
     }
