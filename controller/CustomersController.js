@@ -218,7 +218,30 @@ $('#addCustomers').on('click', () => {
         return;
     }
     let customerModel = new CustomerModel(customerID,customerName,customerAddress,phoneNumber);
-    customers.push(customerModel);
+
+    const customerData = {
+        customerID: customerID,
+        customerName: customerName,
+        customerAddress:customerAddress,
+        customerPhoneNumber:phoneNumber
+    }
+
+    const customerJSON = JSON.stringify(customerData);
+    console.log(customerJSON);
+
+    $.ajax({
+        url: 'http://localhost:8081/PTOBackend/customerController',
+        type: 'POST',
+        data: customerJSON,
+        headers: {'Content-Type': 'application/json'},
+        success: (res) => {
+            console.log(JSON.stringify(res));
+        },
+        error: (res) => {
+            console.error(res);
+        }
+    });
+
     defaultBorderColor();
     emptyPlaceHolder();
     loadCustomerTable();
