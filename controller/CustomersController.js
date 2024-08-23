@@ -2,6 +2,10 @@ import CustomerModel from "../model/CustomerModel.js";
 import {customers} from "../db/db.js";
 var recordIndexCustomers;
 
+$(document).ready(function(){
+
+});
+
 $('#nav-customers-section').on('click',() => {
 
     const home = $('.current-page-button');
@@ -103,6 +107,8 @@ $(ValidCustomerPhoneNumber).on("input", function () {
 
 /**Add, Update, Delete, Clear All**/
 
+loadCustomerTable();
+
 function clearAll() {
     $('#txtCustomerID').val("");
     $('#txtName').val("");
@@ -181,16 +187,36 @@ $('#btnClearAll-customer').on('click',() => {
 function loadCustomerTable() {
     $("#customers-table-tb").empty();
 
-    customers.map((item,index) => {
-        var customerRecord = `<tr>
-                        <td class="c-id">${item.id}</td>
-                        <td class="c-name">${item.name}</td>
-                        <td class="c-address">${item.address}</td>
-                        <td class="c-phoneNumber">${item.phoneNumber}</td>
-                    </tr>`
-        $('#customers-table-tb').append(customerRecord);
+    $.ajax({
+        url: 'http://localhost:8081/PTOBackend/customerController',
+        type: 'GET',
+        dataType: 'json',
+        success: function(res) {
+            console.log(res); // Log the response to verify the data format
+
+            if (Array.isArray(res)) { // Check if 'res' is an array
+                res.forEach(function(customer) {
+                    var customerRecord = `
+                        <tr>
+                            <td class="c-id">${customer.customerID}</td>
+                            <td class="c-name">${customer.customerName}</td>
+                            <td class="c-address">${customer.customerAddress}</td>
+                            <td class="c-phoneNumber">${customer.customerPhoneNumber}</td>
+                        </tr>`;
+                    $('#customers-table-tb').append(customerRecord);
+                });
+            } else {
+                console.log('No customer data found or incorrect response format.');
+            }
+        },
+        error: function(res) {
+            console.error('Error loading customer data:', res);
+        }
     });
 }
+
+
+
 
 $('#customers-table-tb').on('click','tr',function () {
     recordIndexCustomers = $(this).index();
@@ -217,7 +243,6 @@ $('#addCustomers').on('click', () => {
         validCustomer();
         return;
     }
-    let customerModel = new CustomerModel(customerID,customerName,customerAddress,phoneNumber);
 
     const customerData = {
         customerID: customerID,
@@ -236,6 +261,7 @@ $('#addCustomers').on('click', () => {
         headers: {'Content-Type': 'application/json'},
         success: (res) => {
             console.log(JSON.stringify(res));
+            loadCustomerTable();
         },
         error: (res) => {
             console.error(res);
@@ -244,7 +270,6 @@ $('#addCustomers').on('click', () => {
 
     defaultBorderColor();
     emptyPlaceHolder();
-    loadCustomerTable();
     clearAll();
     totalCustomers();
 });
