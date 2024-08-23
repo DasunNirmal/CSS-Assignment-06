@@ -314,11 +314,32 @@ $(document).ready(function(){
             return;
         }
 
-        var cOb = customers[recordIndexCustomers];
-        cOb.id = customerID;
-        cOb.name = customerName;
-        cOb.address = customerAddress;
-        cOb.phoneNumber = phoneNumber;
+        const customerData = {
+            customerID: customerID,
+            customerName: customerName,
+            customerAddress:customerAddress,
+            customerPhoneNumber:phoneNumber
+        }
+
+        const customerJSON = JSON.stringify(customerData);
+        console.log(customerJSON);
+
+        $.ajax({
+            url: 'http://localhost:8081/PTOBackend/customerController?customerID=' + customerID,
+            type: 'PATCH',
+            data: customerJSON,
+            headers: {'Content-Type': 'application/json'},
+            success: (res) => {
+                console.log(JSON.stringify(res));
+                console.log("Customer updated");
+                loadCustomerTable();
+            },
+            error: (res) => {
+                console.error(res);
+                console.log("Customer not updated");
+            }
+        });
+
         defaultBorderColor();
         emptyPlaceHolder();
         loadCustomerTable();
