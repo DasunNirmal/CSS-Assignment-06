@@ -281,10 +281,22 @@ $(document).ready(function(){
             return;
         }
 
-        items.splice(recordIndexItems,1);
+        $.ajax({
+            url: 'http://localhost:8081/PTOBackend/itemController?itemID=' + itemID,
+            type: 'DELETE',
+            success: (res) => {
+                console.log(JSON.stringify(res))
+                console.log("Item Deleted");
+                loadItemTable();
+            },
+            error: (res) => {
+                console.error(res);
+                console.log("Item not Deleted");
+            }
+        });
+
         emptyPlaceHolder();
         defaultBorderColor();
-        loadItemTable();
         clearAll();
         totalItems();
     });
@@ -333,16 +345,27 @@ $(document).ready(function(){
     });
 
     function searchItems(query) {
-        const searchTerm = query.toLowerCase();
+        const itemID = query.toLowerCase();
 
-        for (let i = 0; i < items.length; i++) {
-            if (searchTerm === items[i].id.toLowerCase() || searchTerm === items[i].name.toLowerCase()) {
-                $('#txtItemID').val(items[i].id);
-                $('#txtItemName').val(items[i].name);
-                $('#txtPrice').val(items[i].price);
-                $('#txtQuantity').val(items[i].qty);
+        $.ajax({
+            url: 'http://localhost:8081/PTOBackend/itemController?itemID=' + itemID,
+            type: 'GET',
+            dataType: 'json',
+            success: (response) => {
+                console.log('Full response:', response);
+                var itemDTO = response;
+                console.log('Item retrieved successfully:', itemDTO);
+
+                $('#txtItemID').val(itemDTO.itemID);
+                $('#txtItemName').val(itemDTO.itemName);
+                $('#txtPrice').val(itemDTO.itemPrice);
+                $('#txtQuantity').val(itemDTO.itemQty);
+            },
+            error: function(error) {
+                console.error('Error searching item:', error);
+                loadItemTable();
             }
-        }
+        });
     }
 
     $('#searchItems').on('click', function() {
