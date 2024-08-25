@@ -300,15 +300,34 @@ $(document).ready(function(){
             return;
         }
 
-        var iOb = items[recordIndexItems];
-        iOb.id = itemID;
-        iOb.name = itemName;
-        iOb.price = itemPrice;
-        iOb.qty = itemQty;
+        const itemData = {
+            itemID: itemID,
+            itemName: itemName,
+            itemPrice: itemPrice,
+            itemQty: itemQty,
+        }
+
+        const itemJSON = JSON.stringify(itemData);
+        console.log(itemJSON);
+
+        $.ajax({
+            url: 'http://localhost:8081/PTOBackend/itemController?itemID=' + itemID,
+            type: 'PATCH',
+            data: itemJSON,
+            headers: {'Content-Type': 'application/json'},
+            success: (res) => {
+                console.log(JSON.stringify(res));
+                console.log("Item Updated");
+                loadItemTable();
+            },
+            error: (res) => {
+                console.error(res);
+                console.log("Item not Updated");
+            }
+        });
 
         emptyPlaceHolder();
         defaultBorderColor();
-        loadItemTable();
         clearAll();
         totalItems();
     });
