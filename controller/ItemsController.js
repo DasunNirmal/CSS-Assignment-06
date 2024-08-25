@@ -217,11 +217,32 @@ $('#addItems').on('click',() => {
         return false;
     }
 
-    let itemModel = new ItemModel(itemID,itemName,itemPrice,itemQty);
-    items.push(itemModel);
+    const itemData = {
+        itemID: itemID,
+        itemName: itemName,
+        itemPrice: itemPrice,
+        itemQty: itemQty,
+    }
+
+    const itemJSON = JSON.stringify(itemData);
+    console.log(itemJSON);
+
+    $.ajax({
+        url: 'http://localhost:8081/PTOBackend/itemController',
+        type: 'POST',
+        data: itemJSON,
+        headers: {'Content-Type': 'application/json'},
+        success: (res) => {
+            console.log(JSON.stringify(res));
+            loadItemTable();
+        },
+        error: (res) => {
+            console.error(res);
+        }
+    });
+
     emptyPlaceHolder();
     defaultBorderColor();
-    loadItemTable();
     clearAll();
     totalItems();
 });
