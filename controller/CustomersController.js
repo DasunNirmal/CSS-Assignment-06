@@ -285,7 +285,7 @@ $(document).ready(function(){
         $.ajax({
             url: 'http://localhost:8081/PTOBackend/customerController?customerID=' + customerID,
             type: 'DELETE',
-            success: function(res)  {
+            success: (res) => {
                 console.log(JSON.stringify(res));
                 loadCustomerTable();
                 console.log("Customer Deleted");
@@ -354,7 +354,7 @@ $(document).ready(function(){
             url: 'http://localhost:8081/PTOBackend/customerController?customerID=' + customerID,
             type: 'GET',
             dataType: 'json',
-            success: function(response) {
+            success: (response) => {
                 console.log('Full response:', response);
                 var customerDTO = response;
                 console.log('Customer retrieved successfully:', customerDTO);
