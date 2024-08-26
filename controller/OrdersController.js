@@ -460,6 +460,7 @@ $('#place-order').on('click', function () {
 
     emptyPlaceHolder();
     defaultBorderColor();
+    loadItemTable();
     totalTagUpdate();
     loadOrderTable();
     loadOrderTableHome();
@@ -497,8 +498,8 @@ $('#btnUpdate').on('click',function () {
     var itemID = $('#txtItemId-orders').val();
     var itemName = $('#txtItemName-orders').val();
     var unitPrice = $('#txtUnitPrice-orders').val();
-    var qtyOnHand = $('#txtQtyOnHand-orders').val();
-    var orderQty = $('#txtOrderQuantity').val();
+    var newOrderQty = parseInt($('#txtOrderQuantity').val());
+    var qtyOnHand = parseInt($('#txtQtyOnHand-orders').val());
 
     var orderID = $('#txtOrderId').val();
     var customerID = $('#txtCustomerId-orders').val();
@@ -506,22 +507,32 @@ $('#btnUpdate').on('click',function () {
     var phoneNumber = $('#txtPhoneNumber-orders').val();
     var orderDate = $('#txtOrderDate').val();
 
-    var totalPrice = unitPrice * orderQty;
+    var totalPrice = unitPrice * newOrderQty;
 
     if (itemID === "" || orderID === "" || customerID === "" || orderDate === "" || !isValidName.test(itemName)
         || !isValidPriceAndQty.test(unitPrice) || !isValidPriceAndQty.test(qtyOnHand)
-        || !isValidPriceAndQty.test(orderQty) || !isValidName.test(customerName) || !isValidPhoneNumber.test(phoneNumber)) {
+        || !isValidPriceAndQty.test(newOrderQty) || !isValidName.test(customerName) || !isValidPhoneNumber.test(phoneNumber)) {
         validOrder();
         return false;
     }
     var oOb = orders[recordIndexOrders];
     var oldOrderQty = parseInt(oOb.orderQty);
+    console.log(oldOrderQty);
+
+    // Correct qtyOnHand calculation
+    if (oldOrderQty > newOrderQty) {
+        // Restoring more stock as the order quantity is decreased
+        qtyOnHand += (oldOrderQty - newOrderQty);
+    } else if (oldOrderQty < newOrderQty) {
+        // Reducing stock as the order quantity is increased
+        qtyOnHand -= (newOrderQty - oldOrderQty);
+    }
 
     oOb.itemID = itemID;
     oOb.ItemName = itemName;
     oOb.unitPrice = unitPrice;
     oOb.qtyOnHand = qtyOnHand;
-    oOb.orderQty = orderQty;
+    oOb.orderQty = newOrderQty;
     oOb.orderID = orderID;
     oOb.customerID = customerID;
     oOb.customerName = customerName;
@@ -533,9 +544,13 @@ $('#btnUpdate').on('click',function () {
 
     if (existingItemIndex !== -1) {
         var existingQty = parseInt(items[existingItemIndex].qty);
-        var qtyDifference = orderQty - oldOrderQty;
-
-        items[existingItemIndex].qty = existingQty - qtyDifference;
+        if (oldOrderQty > newOrderQty) {
+            // Add the difference to the existing quantity because the order quantity decreased
+            items[existingItemIndex].qty = existingQty + (oldOrderQty - newOrderQty);
+        } else if (oldOrderQty < newOrderQty) {
+            // Subtract the difference from the existing quantity because the order quantity increased
+            items[existingItemIndex].qty = existingQty - (newOrderQty - oldOrderQty);
+        }
     }
 
     totalTagUpdate();
