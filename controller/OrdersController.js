@@ -173,6 +173,7 @@ function ClearTwo() {
     $('#txtSearch-02').val("");
 }
 
+/*Search Customers*/
 function searchCustomers(query) {
     const searchTerm = query.toLowerCase(); /*Convert the search query to lowercase for case-insensitive search*/
 
@@ -461,7 +462,6 @@ $('#place-order').on('click', function () {
     defaultBorderColor();
     totalTagUpdate();
     loadOrderTable();
-    loadItemTable();
     loadOrderTableHome();
     updatePriceTag(); /*call this method to update price-tag if that same customer place another order*/
     ClearAll();
