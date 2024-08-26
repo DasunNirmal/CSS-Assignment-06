@@ -453,36 +453,42 @@ $(document).ready(function(){
             validOrder();
             return false;
         }
-        /*Check if the item already exists*/
-        var existingItemIndex = items.findIndex(item => item.id === itemID);
 
-        /*the findIndex method will return the first index of the array that have the item id, if there no elements was found
-        then it will returns -1. if there is an element it will return 1 then this existingItemIndex !== -1 will be true*/
-        if (existingItemIndex !== -1) {
-            /*If the item exists, update its quantity*/
-            items[existingItemIndex].qty -= orderQty;
+        const orderData = {
+            orderID: orderID,
+            orderDate: orderDate,
+            customerID: customerID,
+            itemID: itemID,
+            itemName:itemName,
+            itemPrice:unitPrice,
+            itemQty:qtyOnHand,
+            orderQty:orderQty,
+            totalPrice:totalPrice,
         }
 
+        const orderJSON = JSON.stringify(orderData);
+        console.log(orderJSON);
 
-        /*Check if the item and customer already exists in orders*/
-        var existingOrderIndex = orders.findIndex(order => order.customerID === customerID && order.itemID === itemID);
-
-        if (existingOrderIndex !== -1) {
-            /*If the order already exists for the same customer and item, update it*/
-            orders[existingOrderIndex].orderQty += parseInt(orderQty);
-            orders[existingOrderIndex].totalPrice += totalPrice;
-        } else {
-            /*If the order doesn't exist, create a new one*/
-            let orderModel = new OrderModel(itemID, itemName, unitPrice, qtyOnHand, orderQty, orderID, customerID, customerName, phoneNumber, orderDate, totalPrice);
-            orders.push(orderModel);
-        }
+        $.ajax({
+            url: 'http://localhost:8081/PTOBackend/orderController',
+            type: 'POST',
+            data: orderJSON,
+            headers: {'Content-Type': 'application/json'},
+            success: (res) => {
+                console.log(JSON.stringify(res));
+            },
+            error: (res) => {
+                console.error(res);
+                console.log("Order did not Saved");
+            }
+        });
 
         /*Update the price tag and tables*/
         $('#price-tag').text("Rs : "+totalPrice+"/=");
 
         emptyPlaceHolder();
         defaultBorderColor();
-        loadItemTable();
+        /*loadItemTable();*/
         totalTagUpdate();
         loadOrderTable();
         loadOrderTableHome();
