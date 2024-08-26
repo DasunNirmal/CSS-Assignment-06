@@ -3,7 +3,7 @@ import {orders} from "../db/db.js";
 import {customers} from "../db/db.js";
 import {items} from "../db/db.js";
 import {loadOrderTableHome} from "./IndexController.js";
-import {loadItemTable} from "./ItemsController.js";
+/*import {loadItemTable} from "./ItemsController.js";*/
 var recordIndexOrders;
 var priceTagInterval;
 
