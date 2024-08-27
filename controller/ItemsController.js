@@ -70,6 +70,7 @@ $(document).ready(function(){
                 color: '#FEE5D4'
             });
         });
+        loadItemTable();
     });
 
     var ValidItemID = $('#items-content-card-left>#txtItemID');
