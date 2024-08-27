@@ -492,7 +492,6 @@ $(document).ready(function(){
 
         emptyPlaceHolder();
         defaultBorderColor();
-        /*loadItemTable();*/
         totalTagUpdate();
         loadOrderTableHome();
         updatePriceTag(); /*call this method to update price-tag if that same customer place another order*/
@@ -558,32 +557,65 @@ $(document).ready(function(){
             validOrder();
             return false;
         }
-        var oOb = orders[recordIndexOrders];
-        var oldOrderQty = parseInt(oOb.orderQty);
-        console.log(oldOrderQty);
 
-        // Correct qtyOnHand calculation
-        if (oldOrderQty > newOrderQty) {
-            // Restoring more stock as the order quantity is decreased
-            qtyOnHand += (oldOrderQty - newOrderQty);
-        } else if (oldOrderQty < newOrderQty) {
-            // Reducing stock as the order quantity is increased
-            qtyOnHand -= (newOrderQty - oldOrderQty);
-        }
+        $.ajax({
+            url: 'http://localhost:8081/PTOBackend/orderController?orderID=' + orderID,
+            type: 'GET',
+            dataType: 'json',
+            success: (response) => {
+                console.log('Full response:', response);
+                var oldOrderQty = parseInt(response.orderQty);
+                console.log('Old Order Qty retrieved successfully:',oldOrderQty);
 
-        oOb.itemID = itemID;
-        oOb.ItemName = itemName;
-        oOb.unitPrice = unitPrice;
-        oOb.qtyOnHand = qtyOnHand;
-        oOb.orderQty = newOrderQty;
-        oOb.orderID = orderID;
-        oOb.customerID = customerID;
-        oOb.customerName = customerName;
-        oOb.phoneNumber = phoneNumber;
-        oOb.orderDate = orderDate;
-        oOb.totalPrice = totalPrice;
+                // Correct qtyOnHand calculation
+                if (oldOrderQty > newOrderQty) {
+                    // Restoring more stock as the order quantity is decreased
+                    qtyOnHand += (oldOrderQty - newOrderQty);
+                } else if (oldOrderQty < newOrderQty) {
+                    // Reducing stock as the order quantity is increased
+                    qtyOnHand -= (newOrderQty - oldOrderQty);
+                }
 
-        var existingItemIndex = items.findIndex(item => item.id === itemID);
+                console.log(qtyOnHand);
+
+                const orderData = {
+                    orderID: orderID,
+                    orderDate: orderDate,
+                    customerID: customerID,
+                    itemID: itemID,
+                    itemName:itemName,
+                    itemPrice:unitPrice,
+                    itemQty:qtyOnHand,
+                    orderQty:newOrderQty,
+                    totalPrice:totalPrice,
+                }
+
+                const orderJSON = JSON.stringify(orderData);
+                console.log(orderJSON);
+
+                $.ajax({
+                    url: 'http://localhost:8081/PTOBackend/orderController?orderID=' + orderID + '&itemID=' + itemID + '&qtyOnHand=' + qtyOnHand,
+                    type: 'PATCH',
+                    data: orderJSON,
+                    headers: {'Content-Type': 'application/json'},
+                    success: (res) => {
+                        console.log(JSON.stringify(res));
+                        console.log("Order updated");
+                        loadOrderTable();
+                        loadOrderTableHome();
+                    },
+                    error: (res) => {
+                        console.error(res);
+                        console.log("Order not updated");
+                    }
+                });
+            },
+            error: function(error) {
+                console.error('Error searching customer:', error);
+            }
+        });
+
+        /*var existingItemIndex = items.findIndex(item => item.id === itemID);
 
         if (existingItemIndex !== -1) {
             var existingQty = parseInt(items[existingItemIndex].qty);
@@ -594,7 +626,7 @@ $(document).ready(function(){
                 // Subtract the difference from the existing quantity because the order quantity increased
                 items[existingItemIndex].qty = existingQty - (newOrderQty - oldOrderQty);
             }
-        }
+        }*/
 
         totalTagUpdate();
         loadOrderTable();
