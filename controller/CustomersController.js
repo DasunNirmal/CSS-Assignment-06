@@ -1,9 +1,13 @@
-import CustomerModel from "../model/CustomerModel.js";
-import {customers} from "../db/db.js";
+export {totalCustomers}
+import {totalCustomersHome} from "./IndexController.js";
 var recordIndexCustomers;
 
-$(document).ready(function(){
+function totalCustomers(count) {
+    $('#count').text(count);
+    return count;
+}
 
+$(document).ready(function(){
 
     $('#nav-customers-section').on('click',() => {
 
@@ -174,11 +178,6 @@ $(document).ready(function(){
         }
     }
 
-    function totalCustomers() {
-        var total = customers.length;
-        $('#count').text(total);
-    }
-
     $('#btnClearAll-customer').on('click',() => {
         clearAll();
     });
@@ -204,6 +203,14 @@ $(document).ready(function(){
                         </tr>`;
                         $('#customers-table-tb').append(customerRecord);
                     });
+                    let count = 0;
+                    for (let i = 0; i < res.length; i++) {
+                        if (res[i] != null) {
+                            count++;
+                        }
+                    }
+                    totalCustomers(count);
+                    totalCustomersHome(count);
                 } else {
                     console.log('No customer data found or incorrect response format.');
                 }
@@ -267,7 +274,7 @@ $(document).ready(function(){
         defaultBorderColor();
         emptyPlaceHolder();
         clearAll();
-        totalCustomers();
+        /*totalCustomers();*/
     });
 
     $('#btnDelete-customer').on('click',() => {
@@ -299,7 +306,7 @@ $(document).ready(function(){
         defaultBorderColor();
         emptyPlaceHolder();
         clearAll();
-        totalCustomers();
+        /*totalCustomers();*/
     });
 
     $('#btnUpdate-customer').on('click',() => {
@@ -344,7 +351,7 @@ $(document).ready(function(){
         emptyPlaceHolder();
         loadCustomerTable();
         clearAll();
-        totalCustomers();
+        /*totalCustomers();*/
     });
 
     function searchCustomersByID(query) {
