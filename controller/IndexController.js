@@ -17,6 +17,7 @@ $(document).ready(() => {
     $('.Orders,.Customers,.Items').css({
         cursor:'pointer'
     });
+    loadOrderTableHome();
 });
 
 function totalOrdersHome() {
@@ -115,15 +116,31 @@ $('#nav-home-section').on('click',() => {
 function loadOrderTableHome() {
     $('#orders-summary').empty();
 
-    orders.map((item, index) => {
-        var orderRecord = `<tr>
-            <td class="o-id">${item.orderID}</td>
-            <td class="o-itemID">${item.itemID}</td>
-            <td class="o-itemName">${item.ItemName}</td>
-            <td class="o-qty">${item.orderQty}</td>
-            <td class="o-order-date">${item.orderDate}</td>
-            <td class="o-totalPrice">${item.totalPrice}</td>
-        </tr>`
-        $('#orders-summary').append(orderRecord);
+    $.ajax({
+        url: 'http://localhost:8081/PTOBackend/orderController',
+        type: 'GET',
+        dataType: 'json',
+        success: function(res) {
+            console.log(res); // Log the response to verify the data format
+
+            if (Array.isArray(res)) { // Check if 'res' is an array
+                res.forEach(function(order) {
+                    var orderRecord = `<tr>
+                        <td class="o-id">${order.orderID}</td>
+                        <td class="o-itemID">${order.itemID}</td>
+                        <td class="o-itemName">${order.itemName}</td>
+                        <td class="o-qty">${order.orderQty}</td>
+                        <td class="o-order-date">${order.orderDate}</td>
+                        <td class="o-totalPrice">${order.totalPrice}</td>
+                    </tr>`
+                    $('#orders-summary').append(orderRecord);
+                });
+            } else {
+                console.log('No customer data found or incorrect response format.');
+            }
+        },
+        error: function(res) {
+            console.error('Error loading customer data:', res);
+        }
     });
 }
