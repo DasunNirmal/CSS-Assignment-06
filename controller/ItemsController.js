@@ -1,6 +1,4 @@
-import ItemModel from "../model/ItemModel.js";
-import {items} from "../db/db.js";
-/*export {loadItemTable}*/
+import {totalItemsHome} from "./IndexController.js";
 var recordIndexItems;
 
 $(document).ready(function(){
@@ -175,9 +173,8 @@ $(document).ready(function(){
         }
     }
 
-    function totalItems() {
-        var total = items.length;
-        $('#count-items').text(total);
+    function totalItems(count) {
+        $('#count-items').text(count);
     }
 
     $('#btnClearAll-items').on('click',() => {
@@ -205,6 +202,14 @@ $(document).ready(function(){
                         </tr>`;
                         $('#items-table-tb').append(itemRecord);
                     });
+                    let count = 0;
+                    for (let i = 0; i < res.length; i++) {
+                        if (res[i] != null) {
+                            count++;
+                        }
+                    }
+                    totalItems(count);
+                    totalItemsHome(count);
                 } else {
                     console.log('No customer data found or incorrect response format.');
                 }
@@ -267,7 +272,6 @@ $(document).ready(function(){
         emptyPlaceHolder();
         defaultBorderColor();
         clearAll();
-        totalItems();
     });
 
     $('#btnDelete-items').on('click',() => {
@@ -299,7 +303,6 @@ $(document).ready(function(){
         emptyPlaceHolder();
         defaultBorderColor();
         clearAll();
-        totalItems();
     });
 
     $('#btnUpdate-items').on('click',() => {
@@ -342,7 +345,6 @@ $(document).ready(function(){
         emptyPlaceHolder();
         defaultBorderColor();
         clearAll();
-        totalItems();
     });
 
     function searchItems(query) {
