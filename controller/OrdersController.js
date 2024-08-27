@@ -140,6 +140,7 @@ $(document).ready(function(){
         });
     });
 
+    loadOrderTable();
 
     function ClearAll() {
         $('#txtItemId-orders').val("");
@@ -358,19 +359,35 @@ $(document).ready(function(){
     function loadOrderTable() {
         $("#orders-table-tb").empty();
 
-        orders.map((item, index) => {
-            var orderRecord = `<tr>
-            <td class="o-id">${item.orderID}</td>
-            <td class="o-itemID">${item.itemID}</td>
-            <td class="o-itemName">${item.ItemName}</td>
-            <td class="o-unit-price">${item.unitPrice}</td>
-            <td class="o-qty-on-hand">${item.qtyOnHand}</td>
-            <td class="o-qty">${item.orderQty}</td>
-            <td class="o-order-date">${item.orderDate}</td>
-            <td class="o-customerID">${item.customerID}</td>
-            <td class="o-totalPrice">${item.totalPrice}</td>
-        </tr>`
-            $('#orders-table-tb').append(orderRecord);
+        $.ajax({
+            url: 'http://localhost:8081/PTOBackend/orderController',
+            type: 'GET',
+            dataType: 'json',
+            success: function(res) {
+                console.log(res); // Log the response to verify the data format
+
+                if (Array.isArray(res)) { // Check if 'res' is an array
+                    res.forEach(function(order) {
+                        var orderRecord = `<tr>
+                        <td class="o-id">${order.orderID}</td>
+                        <td class="o-itemID">${order.itemID}</td>
+                        <td class="o-itemName">${order.itemName}</td>
+                        <td class="o-unit-price">${order.itemPrice}</td>
+                        <td class="o-qty-on-hand">${order.itemQty}</td>
+                        <td class="o-qty">${order.orderQty}</td>
+                        <td class="o-order-date">${order.orderDate}</td>
+                        <td class="o-customerID">${order.customerID}</td>
+                        <td class="o-totalPrice">${order.totalPrice}</td>
+                    </tr>`
+                        $('#orders-table-tb').append(orderRecord);
+                    });
+                } else {
+                    console.log('No customer data found or incorrect response format.');
+                }
+            },
+            error: function(res) {
+                console.error('Error loading customer data:', res);
+            }
         });
     }
 
@@ -476,6 +493,7 @@ $(document).ready(function(){
             headers: {'Content-Type': 'application/json'},
             success: (res) => {
                 console.log(JSON.stringify(res));
+                loadOrderTable();
             },
             error: (res) => {
                 console.error(res);
@@ -490,7 +508,6 @@ $(document).ready(function(){
         defaultBorderColor();
         /*loadItemTable();*/
         totalTagUpdate();
-        loadOrderTable();
         loadOrderTableHome();
         updatePriceTag(); /*call this method to update price-tag if that same customer place another order*/
         ClearAll();
