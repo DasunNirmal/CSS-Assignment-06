@@ -1,5 +1,6 @@
-import {orders,items,customers} from "../db/db.js";
 export { loadOrderTableHome };
+export { totalCustomersHome };
+export { totalItemsHome };
 
 $('#orders-section,#customers-section,#items-section').hide();
 
@@ -20,27 +21,20 @@ $(document).ready(() => {
     loadOrderTableHome();
 });
 
-function totalOrdersHome() {
-    var total = orders.length;
-    $('#totalOrdersHome').text(total);
+function totalOrdersHome(count) {
+    $('#totalOrdersHome').text(count);
 }
 
-function totalCustomersHome() {
-    var total = customers.length;
-    $('#totalCustomersHome').text(total);
+function totalCustomersHome(count) {
+    $('#totalCustomersHome').text(count);
 }
 
-function totalItemsHome() {
-    var total = items.length;
-    $('#totalItemsHome').text(total);
+function totalItemsHome(count) {
+    $('#totalItemsHome').text(count);
 }
 
-function totalSales() {
-    let totalSales = 0;
-    orders.forEach(order => {
-        totalSales += order.totalPrice;
-    });
-    $('#sales').text("Rs : "+totalSales+"/=");
+function totalSales(totalOfSales) {
+    $('#sales').text("Rs : "+totalOfSales+"/=");
 }
 
 $('#nav-home-section').on('click',() => {
@@ -115,7 +109,7 @@ $('#nav-home-section').on('click',() => {
 
 function loadOrderTableHome() {
     $('#orders-summary').empty();
-
+    let totalOfSales = 0;
     $.ajax({
         url: 'http://localhost:8081/PTOBackend/orderController',
         type: 'GET',
@@ -134,7 +128,17 @@ function loadOrderTableHome() {
                         <td class="o-totalPrice">${order.totalPrice}</td>
                     </tr>`
                     $('#orders-summary').append(orderRecord);
+                    totalOfSales += order.totalPrice;
                 });
+                totalSales(totalOfSales);
+
+                let count = 0;
+                for (let i = 0; i < res.length; i++) {
+                    if (res[i] != null) {
+                        count++;
+                    }
+                }
+                totalOrdersHome(count);
             } else {
                 console.log('No customer data found or incorrect response format.');
             }
