@@ -419,22 +419,8 @@ $(document).ready(function(){
         $('#txtCustomerId-orders').val(cId);
         $('#price-tag').text("Rs : "+total+"/=");
 
-        var customer = customers.find(c => c.id === cId);
-        var item = items.find(i => i.id === iId);
-
-        if (customer) {
-            $('#txtCustomerName-orders').val(customer.name);
-            $('#txtPhoneNumber-orders').val(customer.phoneNumber);
-        } else {
-            $('#txtCustomerName-orders').val("");
-            $('#txtPhoneNumber-orders').val("");
-        }
-
-        if (item) {
-            $('#txtQtyOnHand-orders').val(item.qty);
-        } else {
-            $('#txtQtyOnHand-orders').val("");
-        }
+        searchCustomers(cId);
+        searchItems(iId);
 
         $('#txtOrderDate').val(orderDate);
 
@@ -533,8 +519,20 @@ $(document).ready(function(){
             validOrder();
             return false;
         }
-        orders.splice(recordIndexOrders,1);
-        loadOrderTable();
+
+        console.log("Order ID: " + orderID, "Item ID: " + itemID, "Order Qty: " + orderQty);
+        $.ajax({
+            url: 'http://localhost:8081/PTOBackend/orderController?orderID=' + orderID + '&itemID=' + itemID + '&orderQty=' + orderQty,
+            type: 'DELETE',
+            success: (res) => {
+                console.log(JSON.stringify(res));
+                loadOrderTable();
+            },
+            error: (res) => {
+                console.error(res);
+                console.log("Order Not Deleted");
+            }
+        });
         updatePriceTag();
         ClearAll();
     });
