@@ -1,9 +1,4 @@
-import OrderModel from '../model/OrderModel.js';
-import {orders} from "../db/db.js";
-import {customers} from "../db/db.js";
-import {items} from "../db/db.js";
 import {loadOrderTableHome} from "./IndexController.js";
-/*import {loadItemTable} from "./ItemsController.js";*/
 var recordIndexOrders;
 var priceTagInterval;
 
@@ -382,11 +377,11 @@ $(document).ready(function(){
                         $('#orders-table-tb').append(orderRecord);
                     });
                 } else {
-                    console.log('No customer data found or incorrect response format.');
+                    console.log('No Order data found or incorrect response format.');
                 }
             },
             error: function(res) {
-                console.error('Error loading customer data:', res);
+                console.error('Error loading Order data:', res);
             }
         });
     }
@@ -426,14 +421,6 @@ $(document).ready(function(){
 
         clearInterval(priceTagInterval);
     });
-
-    function updatePriceTag() {
-        let totalPrice = 0;
-        orders.forEach(order => {
-            totalPrice += order.totalPrice;
-        });
-        $('#price-tag').text("Rs : "+totalPrice+"/=");
-    }
 
     $('#place-order').on('click', function () {
         var itemID = $('#txtItemId-orders').val();
@@ -494,7 +481,6 @@ $(document).ready(function(){
         defaultBorderColor();
         totalTagUpdate();
         loadOrderTableHome();
-        updatePriceTag(); /*call this method to update price-tag if that same customer place another order*/
         ClearAll();
     });
 
@@ -532,7 +518,7 @@ $(document).ready(function(){
                 console.log("Order Not Deleted");
             }
         });
-        updatePriceTag();
+        totalTagUpdate();
         ClearAll();
     });
 
@@ -615,46 +601,38 @@ $(document).ready(function(){
             }
         });
 
-        /*var existingItemIndex = items.findIndex(item => item.id === itemID);
-
-        if (existingItemIndex !== -1) {
-            var existingQty = parseInt(items[existingItemIndex].qty);
-            if (oldOrderQty > newOrderQty) {
-                // Add the difference to the existing quantity because the order quantity decreased
-                items[existingItemIndex].qty = existingQty + (oldOrderQty - newOrderQty);
-            } else if (oldOrderQty < newOrderQty) {
-                // Subtract the difference from the existing quantity because the order quantity increased
-                items[existingItemIndex].qty = existingQty - (newOrderQty - oldOrderQty);
-            }
-        }*/
-
         totalTagUpdate();
         loadOrderTable();
-        /*loadItemTable();*/
-        updatePriceTag();
         ClearAll();
     });
 
     function searchOrders(query) {
-        const searchTerm = query.toLowerCase();
+        const orderID = query.toLowerCase();
 
-        for (let i = 0; i < orders.length; i++) {
-            if (searchTerm === orders[i].orderID.toLowerCase()) {
-                $('#txtItemId-orders').val(orders[i].itemID);
-                $('#txtItemName-orders').val(orders[i].ItemName);
-                $('#txtUnitPrice-orders').val(orders[i].unitPrice);
-                $('#txtQtyOnHand-orders').val(orders[i].qtyOnHand);
-                $('#txtOrderQuantity').val(orders[i].orderQty);
-                $('#txtOrderId').val(orders[i].orderID);
-                $('#txtCustomerId-orders').val(orders[i].customerID);
-                $('#txtCustomerName-orders').val(orders[i].customerName);
-                $('#txtPhoneNumber-orders').val(orders[i].phoneNumber);
-                $('#txtOrderDate').val(orders[i].orderDate);
-                $('#price-tag').text("Rs : "+orders[i].totalPrice+"/=");
-                break;
+        $.ajax({
+            url: 'http://localhost:8081/PTOBackend/orderController?orderID=' + orderID,
+            type: 'GET',
+            dataType: 'json',
+            success: (res)=> {
+                console.log(res); // Log the response to verify the data format
+                var order = res;
+                console.log('Order:', res);
+
+                $('#txtOrderId').val(order.orderID);
+                $('#txtItemId-orders').val(order.itemID);
+                $('#txtItemName-orders').val(order.itemName);
+                $('#txtUnitPrice-orders').val(order.itemPrice);
+                $('#txtQtyOnHand-orders').val(order.itemQty);
+                $('#txtOrderQuantity').val(order.orderQty);
+                $('#txtOrderDate').val(order.orderDate);
+                $('#txtCustomerId-orders').val(order.customerID);
+                $('#price-tag').text("Rs : "+order.totalPrice+"/=");
+                searchCustomers(order.customerID);
+            },
+            error: function(res) {
+                console.error('Error loading Order data:', res);
             }
-        }
-        clearInterval(priceTagInterval);
+        });
     }
 
     $('#searchOrders').on('click', function() {
