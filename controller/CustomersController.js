@@ -378,10 +378,34 @@ $(document).ready(function(){
         });
     }
 
+    function searchCustomersByPhoneNumber(searchQuery) {
+        const customerPhoneNumber = searchQuery.toLowerCase();
+
+        $.ajax({
+            url: 'http://localhost:8081/PTOBackend/customerController?customerPhoneNumber=' + customerPhoneNumber,
+            type: 'GET',
+            dataType: 'json',
+            success: (response) => {
+                console.log('Full response:', response);
+                var customerDTO = response;
+                console.log('Customer retrieved successfully:', customerDTO);
+
+                $('#txtCustomerID').val(customerDTO.customerID);
+                $('#txtName').val(customerDTO.customerName);
+                $('#txtAddress').val(customerDTO.customerAddress);
+                $('#txtPhoneNumber').val(customerDTO.customerPhoneNumber);
+            },
+            error: function(error) {
+                console.error('Error searching customer:', error);
+                loadCustomerTable();
+            }
+        });
+    }
+
     $('#search-customer').on('click', function() {
         const searchQuery = $('#txtSearch-customers').val();
         if (isValidPhoneNumber.test(searchQuery)) {
-
+            searchCustomersByPhoneNumber(searchQuery);
         } else {
             searchCustomersByID(searchQuery);
         }
